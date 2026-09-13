@@ -58,9 +58,71 @@ git push           # 推送后自动部署，约 1 分钟生效
 
 线上地址：<https://liuyang9851.github.io/>
 
-### ⚠️ 推送 workflow 文件的注意事项
+### 认证方式：已使用 SSH
 
-`.github/workflows/` 下的文件对凭据类型有硬性限制。如果 push 报错：
+本仓库的 `origin` 已配置为 SSH，**不需要任何 token，push 时不会提示输入凭据**：
+
+```
+origin  git@github.com:liuyang9851/liuyang9851.github.io.git
+```
+
+> ⚠️ **在新机器上克隆时，记得也用 SSH 地址**，否则会退回 HTTPS
+> 并重新遇到下面那些凭据问题：
+>
+> ```bash
+> git clone git@github.com:liuyang9851/liuyang9851.github.io.git
+> ```
+>
+> 已有 HTTPS 克隆时，一条命令切换：
+>
+> ```bash
+> git remote set-url origin git@github.com:liuyang9851/liuyang9851.github.io.git
+> ```
+
+**SSH 相比 HTTPS + token 的好处**（本项目踩过的坑，SSH 全部规避）：
+
+- 没有 token 过期、scope 不足的问题
+- 不受「OAuth App token 不能推送 workflow 文件」的限制
+- 不受 Git Credential Manager 缓存旧凭据的影响
+- 想给仓库加新 workflow 时无需处理任何权限
+
+**换机器时怎么配 SSH**：
+
+```bash
+# 1. 生成密钥（已有可跳过）
+ssh-keygen -t ed25519 -C "你的邮箱"
+
+# 2. 把公钥加到 GitHub：https://github.com/settings/keys
+#    复制 ~/.ssh/id_ed25519.pub 的全部内容
+
+# 3. 验证
+ssh -T git@github.com
+# 看到 "Hi <用户名>! You've successfully authenticated" 即成功
+# （返回 exit code 1 是正常的，GitHub 不提供 shell 访问）
+```
+
+### 如果网络限制导致 22 端口不通
+
+部分网络会封 SSH 的 22 端口。GitHub 提供 **SSH over 443**，在
+`~/.ssh/config` 里加一段即可：
+
+```
+Host github.com
+  HostName ssh.github.com
+  Port 443
+  User git
+```
+
+验证：`ssh -T git@github.com`
+
+> 注意：SSH 本身**不解决**「完全连不上 github.com」的问题。
+> 如果网络需要代理，SSH 也要单独走代理，可加：
+> `ProxyCommand connect -H 127.0.0.1:7897 %h %p`
+> 或者干脆继续用 HTTPS（HTTPS 更容易走系统代理）。
+
+### ⚠️ 若改用 HTTPS + token：token 类型有硬性限制
+
+`.github/workflows/` 下的文件对凭据类型有要求。如果 push 报错：
 
 ```
 refusing to allow an OAuth App to create or update workflow
