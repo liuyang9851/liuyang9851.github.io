@@ -25,6 +25,8 @@ npm run preview    # 预览构建结果
 ├─ notes/
 │  ├─ index.md             笔记总览
 │  └─ 01-determinant.md    第 01 章：行列式
+├─ public/
+│  └─ .nojekyll            让 GitHub Pages 跳过 Jekyll 处理
 ├─ tools/
 │  ├─ docx_to_md.py        Word → Markdown 素材转换
 │  ├─ validate-math.mjs    离线校验所有 TeX 表达式能否渲染
@@ -40,44 +42,55 @@ npm run preview    # 预览构建结果
 
 ## 发布
 
-本项目支持两种部署方式，**二选一**，不要同时启用。
+推送到 `main` 即自动构建并部署，**无需手动构建，也不需要提交任何产物**。
 
-### 方式一：GitHub Actions（推荐）
-
-推到 `main` 即自动构建并部署，无需手动构建。
-
-设置：仓库 **Settings → Pages → Build and deployment → Source** 选
-**GitHub Actions**。
-
-> ⚠️ 首次推送 `.github/workflows/deploy.yml` 需要凭据具备 **`workflow`** 权限
-> 范围。若 push 报错
-> `refusing to allow an OAuth App to create or update workflow ... without workflow scope`，
-> 执行：
->
-> ```bash
-> gh auth refresh -s workflow     # 需交互式浏览器授权
-> gh auth setup-git               # 让 git 复用 gh 的凭据
-> git push origin main
-> ```
->
-> 若不想动凭据，用下面的方式二。
-
-### 方式二：分支 + docs 目录（兜底，无需任何 CI 权限）
+站点来源设置：仓库 **Settings → Pages → Build and deployment → Source**
+必须是 **GitHub Actions**。
 
 ```bash
-npm run build:pages               # 构建并把产物同步到 docs/
-git add docs
-git commit -m "build: 更新站点"
-git push
+# 日常更新流程
+# 1. 编辑 notes/ 下的 markdown
+npm run check      # 离线校验全部公式（可选但强烈建议）
+git add -A
+git commit -m "docs: 新增第 02 章"
+git push           # 推送后自动部署，约 1 分钟生效
 ```
 
-设置：**Settings → Pages → Source** 选 **Deploy from a branch**，
-分支 `main`、目录 `/docs`。
+线上地址：<https://liuyang9851.github.io/>
 
-代价是每次改完内容都要**手动跑一次 `npm run build:pages` 并提交 `docs/`**。
-`docs/` 里只保留构建产物，源码目录由 `docs/.gitignore` 排除。
+### ⚠️ 推送 workflow 文件的注意事项
 
-> 切换方式时记得同步改 Pages 的 Source 设置，否则新内容不会生效。
+`.github/workflows/` 下的文件对凭据类型有硬性限制。如果 push 报错：
+
+```
+refusing to allow an OAuth App to create or update workflow
+`.github/workflows/deploy.yml` without `workflow` scope
+```
+
+**先看 token 前缀**，这比 scope 列表更能说明问题：
+
+| 前缀 | 类型 | 能否推 workflow |
+| --- | --- | --- |
+| `ghp_` | 经典 PAT | ✅ |
+| `gho_` | OAuth App token（`gh auth login` 产生的） | ❌ 即使 scope 里有 `workflow` 也会被拒 |
+| `github_pat_` | 细粒度 PAT | ❌ 不支持该权限 |
+
+必须用 `ghp_` 开头的经典 token，权限勾 `repo` + `workflow`，
+创建链接：<https://github.com/settings/tokens/new?scopes=repo,workflow>
+
+另外注意 **Git Credential Manager 会缓存旧凭据**，新建 token 后如果 push 仍然失败，
+大概率是它在用缓存。清除方式：
+
+```bash
+"protocol=https`nhost=github.com`n`n" | git credential reject
+```
+
+或者临时显式指定凭据绕过缓存：
+
+```bash
+git push https://liuyang9851:你的token@github.com/liuyang9851/liuyang9851.github.io main
+```
+
 
 ## 写作约定
 

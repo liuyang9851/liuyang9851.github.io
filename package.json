@@ -8,7 +8,6 @@
     "dev": "vitepress dev .",
     "build": "vitepress build .",
     "preview": "vitepress preview .",
-    "build:pages": "node tools/build-pages.mjs",
     "check": "node tools/validate-math.mjs && node tools/validate-config.mjs"
   },
   "devDependencies": {

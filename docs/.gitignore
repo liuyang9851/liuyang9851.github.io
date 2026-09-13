@@ -1,6 +1,0 @@
-/node_modules/
-/.vitepress/
-/tools/
-/public/
-/*.md
-!/404.html
