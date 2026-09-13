@@ -4,6 +4,9 @@ node_modules/
 .vitepress/dist/
 .vitepress/cache/
 
+# Word 转换的中间素材，不入库
+out/
+
 *.log
 .DS_Store
 .vscode/

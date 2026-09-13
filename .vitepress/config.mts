@@ -53,9 +53,9 @@ export default defineConfig({
   srcDir: '.',
   outDir: '.vitepress/dist',
 
-  // 仓库根目录放了很多非页面文件（README、许可证、备份等），
+  // 仓库根目录放了很多非页面文件（README、发布说明、备份等），
   // 若不排除，VitePress 会把它们也渲染成公开页面。
-  srcExclude: ['README.md', '*.bak', 'node_modules/**', 'tools/**'],
+  srcExclude: ['README.md', 'PUBLISHING.md', '*.bak', 'node_modules/**', 'tools/**', 'out/**'],
 
   markdown: {
     math: true,

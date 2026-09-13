@@ -4,6 +4,9 @@
 
 线上地址：<https://liuyang9851.github.io/>
 
+> 📘 **要手动发布 Word 笔记？看 [PUBLISHING.md](./PUBLISHING.md)**
+> —— 完整流程、文件放哪、复杂格式怎么写、出问题怎么查。
+
 ## 快速开始
 
 ```bash
