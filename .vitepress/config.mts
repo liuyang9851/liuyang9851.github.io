@@ -25,9 +25,18 @@ export const macros = {
   O: '\\mathbf{O}',
   P: '\\mathbf{P}',
   T: '\\mathbf{T}',
+  L: '\\mathbf{\\Lambda}',
   x: '\\mathbf{x}',
   y: '\\mathbf{y}',
-  zero: '\\mathbf{0}'
+  zero: '\\mathbf{0}',
+  // 初等矩阵与常用运算符
+  Eij: '\\mathbf{E}(i,j)',
+  Eic: '\\mathbf{E}(i(c))',
+  Eijc: '\\mathbf{E}(i,j(c))',
+  tr: '\\operatorname{tr}',
+  rk: '\\operatorname{rk}',
+  diag: '\\operatorname{diag}',
+  rank: '\\operatorname{rank}'
 }
 
 /**
@@ -71,7 +80,8 @@ export default defineConfig({
           text: '线性代数',
           items: [
             { text: '总览', link: '/notes/' },
-            { text: '01 · 行列式', link: '/notes/01-determinant' }
+            { text: '01 · 行列式', link: '/notes/01-determinant' },
+            { text: '02 · 矩阵', link: '/notes/02-matrix' }
           ]
         }
       ]

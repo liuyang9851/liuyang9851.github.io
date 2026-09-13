@@ -1,0 +1,61 @@
+/**
+ * 数学公式与宽表格的横向溢出处理
+ *
+ * 背景（实测，手机 390px 视口）：
+ *   MathJax 渲染出的公式是固定宽度的 <svg>，最长可达 602px，而内容区
+ *   只有 342px。SVG 不会自动换行，于是把整页撑出横向滚动条
+ *   （document.scrollWidth 达到 1084px）。
+ *
+ *   注意：这与表格无关，是 MathJax 的固有行为，任何站点都会遇到。
+ *
+ * 处理策略分两类：
+ *   1. 情况 A —— 公式是「一个整体」，允许它横向滚动
+ *   2. 情况 B —— 表格是「多列结构」，允许它横向滚动
+ *   两种情况都只让局部滚动，页面本身不再溢出。
+ */
+
+/* ---------- 情况 A：数学公式 ---------- */
+
+/* 块级公式（$$...$$）：公式自身可横向滚动，居中显示 */
+mjx-container[display='true'] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* 让 svg 保持自然宽度、不被压缩变形 */
+  min-width: 0;
+}
+
+/* 行内公式（$...$）：不滚动，但也不允许撑破容器 */
+mjx-container:not([display='true']) {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* 行内公式在段落里，纵向对齐保持基线 */
+  vertical-align: baseline;
+}
+
+mjx-container > svg {
+  /* 关键：让超出部分由父容器滚动，而不是撑开页面 */
+  min-width: min-content;
+}
+
+/* ---------- 情况 B：宽表格 ---------- */
+
+/**
+ * VitePress 会把 <table> 包进一个 div（所以不能用 .vp-doc:has(> table)）。
+ * 这里用 :has() 选中「直接包含 table 的 div」作为滚动容器，
+ * 兼容「table 是 .vp-doc 直接子元素」的旧行为。
+ */
+div:has(> table) {
+  overflow-x: auto;
+}
+
+.vp-doc table {
+  display: table;
+  width: max-content;
+  max-width: none;
+}
+
+.vp-doc table th,
+.vp-doc table td {
+  white-space: nowrap;
+}
