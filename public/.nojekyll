@@ -1,0 +1,3 @@
+# 让 GitHub Pages 跳过 Jekyll 处理。
+# 若无此文件，Jekyll 会忽略下划线开头的目录（如 assets/_nuxt 等），
+# 导致构建产物里的部分资源 404。

@@ -40,10 +40,44 @@ npm run preview    # 预览构建结果
 
 ## 发布
 
-推到 `main` 即自动部署（`.github/workflows/deploy.yml`）。
+本项目支持两种部署方式，**二选一**，不要同时启用。
 
-首次需要在仓库 **Settings → Pages → Build and deployment → Source** 选择
-**GitHub Actions**。之后每次 push 会自动构建并发布，无需手动操作。
+### 方式一：GitHub Actions（推荐）
+
+推到 `main` 即自动构建并部署，无需手动构建。
+
+设置：仓库 **Settings → Pages → Build and deployment → Source** 选
+**GitHub Actions**。
+
+> ⚠️ 首次推送 `.github/workflows/deploy.yml` 需要凭据具备 **`workflow`** 权限
+> 范围。若 push 报错
+> `refusing to allow an OAuth App to create or update workflow ... without workflow scope`，
+> 执行：
+>
+> ```bash
+> gh auth refresh -s workflow     # 需交互式浏览器授权
+> gh auth setup-git               # 让 git 复用 gh 的凭据
+> git push origin main
+> ```
+>
+> 若不想动凭据，用下面的方式二。
+
+### 方式二：分支 + docs 目录（兜底，无需任何 CI 权限）
+
+```bash
+npm run build:pages               # 构建并把产物同步到 docs/
+git add docs
+git commit -m "build: 更新站点"
+git push
+```
+
+设置：**Settings → Pages → Source** 选 **Deploy from a branch**，
+分支 `main`、目录 `/docs`。
+
+代价是每次改完内容都要**手动跑一次 `npm run build:pages` 并提交 `docs/`**。
+`docs/` 里只保留构建产物，源码目录由 `docs/.gitignore` 排除。
+
+> 切换方式时记得同步改 Pages 的 Source 设置，否则新内容不会生效。
 
 ## 写作约定
 
