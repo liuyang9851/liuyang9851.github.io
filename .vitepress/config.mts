@@ -44,7 +44,7 @@ export const macros = {
  */
 export default defineConfig({
   lang: 'zh-CN',
-  title: '刘洋的博客',
+  title: '刘扬的博客',
   description: '学习笔记与技术记录',
 
   // 本仓库是用户主页仓库（<username>.github.io），站点根路径为 /，
