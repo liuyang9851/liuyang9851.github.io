@@ -1,7 +1,7 @@
 /**
  * 站点自定义样式
  *
- * 只做两件事：处理横向溢出的滚动条、收紧左侧目录栏。
+ * 三件事：收紧左侧目录栏、行间公式可横向滚动、宽表格可横向滚动。
  */
 
 /* ==========================================================================
@@ -13,7 +13,7 @@
 }
 
 /* 左右内边距由 32px 收到 20px，上下留白也一并收紧。
-   注意：VitePress 的侧边栏样式是 scoped 的（.VPSidebar[data-v-xxx]），
+   VitePress 的侧边栏样式是 scoped 的（.VPSidebar[data-v-xxx]），
    specificity 高于裸类选择器，此处必须用 !important 才能覆盖。 */
 .VPSidebar {
   padding: 56px 20px 80px !important;
@@ -25,74 +25,92 @@
 }
 
 /* ==========================================================================
-   2. 横向溢出 —— 公式与宽表格
+   2. 公式 —— 只有行间公式滚动
    ========================================================================== */
 
 /**
- * 背景（实测，手机 390px 视口）：
- *   MathJax 渲染出的公式是固定宽度的 <svg>，最长可达 602px，而内容区
- *   只有 342px。SVG 不会自动换行，于是把整页撑出横向滚动条。
- *   让公式自身可横向滚动即可解决，与表格无关。
+ * MathJax 渲染出的公式是固定宽度的 <svg>，最宽可达 602px，窄屏下会撑破
+ * 版面。但**不能**给所有公式加滚动，否则每个行内符号都变成一个小滚动框，
+ * 段落排版会被打断（实测 128 个行内公式全被设成了滚动容器）。
+ *
+ * 因此只对 MathJax 标记为 display 的行间公式启用横向滚动；
+ * 行内公式保持默认行为，由文字流自然排版。
  */
-mjx-container[display='true'],
-mjx-container:not([display='true']) {
+mjx-container[display='true'] {
   overflow-x: auto;
   overflow-y: hidden;
-  min-width: 0;
   max-width: 100%;
+  min-width: 0;
+  /* 给滚动条留出空间，避免压住公式 */
+  padding-bottom: 6px;
+  /* 常驻细滚动条：默认滚动条在 macOS / 移动端完全不可见，
+     读者看不出公式被截断 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-divider) transparent;
 }
 
-mjx-container > svg {
-  /* 让超出部分由父容器滚动，而不是撑开页面 */
+/* 公式本体保持自然宽度，不被压缩变形 */
+mjx-container[display='true'] > svg {
   min-width: min-content;
 }
 
 /**
- * 始终显示横向滚动条，让读者知道右侧还有内容。
+ * 显式重置行内公式。
  *
- * 默认的 auto 只在悬停/滚动时出现（macOS 与移动端甚至完全不显示），
- * 用户看不出公式被截断。这里用标准属性 + WebKit 伪元素做到常驻细滚动条。
+ * markdown-it-mathjax3 在运行时注入了一条 `mjx-container { overflow-x: auto }`，
+ * 默认作用于**所有**公式，包括行内符号。行内元素本身不会真的滚动，
+ * 但留着容易在特定布局下变成小滚动框，这里明确关掉，保证行内公式
+ * 由文字流正常排版。
  */
-mjx-container[display='true'],
-div:has(> table) {
-  scrollbar-width: thin;
-  scrollbar-color: var(--vp-c-divider) transparent;
-  /* 给滚动条留出空间，避免压住公式 */
-  padding-bottom: 6px;
+mjx-container:not([display='true']) {
+  overflow: visible;
 }
 
-/* WebKit 内核（Chrome / Edge / Safari）：把滚动条做细，且始终可见 */
-mjx-container::-webkit-scrollbar,
-div:has(> table)::-webkit-scrollbar {
+/* WebKit（Chrome / Edge / Safari）：细滚动条样式 */
+mjx-container[display='true']::-webkit-scrollbar {
   height: 6px;
 }
 
-mjx-container::-webkit-scrollbar-thumb,
-div:has(> table)::-webkit-scrollbar-thumb {
+mjx-container[display='true']::-webkit-scrollbar-thumb {
   background-color: var(--vp-c-divider);
   border-radius: 3px;
 }
 
-mjx-container::-webkit-scrollbar-thumb:hover,
-div:has(> table)::-webkit-scrollbar-thumb:hover {
+mjx-container[display='true']::-webkit-scrollbar-thumb:hover {
   background-color: var(--vp-c-text-3);
 }
 
-/**
- * 宽表格：VitePress 会把 <table> 包进一个 div，
- * 用 :has() 选中该 div 作为滚动容器。
- */
-div:has(> table) {
+/* ==========================================================================
+   3. 表格 —— 滚动容器由 config.mts 的 table_open 渲染规则包裹
+   ========================================================================== */
+.table-scroll {
   overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-divider) transparent;
 }
 
-.vp-doc table {
+.table-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--vp-c-divider);
+  border-radius: 3px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--vp-c-text-3);
+}
+
+/* 表格保持自然宽度，不被压缩；单元格不换行以保证公式完整 */
+.table-scroll > table {
   display: table;
   width: max-content;
   max-width: none;
 }
 
-.vp-doc table th,
-.vp-doc table td {
+.table-scroll > table th,
+.table-scroll > table td {
   white-space: nowrap;
 }

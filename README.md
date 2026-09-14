@@ -134,11 +134,11 @@ refusing to allow an OAuth App to create or update workflow
 
 **先看 token 前缀**，这比 scope 列表更能说明问题：
 
-| 前缀 | 类型 | 能否推 workflow |
-| --- | --- | --- |
-| `ghp_` | 经典 PAT | ✅ |
-| `gho_` | OAuth App token（`gh auth login` 产生的） | ❌ 即使 scope 里有 `workflow` 也会被拒 |
-| `github_pat_` | 细粒度 PAT | ❌ 不支持该权限 |
+| 前缀          | 类型                                      | 能否推 workflow                       |
+|---------------|-------------------------------------------|---------------------------------------|
+| `ghp_`        | 经典 PAT                                  | ✅                                     |
+| `gho_`        | OAuth App token（`gh auth login` 产生的） | ❌ 即使 scope 里有 `workflow` 也会被拒 |
+| `github_pat_` | 细粒度 PAT                                | ❌ 不支持该权限                        |
 
 必须用 `ghp_` 开头的经典 token，权限勾 `repo` + `workflow`，
 创建链接：<https://github.com/settings/tokens/new?scopes=repo,workflow>

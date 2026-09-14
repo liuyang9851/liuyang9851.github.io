@@ -28,13 +28,17 @@ description: 行列式的性质、Laplace 定理的推论、Vandermonde 行列�
 异乘变0定理：行列式某一行（列）的元素与另一行（列）的对应元素的代数余子式乘积之和等于0。
 
 $$
-\sum_{k = 1}^{n}{a_{ki}A_{kj}} = \left\{ \begin{array}{r}
-D\text{，当}i = j \\
-0\text{，当}i \neq j
-\end{array} \right.\ \ 或\ \sum_{k = 1}^{n}{a_{ik}A_{jk}} = \left\{ \begin{array}{r}
-D\text{，当}i = j \\
-0\text{，当}i \neq j
-\end{array} \right.\ 
+\sum_{k=1}^n a_{ki} A_{kj} =
+\begin{cases}
+    D, & \text{当} i = j \\
+    0, & \text{当} i \neq j
+\end{cases}
+\quad \text{或} \quad
+\sum_{k=1}^n a_{ik} A_{jk} =
+\begin{cases}
+    D, & \text{当} i = j \\
+    0, & \text{当} i \neq j
+\end{cases}
 $$
 
 ## Laplace（拉普拉斯）定理的推论
@@ -60,12 +64,12 @@ $$
 
 $$
 \left| \begin{matrix}
-\mathbf{A} & \mathbf{C} \\
-\mathbf{O} & \mathbf{B}
-\end{matrix} \right|\mathbf{=}\left| \begin{matrix}
-\mathbf{A} & \mathbf{O} \\
-\mathbf{D} & \mathbf{B}
-\end{matrix} \right|\mathbf{=}\left| \mathbf{A} \right|\left| \mathbf{B} \right|
+A & C \\
+O & B
+\end{matrix} \right| = \left| \begin{matrix}
+A & O \\
+D & B
+\end{matrix} \right| = \left| A \right| \left| B \right|
 $$
 
 ## 特殊行列式

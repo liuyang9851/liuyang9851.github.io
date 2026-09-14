@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: 刘洋的博客
+  name: 刘扬的博客
   text: 学习笔记与技术记录
   tagline: 目前收录线性代数笔记，持续更新
   actions:

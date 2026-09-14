@@ -63,6 +63,16 @@ export default defineConfig({
 
     config(md) {
       md.use(mathjax3, { tex: { macros } })
+
+      /**
+       * 用滚动容器包裹每个表格。
+       *
+       * 为什么不在 CSS 里做：VitePress 把整篇文章放进一个 wrapper div，
+       * 用 `div:has(> table)` 这类选择器会误伤整个正文容器（实测把
+       * 5202px 高的正文块设成了横向滚动区）。在渲染阶段精确包裹最可靠。
+       */
+      md.renderer.rules.table_open = () => '<div class="table-scroll"><table>'
+      md.renderer.rules.table_close = () => '</table></div>'
     }
   },
 
@@ -81,7 +91,11 @@ export default defineConfig({
           items: [
             { text: '总览', link: '/notes/' },
             { text: '01 · 行列式', link: '/notes/01-determinant' },
-            { text: '02 · 矩阵', link: '/notes/02-matrix' }
+            { text: '02 · 矩阵', link: '/notes/02-matrix' },
+            { text: '03 · 向量与线性空间', link: '/notes/03-vector' },
+            { text: '04 · 线性方程组', link: '/notes/04-linear-system' },
+            { text: '05 · 特征值理论', link: '/notes/05-eigen' },
+            { text: '06 · 二次型理论', link: '/notes/06-quadratic' }
           ]
         }
       ]
