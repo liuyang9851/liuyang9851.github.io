@@ -62,10 +62,27 @@ function render(src, display) {
 }
 
 // ---- 抽取表达式 -----------------------------------------------------------
+/**
+ * markdown-it 不会解析代码里的数学，因此抽取前必须先屏蔽
+ * 代码块（``` 围栏）与行内代码（`...`）—— 否则 bash/java 笔记里
+ * 的 $ 会被误当成公式定界符（实测 ${var/#old/new} 这类参数扩展
+ * 会产生 7 个假报错）。
+ */
+function maskCode(md) {
+  const blank = m => ' '.repeat(m.length)
+  let s = md.replace(/^```[\s\S]*?^```/gm, blank)   // 围栏代码块
+  s = s.replace(/```[\s\S]*?```/g, blank)           // 未闭合的围栏
+  s = s.replace(/`[^`\n]*`/g, blank)                // 行内代码
+  return s
+}
+
 function extract(md) {
+  const clean = maskCode(md)
   const exprs = []
-  for (const m of md.matchAll(/\$\$([\s\S]+?)\$\$/g)) exprs.push(['display', m[1], m.index])
-  const withoutDisplay = md.replace(/\$\$[\s\S]+?\$\$/g, m => ' '.repeat(m.length))
+  for (const m of clean.matchAll(/\$\$([\s\S]+?)\$\$/g)) {
+    exprs.push(['display', m[1], m.index])
+  }
+  const withoutDisplay = clean.replace(/\$\$[\s\S]+?\$\$/g, m => ' '.repeat(m.length))
   for (const m of withoutDisplay.matchAll(/(?<!\$)\$([^$\n]+)\$(?!\$)/g)) {
     exprs.push(['inline', m[1], m.index])
   }

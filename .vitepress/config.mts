@@ -123,6 +123,15 @@ export default defineConfig({
             { text: '16 · 解析几何', link: '/notes/16-analytic-geometry' },
             { text: '17 · 概率论与数理统计', link: '/notes/17-probability' }
           ]
+        },
+        {
+          text: '编程与工具',
+          items: [
+            { text: '18 · 数据库系统概论', link: '/notes/18-database' },
+            { text: '19 · Java 笔记', link: '/notes/19-java' },
+            { text: '20 · Linux 笔记', link: '/notes/20-linux' },
+            { text: '21 · Vim 操作手册', link: '/notes/21-vim' }
+          ]
         }
       ]
     },
