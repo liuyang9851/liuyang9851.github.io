@@ -140,6 +140,21 @@ export default defineConfig({
           ]
         },
         {
+          text: '微积分（完整版）',
+          items: [
+            { text: '32 · 函数再研究', link: '/notes/32-calc-functions' },
+            { text: '33 · 极限与泰勒公式', link: '/notes/33-calc-limits' },
+            { text: '34 · 导数与微分', link: '/notes/34-calc-differential' },
+            { text: '35 · 最值与微分中值定理', link: '/notes/35-calc-optimization' },
+            { text: '36 · 不定积分', link: '/notes/36-calc-antiderivative' },
+            { text: '37 · 定积分及其应用', link: '/notes/37-calc-definite-integral' },
+            { text: '38 · 微分方程（一阶）', link: '/notes/38-calc-ode-first' },
+            { text: '39 · 高阶线性微分方程', link: '/notes/39-calc-ode-higher' },
+            { text: '40 · 重积分与曲线曲面积分', link: '/notes/40-calc-multiple-integral' },
+            { text: '41 · 级数', link: '/notes/41-calc-series' }
+          ]
+        },
+        {
           text: '编程与工具',
           items: [
             { text: '18 · 数据库系统概论', link: '/notes/18-database' },
