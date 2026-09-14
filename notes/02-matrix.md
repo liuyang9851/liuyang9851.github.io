@@ -1,383 +1,202 @@
 ---
 title: 矩阵
-description: 特殊矩阵类型、转置/伴随/逆矩阵与行列式五种运算的复合规律，以及初等变换与相抵标准型。
+description: 对角阵、单位阵、三角阵、转置、方阵的行列式、伴随矩阵、逆矩阵、初等变换与相抵矩阵。
 ---
 
 # 02 · 矩阵
 
 [[toc]]
 
-本章沿用全站的符号约定：**粗体大写** $\A$ 表示矩阵，常规体 $a_{ij}$ 表示它的元素。
+## 对角（矩）阵
 
-::: tip 记号说明
-不同教材对单位矩阵的记号不同：本书用 $\mathbf{E}_n$，多数教材用 $\I_n$。**本笔记统一用 $\I_n$**，看到 $\mathbf{E}$ 视为同一个东西。
-:::
+除主对角线外所有元素均为0的方阵。
 
-## 特殊矩阵
-
-### 对角（矩）阵
-
-**除主对角线外所有元素均为 $0$** 的方阵。记作
-
-$$
-\L=\diag\{a_{11},a_{22},\dots,a_{nn}\}=
-\begin{pmatrix}
-a_{11} & & & \\
-& a_{22} & & \\
-& & \ddots & \\
-& & & a_{nn}
-\end{pmatrix}
-$$
-
-$\L$ 就是大写希腊字母 Lambda。**对角阵的加、减、乘、求逆、伴随仍是对角阵**，而且可以逐分量计算：
-
-$$
-\begin{aligned}
-\diag\{a_1,\dots,a_n\}\cdot\diag\{b_1,\dots,b_n\}&=\diag\{a_1b_1,\dots,a_nb_n\}\\[4pt]
-\diag\{a_1,\dots,a_n\}^{-1}&=\diag\{a_1^{-1},\dots,a_n^{-1}\}\qquad(a_i\neq0)\\[4pt]
-\L^{*}&=\L\qquad(\text{当 }\L\text{ 可逆})
-\end{aligned}
-$$
-
-换句话说，**对角阵的运算退化成主对角线上元素的运算**。这也是为什么化对角是解耦问题的标准手段。
-
-### 单位（矩）阵
-
-主对角线元素全为 $1$ 的对角阵：
-
-$$
-\I_n=\begin{pmatrix}
-1 & & & \\
-& 1 & & \\
-& & \ddots & \\
-& & & 1
-\end{pmatrix}
-$$
-
-它是矩阵乘法的单位元：$\A\I_n=\I_n\A=\A$。
-
-### 上（下）三角（矩）阵
-
-主对角线**一侧**全为 $0$ 的方阵：
-
-$$
-\underbrace{\begin{pmatrix}
-a_{11} & a_{12} & \cdots & a_{1n}\\
-0 & a_{22} & \cdots & a_{2n}\\
-\vdots & \vdots & \ddots & \vdots\\
+$${diag}\left\{ a_{11},a_{22},\cdots,a_{nn} \right\} = \mathbf{\Lambda\ }(大写字母Lambda) = \begin{pmatrix}
+a_{11} & 0 & \cdots & 0 \\
+0 & a_{22} & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \cdots & a_{nn}
-\end{pmatrix}}_{\text{上三角阵}}
-\qquad
-\underbrace{\begin{pmatrix}
-a_{11} & 0 & \cdots & 0\\
-a_{21} & a_{22} & \cdots & 0\\
-\vdots & \vdots & \ddots & \vdots\\
+\end{pmatrix} = \begin{pmatrix}
+a_{11} & & & \\
+ & a_{22} & & \\
+ & & \ddots & \\
+ & & & a_{nn}
+\end{pmatrix}$$
+
+对角阵加、减、乘、求逆、伴随仍是对角阵，且有
+
+$$diag\left\{ a_{1}，a_{2}，\cdots ，a_{n} \right\} \cdot diag\left\{ b_{1}，b_{2}，\cdots ，b_{n} \right\} = diag\left\{ a_{1}b_{1}，a_{2}b_{2}，\cdots ，a_{n}b_{n} \right\}$$
+
+$$\left( diag\left\{ a_{1}，a_{2}，\cdots ，a_{n} \right\} \right)^{- 1} = diag\left\{ a_{1}^{- 1}，a_{2}^{- 1}，\cdots ，a_{n}^{- 1} \right\}$$
+
+$$\mathbf{\Lambda}^{*} = \mathbf{\Lambda}$$
+
+## 单位（矩）阵
+
+对角线上元素全为1的对角阵。
+
+$$\mathbf{I}_{n} = \mathbf{E}_{n} = \begin{pmatrix}
+1 & 0 & \cdots & 0 \\
+0 & 1 & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & & & \\
+ & 1 & & \\
+ & & \ddots & \\
+ & & & 1
+\end{pmatrix}$$
+
+## 上（下）三角（矩）阵
+
+$\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+0 & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & a_{nn}
+\end{pmatrix}$（上三角阵），$\begin{pmatrix}
+a_{11} & 0 & \cdots & 0 \\
+a_{21} & a_{22} & \cdots & 0 \\
+ \vdots & \vdots & \ddots & \vdots \\
 a_{n1} & a_{n2} & \cdots & a_{nn}
-\end{pmatrix}}_{\text{下三角阵}}
-$$
+\end{pmatrix}$（下三角阵）
 
-**三角阵对加、减、乘、求逆、伴随封闭**——运算结果仍是同类型的三角阵，且变换只作用在主对角线元素上。
+上（下）三角阵加、减、乘、求逆、伴随仍是对角阵，且对角线上的元素分别为原三角阵的对角阵对应变化而来的对应元素。
 
-两个值得记住的推论：
+## 转置
 
-- **行列式 = 主对角线元素之积**（第 01 章性质 1）
-- **可逆 $\iff$ 主对角线元素全部非零**
+对矩阵$\mathbf{A}$的转置$\mathbf{A}^{T}$或$\mathbf{A}'$就是把它的行转为列，列转为行，类似于沿主对角线翻转。
 
-::: warning 原文笔误
-原始笔记此处写的是「上（下）三角阵加、减、乘、求逆、伴随仍是**对角阵**」，
-应为「仍是**三角阵**」。因为两个上三角阵相乘不会变成对角阵——这是原文的笔误，此处已订正。
-:::
-
-### 转置
-
-把 $\A$ 的**行写成列、列写成行**（沿主对角线翻折），记作 $\A'$ 或 $\A^{T}$：
-
-$$
-\A_{m\times n}=\begin{pmatrix}
-a_{11} & a_{12} & \cdots & a_{1n}\\
-a_{21} & a_{22} & \cdots & a_{2n}\\
-\vdots & \vdots & & \vdots\\
+$$\mathbf{A}_{m \times n} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & & \vdots \\
 a_{m1} & a_{m2} & \cdots & a_{mn}
-\end{pmatrix}
-\quad\Longrightarrow\quad
-\A'=\begin{pmatrix}
-a_{11} & a_{21} & \cdots & a_{m1}\\
-a_{12} & a_{22} & \cdots & a_{m2}\\
-\vdots & \vdots & & \vdots\\
+\end{pmatrix}，\mathbf{A}' = \begin{pmatrix}
+a_{11} & a_{21} & \cdots & a_{m1} \\
+a_{12} & a_{22} & \cdots & a_{m2} \\
+ \vdots & \vdots & & \vdots \\
 a_{1n} & a_{2n} & \cdots & a_{mn}
-\end{pmatrix}
-$$
+\end{pmatrix}$$
 
-注意 $\A$ 是 $m\times n$、$\A'$ 是 $n\times m$——**转置会交换行数与列数**，这是它与本章其他运算最大的区别（其余运算都要求方阵）。
+## 方阵的行列式
 
-### 方阵的行列式
+方阵$\mathbf{A} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{pmatrix}$的行列式为：$\left| \mathbf{A} \right| = \left| \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{matrix} \right|$
 
-方阵 $\A$ 的**行列式**是一个数，记作 $|\A|$ 或 $\det(\A)$：
+## 伴随（矩）阵
 
-$$
-\A=\begin{pmatrix}
-a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{n1} & \cdots & a_{nn}
-\end{pmatrix}
-\qquad
-|\A|=\begin{vmatrix}
-a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{n1} & \cdots & a_{nn}
-\end{vmatrix}
-$$
+对$n$阶方阵$\mathbf{A}$，定义其伴随（矩）阵
 
-形状从圆括号变成竖线，含义从「矩阵」变成「一个数」。
+$$\mathbf{A}^{*} = \begin{pmatrix}
+\mathbf{A}_{11} & \mathbf{A}_{21} & \cdots & \mathbf{A}_{n1} \\
+\mathbf{A}_{12} & \mathbf{A}_{22} & \cdots & \mathbf{A}_{n2} \\
+ \vdots & \vdots & & \vdots \\
+\mathbf{A}_{1n} & \mathbf{A}_{2n} & \cdots & \mathbf{A}_{nn}
+\end{pmatrix}$$
 
-### 伴随（矩）阵
+其中$\mathbf{A}_{ij}$是$\left| \mathbf{A} \right|$的$a_{ij}$对应的代数余子式。
 
-对 $n$ 阶方阵 $\A$，把**每个元素的代数余子式** $A_{ij}$ 求出，**按转置的位置**排成一个新矩阵，称为 $\A$ 的伴随矩阵：
+## 逆（矩）阵
 
-$$
-\A^{*}=\begin{pmatrix}
-A_{11} & A_{21} & \cdots & A_{n1}\\
-A_{12} & A_{22} & \cdots & A_{n2}\\
-\vdots & \vdots & & \vdots\\
-A_{1n} & A_{2n} & \cdots & A_{nn}
-\end{pmatrix}
-$$
+设有$n$阶方阵$\mathbf{A}$，若存在$n$阶方阵$\mathbf{B}$，使得
 
-其中 $A_{ij}$ 是 $|\A|$ 中 $a_{ij}$ 对应的代数余子式。
+$$\mathbf{AB} = \mathbf{BA} = \mathbf{I}_{n}$$
 
-**注意行列标号的顺序是反的**：第 $i$ 行第 $j$ 列放的是 $A_{ji}$。这不是笔误，正是这个转置排布让下式成立：
+则称$\mathbf{A}$为可逆（矩）阵、非（奇）异（矩）阵、满秩矩阵或非退化矩阵，称$\mathbf{B}$是$\mathbf{A}$的逆（矩）阵，记为$\mathbf{B =}\mathbf{A}^{- 1}$，否则称$\mathbf{A}$为奇异（矩）阵。
 
-$$
-\A\A^{*}=\A^{*}\A=|\A|\,\I_n
-$$
+<table><thead><tr><th></th><th>转置</th><th>行列式</th><th>$k$次幂</th><th>伴随矩阵</th><th>逆矩阵</th></tr></thead><tbody>
+<tr><td><strong>转置</strong></td><td>$$\mathbf{A}^{''} = \mathbf{A}$$</td><td>$$\left| \mathbf{A}' \right| = \left| \mathbf{A} \right|$$</td><td>$$\left( \mathbf{A}' \right)^{k} = \left( \mathbf{A}^{k} \right)'$$</td><td>$$\left( \mathbf{A}' \right)^{*} = \left( \mathbf{A}^{*} \right)'$$</td><td>$$\left( \mathbf{A}' \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)'$$</td></tr>
+<tr><td><strong>行列式</strong></td><td>$$\left| \mathbf{A} \right| = \left| \mathbf{A}' \right|$$</td><td></td><td>$$\left| \mathbf{A} \right|^{k} = \left| \mathbf{A}^{k} \right|$$</td><td>$$\left| \mathbf{A} \right|^{n - 1} = \left| \mathbf{A}^{*} \right|$$</td><td>$$\left| \mathbf{A} \right|^{- 1} = \left| \mathbf{A}^{- 1} \right|$$</td></tr>
+<tr><td><strong>$k$次幂</strong></td><td>$$\left( \mathbf{A}^{k} \right)' = \left( \mathbf{A}' \right)^{k}$$</td><td>$$\left| \mathbf{A}^{k} \right| = \left| \mathbf{A} \right|^{k}$$</td><td>$$\left( \mathbf{A}^{k} \right)^{t} = \mathbf{A}^{kt}$$</td><td>$$\left( \mathbf{A}^{k} \right)^{*} = \left( \mathbf{A}^{*} \right)^{k}$$</td><td>$$\left( \mathbf{A}^{k} \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)^{k}$$</td></tr>
+<tr><td><strong>伴随矩阵</strong></td><td>$$\left( \mathbf{A}^{*} \right)' = \left( \mathbf{A}' \right)^{*}$$</td><td>$$\left| \mathbf{A}^{*} \right| = \left| \mathbf{A} \right|^{n - 1}$$</td><td>$$\left( \mathbf{A}^{*} \right)^{k} = \left( \mathbf{A}^{k} \right)^{*}$$</td><td>$$\left( \mathbf{A}^{*} \right)^{*} = \left| \mathbf{A} \right|^{n - 2}\mathbf{A}$$</td><td>$$\left( \mathbf{A}^{*} \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)^{*} = \frac{1}{\left| \mathbf{A} \right|}\mathbf{A}$$</td></tr>
+<tr><td><strong>逆矩阵</strong></td><td>$$\left( \mathbf{A}^{- 1} \right)' = \left( \mathbf{A}' \right)^{- 1}$$</td><td>$$\left| \mathbf{A}^{- 1} \right| = \left| \mathbf{A} \right|^{- 1}$$</td><td>$$\left( \mathbf{A}^{- 1} \right)^{k} = \left( \mathbf{A}^{k} \right)^{- 1}$$</td><td>$$\left( \mathbf{A}^{- 1} \right)^{*} = \left( \mathbf{A}^{*} \right)^{- 1}$$</td><td>$$\left( \mathbf{A}^{- 1} \right)^{- 1} = \mathbf{A}$$</td></tr>
+</tbody></table>
 
-### 逆（矩）阵
-
-设 $\A$ 是 $n$ 阶方阵。若存在 $n$ 阶方阵 $\B$ 使得
-
-$$
-\A\B=\B\A=\I_n
-$$
-
-则称 $\A$ **可逆**（也叫非奇异、满秩、非退化），$\B$ 称为 $\A$ 的**逆矩阵**，记作 $\B=\A^{-1}$；否则称 $\A$ 为**奇异矩阵**。
-
-**逆矩阵的五个等价说法**（都在说同一件事）：
-
-$$
-\A\text{ 可逆}
-\iff |\A|\neq0
-\iff \A\text{ 满秩}
-\iff \A\text{ 的列向量线性无关}
-\iff \A\ \text{与}\ \I_n\ \text{相抵}
-$$
-
-**二阶矩阵求逆**（唯一值得背的公式）：
-
-$$
-\begin{pmatrix}
-a & b\\
-c & d
-\end{pmatrix}^{-1}
-=\frac{1}{ad-bc}\begin{pmatrix}
-d & -b\\
--c & a
-\end{pmatrix}
-$$
-
-口诀：**主对角线交换、副对角线变号、整体除以行列式**。
-
-## 五种运算的复合规律
-
-矩阵有五种常用运算：**转置（$\cdot'$）、$k$ 次幂（$\cdot^k$）、伴随（$\cdot^*$）、求逆（$\cdot^{-1}$）、行列式（$|\cdot|$）**。它们两两之间能不能交换次序，是这一章最容易记混的部分。
-
-### 对乘积的作用：都要「反序」
-
-设 $\A,\B$ 为同阶方阵，先记住这一组——**转置、伴随、求逆作用于乘积时都要把顺序颠倒**：
-
-$$
-\begin{aligned}
-(\A\B)'&=\B'\A'\\[4pt]
-(\A\B)^{*}&=\B^{*}\A^{*}\\[4pt]
-(\A\B)^{-1}&=\B^{-1}\A^{-1}
-\end{aligned}
-$$
-
-而**行列式不需要反序**，因为它是数、乘法可交换：
-
-$$
-|\A\B|=|\A|\,|\B|=|\B\A|
-$$
-
-::: tip 记忆方式
-三个反序的都是「矩阵结果」，行列式是「数值结果」。只要结果是数，就不存在先后问题。
-:::
-
-### 对纯量倍的作用：只有伴随会变指数
-
-$c$ 为常数时：
-
-$$
-(c\A)'=c\,\A'\qquad
-(c\A)^{-1}=c^{-1}\A^{-1}\qquad
-|c\A|=c^{n}\,|\A|\qquad
-(c\A)^{*}=c^{\,n-1}\A^{*}
-$$
-
-前两个是线性的，行列式是 $n$ 次，而**伴随是 $n-1$ 次**——这个指数差最容易记错。
-
-### 两两复合：哪些可交换
-
-下面这张表列出「先做左边、再做上边」的结果。**空白表示两者次序可交换**（即 $\A$ 与自身运算的复合无歧义），有公式的则给出具体结果。
-
-|  | 转置 $\cdot'$ | $k$ 次幂 $\cdot^k$ | 伴随 $\cdot^{*}$ | 逆 $\cdot^{-1}$ | 行列式 $\vert\cdot\vert$ |
-| --- | --- | --- | --- | --- | --- |
-| **转置** $\cdot'$ | $\A''=\A$ | $(\A')^k=(\A^k)'$ | $(\A')^{*}=(\A^{*})'$ | $(\A')^{-1}=(\A^{-1})'$ | $\lvert\A'\rvert=\lvert\A\rvert$ |
-| **$k$ 次幂** $\cdot^k$ | $(\A^k)'=(\A')^k$ | $\A^{k}\A^{m}=\A^{k+m}$ | $(\A^k)^{*}=(\A^{*})^k$ | $(\A^{k})^{-1}=(\A^{-1})^{k}$ | $\lvert\A^{k}\rvert=\lvert\A\rvert^{k}$ |
-| **伴随** $\cdot^{*}$ | $(\A^{*})'=(\A')^{*}$ | $(\A^{*})^{k}=(\A^{k})^{*}$ | $\A\A^{*}=\A^{*}\A=\lvert\A\rvert\I_n$ | $(\A^{*})^{-1}=(\A^{-1})^{*}$ | $\lvert\A^{*}\rvert=\lvert\A\rvert^{\,n-1}$ |
-| **逆** $\cdot^{-1}$ | $(\A^{-1})'=(\A')^{-1}$ | $(\A^{-1})^{k}=(\A^{k})^{-1}$ | $(\A^{-1})^{*}=(\A^{*})^{-1}$ | $(\A^{-1})^{-1}=\A$ | $\lvert\A^{-1}\rvert=\lvert\A\rvert^{-1}$ |
-| **行列式** $\lvert\cdot\rvert$ | $\lvert\A\rvert=\lvert\A'\rvert$ | $\lvert\A\rvert^{k}=\lvert\A^{k}\rvert$ | $\lvert\A\rvert^{\,n-1}=\lvert\A^{*}\rvert$ | $\lvert\A\rvert^{-1}=\lvert\A^{-1}\rvert$ | — |
-
-::: tip 这张表其实是对称的
-表沿主对角线对称——因为「先转置再求逆」和「先求逆再转置」结果相同。
-**唯一不对易的组合是「转置」与「伴随」吗？不，它们也对易**（$(\A')^*=(\A^*)'$）。
-
-所以结论比想象的简单：**这五种运算两两之间全部可以交换次序**，
-真正需要反序的只有「作用于乘积」的情形（上一节）。
-:::
-
-### 几个高频结论
-
-由伴随矩阵的定义可以直接推出（$n$ 阶方阵，$n\geq2$）：
-
-$$
-\A^{*}=|\A|\,\A^{-1}
-\qquad
-(\A^{*})^{*}=|\A|^{\,n-2}\A
-\qquad
-|\A^{*}|=|\A|^{\,n-1}
-$$
-
-伴随矩阵的秩有一个**断崖式**的结论，考试常考：
-
-$$
-\rk(\A^{*})=
-\begin{cases}
-n, & \rk(\A)=n\\[4pt]
-1, & \rk(\A)=n-1\\[4pt]
-0, & \rk(\A)<n-1
-\end{cases}
-$$
-
-::: warning 原文笔误
-原始笔记中的表格把上式的条件行写成了 $n$、$1$、$0$ 三行并列，
-并伴有 $\A^{*}\neq0\Rightarrow r(\A)\geq n-1$。此处按秩的定义整理为标准分段函数形式。
-:::
-
-### 特殊矩阵在五种运算下的表现
-
-| 矩阵类型 | 转置 | 行列式 | $k$ 次幂 | 伴随 | 逆 |
-| --- | --- | --- | --- | --- | --- |
-| 对角阵 $\L$ | $\L$ | $\prod a_{ii}$ | $\L^k$ | $\L$ | $\L^{-1}$，元素取倒数 |
-| 单位阵 $\I$ | $\I$ | $1$ | $\I$ | $\I$ | $\I$ |
-| 三角阵 | 转置后变另一类三角阵 | 主对角线之积 | 仍为三角阵 | 仍为三角阵 | 仍为三角阵 |
-| 对称阵（$\A'=\A$） | $\A$ | — | 仍对称 | 仍对称 | 若可逆则仍对称 |
-| 反对称阵（$\A'=-\A$） | $-\A$ | 奇数阶为 $0$，偶数阶 $\geq0$ | — | 奇数阶为零矩阵，偶数阶为对称阵 | 若可逆则仍反对称 |
-| 正交阵（$\A'\A=\I$） | $\A^{-1}$ | $\pm1$ | 正交 | $\pm\A'$ | $\A'$，正交 |
-| 正定阵 | 正定 | $>0$ | 正定 | 正定 | 正定 |
-| 正规阵（$\A\A'=\A'\A$） | 正规 | — | — | 正规 | 若可逆则仍正规 |
-
-几个要点：
-
-- **反对称阵的奇数阶行列式恒为 $0$**，因此奇数阶反对称阵必不可逆
-- **正交阵的转置就是它的逆**（$\A'=\A^{-1}$），这是正交阵最好用的性质
-- **正交阵的行列式只能是 $\pm1$**
-- **正交阵的列向量是单位向量且两两正交**；两个正交阵的乘积仍是正交阵
+<table><thead><tr><th></th><th>转置</th><th>行列式</th><th>$k$次幂</th><th>伴随矩阵</th><th>逆矩阵</th></tr></thead><tbody>
+<tr><td>$\mathbf{I}$</td><td>$$\mathbf{I}$$</td><td>$$1$$</td><td>$$\mathbf{I}$$</td><td>$$\mathbf{I}$$</td><td>$$\mathbf{I}$$</td></tr>
+<tr><td>$\mathbf{P}_{ij}$</td><td>$$\mathbf{P}_{ij}$$</td><td>$$- 1$$</td><td></td><td>$$\mathbf{P}_{ij}$$</td><td>$$\mathbf{P}_{ij}$$</td></tr>
+<tr><td>$\mathbf{P}_{i}(c)$</td><td>$$\mathbf{P}_{i}(c)$$</td><td>$$c$$</td><td></td><td>$$\mathbf{P}_{i}\left( \frac{1}{c} \right)$$</td><td>$$\mathbf{P}_{i}\left( \frac{1}{c} \right)$$</td></tr>
+<tr><td>$\mathbf{T}_{ij}(c)$</td><td>$$\mathbf{T}_{ji}(c)$$</td><td>$$1$$</td><td></td><td>$$\mathbf{T}_{ij}( - c)$$</td><td>$$\mathbf{T}_{ij}( - c)$$</td></tr>
+<tr><td>$\mathbf{\Lambda}$</td><td>$$\mathbf{\\Lambda}$$</td><td>$$\prod_{i = 1}^{n}a_{ii}$$</td><td></td><td>$$diag\left\{ \frac{\left| \mathbf{A} \right|}{a_{11}},\frac{\left| \mathbf{A} \right|}{a_{22}},\cdots,\frac{\left| \mathbf{A} \right|}{a_{nn}} \right\}$$</td><td>$$diag\left\{ - a_{11}, - a_{22},\cdots,\  - a_{nn} \right\}$$</td></tr>
+<tr><td>分块对角阵</td><td>$$\begin{pmatrix} \mathbf{A}^{\mathbf{'}} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{\mathbf{'}} \end{pmatrix}$$</td><td>$$\left| \mathbf{AB} \right|$$</td><td>$$\begin{pmatrix} \mathbf{A}^{n} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{n} \end{pmatrix}$$</td><td>$$\begin{pmatrix} \mathbf{A}^{\mathbf{*}} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{\mathbf{*}} \end{pmatrix}$$</td><td>$$\begin{pmatrix} \mathbf{A}^{- 1} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{- 1} \end{pmatrix}$$</td></tr>
+<tr><td>反对角阵</td><td>不变</td><td>$$( - 1)^{\frac{n(n - 1)}{2}}\prod_{}^{}a_{i}$$</td><td></td><td></td><td></td></tr>
+<tr><td>分块反对角阵</td><td>$$\begin{pmatrix} \mathbf{O} & \mathbf{B}^{\mathbf{'}} \\ \mathbf{A}^{\mathbf{'}} & \mathbf{O} \end{pmatrix}$$</td><td></td><td></td><td></td><td>$$\begin{pmatrix} \mathbf{O} & \mathbf{B}^{- 1} \\ \mathbf{A}^{- 1} & \mathbf{O} \end{pmatrix}$$</td></tr>
+<tr><td>上/下三角阵</td><td>仍为三角阵，且对角线上的元素分别为原三角阵的对角阵对应变化而来的对应元素。</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>可逆阵</td><td>可逆</td><td>$$\neq 0$$</td><td>可逆</td><td>可逆</td><td>可逆</td></tr>
+<tr><td>$\mathbf{A}^{\mathbf{'}}\mathbf{= A}$</td><td>$$\mathbf{A}$$</td><td></td><td></td><td>对称</td><td>若可逆则逆阵仍对称</td></tr>
+<tr><td>反对称矩阵</td><td>$$\mathbf{- A}$$</td><td>奇数阶为$0$，偶数阶$\geq 0$</td><td></td><td>奇数阶为零矩阵<br>偶数阶为对称阵</td><td>若可逆则逆阵偶数阶反对称</td></tr>
+<tr><td>$\mathbf{A}^{\mathbf{'}}\mathbf{= - A}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>正交矩阵<br>（是实矩阵）</td><td>$\mathbf{A}^{- 1}$（正交）</td><td>$$\pm 1$$</td><td>正交</td><td>$\mathbf{\pm}\mathbf{A}^{\mathbf{'}}$（正交）</td><td>$\mathbf{A}^{\mathbf{'}}$（正交）</td></tr>
+<tr><td>$\mathbf{A}\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{\mathbf{'}}\mathbf{A = I}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{- 1}$</td><td></td><td></td><td></td><td>正交矩阵$\Leftrightarrow$方阵的列向量为单位向量，且两两正交。<br><br>若$\mathbf{A}$，$\mathbf{B}$是正交矩阵，则$\mathbf{AB}$也是正交矩阵。</td><td></td></tr>
+<tr><td>正定矩阵</td><td>正定</td><td>$$\geq 0$$</td><td>正定</td><td>正定</td><td>正定</td></tr>
+<tr><td>$\forall\mathbf{x \neq 0},\mathbf{\ }\mathbf{x}^{\mathbf{'}}\mathbf{Ax > 0}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>正规矩阵</td><td>正规</td><td></td><td></td><td>正规</td><td>若可逆则逆阵仍正规</td></tr>
+<tr><td>$\mathbf{A}\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{\mathbf{'}}\mathbf{A}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
 
 ## 初等变换与初等矩阵
 
-### 三类初等变换
+定义矩阵的三类初等行（列）变换如下：
 
-对矩阵可以施加三类**初等行（列）变换**：
+第一类初等变换：对调矩阵中某两行（列）的位置。
 
-| 类型 | 操作 | 别称 |
-| --- | --- | --- |
-| 第一类 | 对调某两行（列）的位置 | 对换 |
-| 第二类 | 用非 $0$ 常数 $c$ 乘某一行（列） | 倍乘 |
-| 第三类 | 将某一行（列）乘 $c$ 后加到另一行（列） | 倍加 |
+第二类初等变换：用一非0常数$c$乘以矩阵的某一行（列）
 
-::: tip 第三类是主力
-三类变换中，**只有第三类不改变行列式的值**。所以计算行列式、求逆矩阵、化行阶梯形，几乎都靠第三类完成，前两类只是辅助。
-:::
+第三类初等变换：将矩阵的某一行（列）乘以常数$c$后加到另一行（列）上去。
 
-### 三类初等矩阵
+定义三类初等矩阵如下：
 
-对单位阵 $\I_n$ 作一次上述变换，得到的矩阵称为**初等矩阵**：
+第一类初等矩阵：$\mathbf{P}_{ij}$或$\mathbf{E}(i,j)$：将单位阵$\mathbf{I}_{n}$的第$i$行与第$j$行（第$i$列与第$j$列）对换后得到的矩阵。
 
-| 名称 | 记号 | 构造方式 |
-| --- | --- | --- |
-| 第一类 | $\P_{ij}$ 或 $\Eij$ | 对换 $\I_n$ 的第 $i,j$ 行（列） |
-| 第二类 | $\P_i(c)$ 或 $\Eic$ | 用 $c$ 乘 $\I_n$ 的第 $i$ 行（列） |
-| 第三类 | $\T_{ij}(c)$ 或 $\Eijc$ | 第 $i$ 行乘 $c$ 加到第 $j$ 行 |
+第二类初等矩阵：$\mathbf{P}_{i}(c)$或$\mathbf{E}\left( i(c) \right)$：将常数$c$乘以单位阵$\mathbf{I}_{n}$的第$i$行（第$j$列）位置而得到的矩阵。
 
-### 核心定理
+第三类初等矩阵：$\mathbf{T}_{ij}(c)$或$\mathbf{E}\left( ij(k) \right)$：将单位阵$\mathbf{I}_{n}$的第$i$行（第$j$列）乘以$c$后加到第$j$行（第$i$列）上得到的矩阵。
 
-**行左列右定理。** 设 $\A$ 是 $m\times n$ 矩阵：
+## 相抵矩阵
 
-- 对 $\A$ 作一次**行**变换，等价于左乘一个对应的 $m$ 阶初等矩阵
-- 对 $\A$ 作一次**列**变换，等价于右乘一个对应的 $n$ 阶初等矩阵
+如果一个矩阵$\mathbf{A}$经过有限次初等行变换后变成矩阵$\mathbf{B}$，则称$\mathbf{A}$和$\mathbf{B}$是行等价的。
 
-这个定理把「变换」翻译成了「乘法」，是后续所有结论的基础。
+如果一个矩阵$\mathbf{A}$经过有限次初等列变换后变成矩阵$\mathbf{B}$，则称$\mathbf{A}$和$\mathbf{B}$是列等价的。
 
-**初等矩阵都可逆，且逆矩阵仍是同类初等矩阵：**
+如果一个矩阵$\mathbf{A}$经过有限次初等变换后变成矩阵$\mathbf{B}$，则称$\mathbf{A}$和$\mathbf{B}$是等价或相抵的。
 
-$$
-\P_{ij}^{-1}=\P_{ij}
-\qquad
-\P_i(c)^{-1}=\P_i\!\left(\tfrac{1}{c}\right)
-\qquad
-\T_{ij}(c)^{-1}=\T_{ij}(-c)
-$$
+矩阵$\mathbf{A}$必然可以通过初等变换变为如下矩阵，该矩阵称为矩阵$\mathbf{A}$的相抵标准型。
 
-三者的行列式：
+$\begin{pmatrix}
+1 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & & \vdots & \vdots & & \vdots \\
+0 & \cdots & 1 & 0 & \cdots & 0 \\
+0 & \cdots & 0 & 0 & \cdots & 0 \\
+ \vdots & & \vdots & \vdots & & \vdots \\
+0 & \cdots & 0 & 0 & \cdots & 0
+\end{pmatrix}\begin{pmatrix}
+\mathbf{I} & \mathbf{O} \\
+\mathbf{O} & \mathbf{O}
+\end{pmatrix}$（也可以是$\mathbf{O}$）
 
-$$
-|\P_{ij}|=-1
-\qquad
-|\P_i(c)|=c
-\qquad
-|\T_{ij}(c)|=1
-$$
+定理：矩阵$\mathbf{A}$经过有限次初等行变换，可以化为阶梯形矩阵。
 
-**初等变换保持可逆性。** 非异阵经初等变换后仍为非异阵，奇异阵经初等变换后仍为奇异阵。
+定理：设$\mathbf{A}$是一个$m \times n$阵，则对$\mathbf{A}$作一次初等行变换后得到的矩阵等于用一个$m$阶相应的初等矩阵左乘后得到的积。对$\mathbf{A}$作一次初等列变换后得到的矩阵等于用一个$n$阶相应的初等矩阵右乘后得到的积。（简称为"行左列右"）
 
-### 用初等变换求逆矩阵
+定理：初等矩阵都是非异阵且其逆矩阵仍是同类初等矩阵，即
 
-以下两个结论给出了求逆的实用方法：
+$$\mathbf{P}_{ij}^{- 1} = \mathbf{P}_{ij}，\mathbf{P}_{i}(c)^{- 1} = \mathbf{P}_{i}\left( \frac{1}{c} \right)，\mathbf{T}_{ij}(c)^{- 1} = \mathbf{T}_{ij}( - c)$$
 
-- 若 $\A$ 是 $n$ 阶可逆阵，则**仅用初等行变换**（或仅用初等列变换）就能把 $\A$ 化为 $\I_n$
-- 任一 $n$ 阶可逆阵都可表示为**有限个初等矩阵的乘积**
+定理：非异阵经初等变换后仍为非异阵，奇异阵经初等变换后仍为奇异阵。
 
-由此得到标准操作：对 $(\A\mid\I_n)$ 作初等行变换，当左边化为 $\I_n$ 时，右边就是 $\A^{-1}$。
+定理：$\left| \mathbf{P}_{ij} \right| = - 1，\left| \mathbf{P}_{i}(c) \right| = c，\left| \mathbf{T}_{ij}(c) \right| = 1$
 
-## 相抵矩阵与相抵标准型
+定理：设$\mathbf{A}$是一个$n$阶可逆阵，则仅用初等行变换或仅用初等列变换即可把化为单位阵$\mathbf{I}_{n}$。
 
-按允许的变换类型，矩阵之间的「等价」分三个层次：
-
-| 名称 | 定义 |
-| --- | --- |
-| **行等价** | $\A$ 经有限次**初等行**变换变成 $\B$ |
-| **列等价** | $\A$ 经有限次**初等列**变换变成 $\B$ |
-| **相抵（等价）** | $\A$ 经有限次**初等变换**变成 $\B$，即行、列变换都允许 |
-
-任何一个矩阵都能通过初等变换化为下面这个形式，称为**相抵标准型**：
-
-$$
-\begin{pmatrix}
-\I_r & \O\\
-\O & \O
-\end{pmatrix}
-$$
-
-其中 $r=\rk(\A)$。也就是说，**相抵标准型由秩完全决定**——这是秩作为「相抵不变量」的完整含义。
-
-**矩阵经有限次初等行变换，一定可以化为阶梯形矩阵**，这也是解线性方程组时高斯消元法的依据。
+定理：任一$n$阶可逆阵均可表示为有限个初等矩阵的积。

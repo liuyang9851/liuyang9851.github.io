@@ -1,49 +1,86 @@
 /**
- * 数学公式与宽表格的横向溢出处理
+ * 站点自定义样式
  *
- * 背景（实测，手机 390px 视口）：
- *   MathJax 渲染出的公式是固定宽度的 <svg>，最长可达 602px，而内容区
- *   只有 342px。SVG 不会自动换行，于是把整页撑出横向滚动条
- *   （document.scrollWidth 达到 1084px）。
- *
- *   注意：这与表格无关，是 MathJax 的固有行为，任何站点都会遇到。
- *
- * 处理策略分两类：
- *   1. 情况 A —— 公式是「一个整体」，允许它横向滚动
- *   2. 情况 B —— 表格是「多列结构」，允许它横向滚动
- *   两种情况都只让局部滚动，页面本身不再溢出。
+ * 只做两件事：处理横向溢出的滚动条、收紧左侧目录栏。
  */
 
-/* ---------- 情况 A：数学公式 ---------- */
-
-/* 块级公式（$$...$$）：公式自身可横向滚动，居中显示 */
-mjx-container[display='true'] {
-  overflow-x: auto;
-  overflow-y: hidden;
-  /* 让 svg 保持自然宽度、不被压缩变形 */
-  min-width: 0;
+/* ==========================================================================
+   1. 左侧目录栏 —— 收窄宽度与边距
+   ========================================================================== */
+:root {
+  /* 默认 272px，收窄 32px 给正文留出空间 */
+  --vp-sidebar-width: 240px;
 }
 
-/* 行内公式（$...$）：不滚动，但也不允许撑破容器 */
+/* 左右内边距由 32px 收到 20px，上下留白也一并收紧。
+   注意：VitePress 的侧边栏样式是 scoped 的（.VPSidebar[data-v-xxx]），
+   specificity 高于裸类选择器，此处必须用 !important 才能覆盖。 */
+.VPSidebar {
+  padding: 56px 20px 80px !important;
+}
+
+/* 条目之间的间距略减（默认 24px），让目录更紧凑 */
+.VPSidebarItem.level-0 {
+  padding-bottom: 18px !important;
+}
+
+/* ==========================================================================
+   2. 横向溢出 —— 公式与宽表格
+   ========================================================================== */
+
+/**
+ * 背景（实测，手机 390px 视口）：
+ *   MathJax 渲染出的公式是固定宽度的 <svg>，最长可达 602px，而内容区
+ *   只有 342px。SVG 不会自动换行，于是把整页撑出横向滚动条。
+ *   让公式自身可横向滚动即可解决，与表格无关。
+ */
+mjx-container[display='true'],
 mjx-container:not([display='true']) {
-  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  /* 行内公式在段落里，纵向对齐保持基线 */
-  vertical-align: baseline;
+  min-width: 0;
+  max-width: 100%;
 }
 
 mjx-container > svg {
-  /* 关键：让超出部分由父容器滚动，而不是撑开页面 */
+  /* 让超出部分由父容器滚动，而不是撑开页面 */
   min-width: min-content;
 }
 
-/* ---------- 情况 B：宽表格 ---------- */
+/**
+ * 始终显示横向滚动条，让读者知道右侧还有内容。
+ *
+ * 默认的 auto 只在悬停/滚动时出现（macOS 与移动端甚至完全不显示），
+ * 用户看不出公式被截断。这里用标准属性 + WebKit 伪元素做到常驻细滚动条。
+ */
+mjx-container[display='true'],
+div:has(> table) {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-divider) transparent;
+  /* 给滚动条留出空间，避免压住公式 */
+  padding-bottom: 6px;
+}
+
+/* WebKit 内核（Chrome / Edge / Safari）：把滚动条做细，且始终可见 */
+mjx-container::-webkit-scrollbar,
+div:has(> table)::-webkit-scrollbar {
+  height: 6px;
+}
+
+mjx-container::-webkit-scrollbar-thumb,
+div:has(> table)::-webkit-scrollbar-thumb {
+  background-color: var(--vp-c-divider);
+  border-radius: 3px;
+}
+
+mjx-container::-webkit-scrollbar-thumb:hover,
+div:has(> table)::-webkit-scrollbar-thumb:hover {
+  background-color: var(--vp-c-text-3);
+}
 
 /**
- * VitePress 会把 <table> 包进一个 div（所以不能用 .vp-doc:has(> table)）。
- * 这里用 :has() 选中「直接包含 table 的 div」作为滚动容器，
- * 兼容「table 是 .vp-doc 直接子元素」的旧行为。
+ * 宽表格：VitePress 会把 <table> 包进一个 div，
+ * 用 :has() 选中该 div 作为滚动容器。
  */
 div:has(> table) {
   overflow-x: auto;
