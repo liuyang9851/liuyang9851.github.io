@@ -115,6 +115,14 @@ export default defineConfig({
             { text: '13 · 重积分与曲线曲面积分', link: '/notes/13-multiple-integral' },
             { text: '14 · 级数', link: '/notes/14-series' }
           ]
+        },
+        {
+          text: '其它数学',
+          items: [
+            { text: '15 · 三角类函数', link: '/notes/15-trigonometric' },
+            { text: '16 · 解析几何', link: '/notes/16-analytic-geometry' },
+            { text: '17 · 概率论与数理统计', link: '/notes/17-probability' }
+          ]
         }
       ]
     },

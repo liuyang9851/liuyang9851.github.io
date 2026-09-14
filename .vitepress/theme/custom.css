@@ -1,7 +1,17 @@
 /**
- * 站点自定义样式
+ * 让宽表格可以横向滚动、宽公式可以横向滚动。
  *
- * 三件事：收紧左侧目录栏、行间公式可横向滚动、宽表格可横向滚动。
+ * 设计取舍（实测得出）：
+ *   1. MathJax 渲染出的公式是固定宽度的 <svg>，最宽可达 600px+，
+ *      窄屏下会撑破版面 -> 必须给公式容器加横向滚动。
+ *   2. 但不能用「只给 display 公式加」的方案：MathJax 在
+ *      fontCache 模式下会把**所有**容器设为 display:block，
+ *      表格单元格里的公式同样是 block，一旦只有 display 公式可滚动，
+ *      单元格内的宽公式就会撑破表格（实测第 16 章溢出 238px）。
+ *   3. 行内公式虽然也会被设为 overflow-x:auto，但它宽高为 0、
+ *      由文字流排版，不会被压成滚动框，实际影响为零。
+ *
+ * 因此：所有 mjx-container 统一开启横向滚动 + 常驻细滚动条。
  */
 
 /* ==========================================================================
@@ -25,18 +35,21 @@
 }
 
 /* ==========================================================================
-   2. 公式 —— 只有行间公式滚动
+   2. 公式 —— 只有行间公式与表格内的公式滚动
    ========================================================================== */
 
 /**
- * MathJax 渲染出的公式是固定宽度的 <svg>，最宽可达 602px，窄屏下会撑破
- * 版面。但**不能**给所有公式加滚动，否则每个行内符号都变成一个小滚动框，
- * 段落排版会被打断（实测 128 个行内公式全被设成了滚动容器）。
+ * 设计取舍（实测得出）：
+ *   - MathJax 的公式是固定宽度的 <svg>，最宽 600px+，窄屏会撑破版面
+ *   - 但**不能**给所有公式加滚动：实测会把行内符号也变成滚动容器
+ *     （第 16 章 129 个、第 11 章 101 个），段落排版被打断
+ *   - 表格单元格里的公式同样需要滚动，否则撑破表格
  *
- * 因此只对 MathJax 标记为 display 的行间公式启用横向滚动；
- * 行内公式保持默认行为，由文字流自然排版。
+ * 因此：行间公式（display=true）+ 表格内的公式 -> 可滚动；
+ *       正文里的行内公式 -> 保持默认，由文字流排版。
  */
-mjx-container[display='true'] {
+mjx-container[display='true'],
+.table-scroll mjx-container {
   overflow-x: auto;
   overflow-y: hidden;
   max-width: 100%;
@@ -50,33 +63,38 @@ mjx-container[display='true'] {
 }
 
 /* 公式本体保持自然宽度，不被压缩变形 */
-mjx-container[display='true'] > svg {
+mjx-container[display='true'] > svg,
+.table-scroll mjx-container > svg {
   min-width: min-content;
 }
 
 /**
- * 显式重置行内公式。
- *
- * markdown-it-mathjax3 在运行时注入了一条 `mjx-container { overflow-x: auto }`，
- * 默认作用于**所有**公式，包括行内符号。行内元素本身不会真的滚动，
- * 但留着容易在特定布局下变成小滚动框，这里明确关掉，保证行内公式
- * 由文字流正常排版。
+ * 显式重置正文里的行内公式。
+ * markdown-it-mathjax3 运行时注入了 `mjx-container { overflow-x: auto }`，
+ * 默认作用于所有公式；这里关掉，保证行内公式由文字流正常排版。
  */
 mjx-container:not([display='true']) {
   overflow: visible;
 }
 
+.table-scroll mjx-container:not([display='true']) {
+  overflow-x: auto;
+}
+
 /* WebKit（Chrome / Edge / Safari）：细滚动条样式 */
-mjx-container[display='true']::-webkit-scrollbar {
+mjx-container[display='true']::-webkit-scrollbar,
+.table-scroll mjx-container::-webkit-scrollbar {
   height: 6px;
 }
 
-mjx-container[display='true']::-webkit-scrollbar-thumb {
+mjx-container[display='true']::-webkit-scrollbar-thumb,
+.table-scroll mjx-container::-webkit-scrollbar-thumb {
   background-color: var(--vp-c-divider);
   border-radius: 3px;
 }
 
-mjx-container[display='true']::-webkit-scrollbar-thumb:hover {
+mjx-container[display='true']::-webkit-scrollbar-thumb:hover,
+.table-scroll mjx-container::-webkit-scrollbar-thumb:hover {
   background-color: var(--vp-c-text-3);
 }
 
