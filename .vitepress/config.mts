@@ -125,6 +125,21 @@ export default defineConfig({
           ]
         },
         {
+          text: '大学物理',
+          items: [
+            { text: '22 · 质点运动学', link: '/notes/22-mechanics-kinematics' },
+            { text: '23 · 质点动力学与刚体', link: '/notes/23-mechanics-dynamics' },
+            { text: '24 · 振动与波动', link: '/notes/24-oscillation-wave' },
+            { text: '25 · 狭义相对论', link: '/notes/25-relativity' },
+            { text: '26 · 热学', link: '/notes/26-thermodynamics' },
+            { text: '27 · 静电场', link: '/notes/27-electrostatics' },
+            { text: '28 · 磁场', link: '/notes/28-magnetism' },
+            { text: '29 · 电磁感应与电磁波', link: '/notes/29-induction-maxwell' },
+            { text: '30 · 光学', link: '/notes/30-optics' },
+            { text: '31 · 量子物理', link: '/notes/31-quantum' }
+          ]
+        },
+        {
           text: '编程与工具',
           items: [
             { text: '18 · 数据库系统概论', link: '/notes/18-database' },
