@@ -104,6 +104,17 @@ export default defineConfig({
             { text: '07 · 信息论基础', link: '/notes/07-information-theory' },
             { text: '08 · 最优化基础', link: '/notes/08-optimization' }
           ]
+        },
+        {
+          text: '微积分',
+          items: [
+            { text: '09 · 极限', link: '/notes/09-limits' },
+            { text: '10 · 导数与微分', link: '/notes/10-derivative' },
+            { text: '11 · 积分', link: '/notes/11-integral' },
+            { text: '12 · 微分方程', link: '/notes/12-ode' },
+            { text: '13 · 重积分与曲线曲面积分', link: '/notes/13-multiple-integral' },
+            { text: '14 · 级数', link: '/notes/14-series' }
+          ]
         }
       ]
     },
