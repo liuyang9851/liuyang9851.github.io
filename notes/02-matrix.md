@@ -114,36 +114,31 @@ $$\mathbf{AB} = \mathbf{BA} = \mathbf{I}_{n}$$
 
 则称$\mathbf{A}$为可逆（矩）阵、非（奇）异（矩）阵、满秩矩阵或非退化矩阵，称$\mathbf{B}$是$\mathbf{A}$的逆（矩）阵，记为$\mathbf{B =}\mathbf{A}^{- 1}$，否则称$\mathbf{A}$为奇异（矩）阵。
 
-<table><thead><tr><th></th><th>转置</th><th>行列式</th><th>$k$次幂</th><th>伴随矩阵</th><th>逆矩阵</th></tr></thead><tbody>
-<tr><td><strong>转置</strong></td><td>$$\mathbf{A}^{''} = \mathbf{A}$$</td><td>$$\left| \mathbf{A}' \right| = \left| \mathbf{A} \right|$$</td><td>$$\left( \mathbf{A}' \right)^{k} = \left( \mathbf{A}^{k} \right)'$$</td><td>$$\left( \mathbf{A}' \right)^{*} = \left( \mathbf{A}^{*} \right)'$$</td><td>$$\left( \mathbf{A}' \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)'$$</td></tr>
-<tr><td><strong>行列式</strong></td><td>$$\left| \mathbf{A} \right| = \left| \mathbf{A}' \right|$$</td><td></td><td>$$\left| \mathbf{A} \right|^{k} = \left| \mathbf{A}^{k} \right|$$</td><td>$$\left| \mathbf{A} \right|^{n - 1} = \left| \mathbf{A}^{*} \right|$$</td><td>$$\left| \mathbf{A} \right|^{- 1} = \left| \mathbf{A}^{- 1} \right|$$</td></tr>
-<tr><td><strong>$k$次幂</strong></td><td>$$\left( \mathbf{A}^{k} \right)' = \left( \mathbf{A}' \right)^{k}$$</td><td>$$\left| \mathbf{A}^{k} \right| = \left| \mathbf{A} \right|^{k}$$</td><td>$$\left( \mathbf{A}^{k} \right)^{t} = \mathbf{A}^{kt}$$</td><td>$$\left( \mathbf{A}^{k} \right)^{*} = \left( \mathbf{A}^{*} \right)^{k}$$</td><td>$$\left( \mathbf{A}^{k} \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)^{k}$$</td></tr>
-<tr><td><strong>伴随矩阵</strong></td><td>$$\left( \mathbf{A}^{*} \right)' = \left( \mathbf{A}' \right)^{*}$$</td><td>$$\left| \mathbf{A}^{*} \right| = \left| \mathbf{A} \right|^{n - 1}$$</td><td>$$\left( \mathbf{A}^{*} \right)^{k} = \left( \mathbf{A}^{k} \right)^{*}$$</td><td>$$\left( \mathbf{A}^{*} \right)^{*} = \left| \mathbf{A} \right|^{n - 2}\mathbf{A}$$</td><td>$$\left( \mathbf{A}^{*} \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)^{*} = \frac{1}{\left| \mathbf{A} \right|}\mathbf{A}$$</td></tr>
-<tr><td><strong>逆矩阵</strong></td><td>$$\left( \mathbf{A}^{- 1} \right)' = \left( \mathbf{A}' \right)^{- 1}$$</td><td>$$\left| \mathbf{A}^{- 1} \right| = \left| \mathbf{A} \right|^{- 1}$$</td><td>$$\left( \mathbf{A}^{- 1} \right)^{k} = \left( \mathbf{A}^{k} \right)^{- 1}$$</td><td>$$\left( \mathbf{A}^{- 1} \right)^{*} = \left( \mathbf{A}^{*} \right)^{- 1}$$</td><td>$$\left( \mathbf{A}^{- 1} \right)^{- 1} = \mathbf{A}$$</td></tr>
-</tbody></table>
+|  | 转置 | 行列式 | $k$次幂 | 伴随矩阵 | 逆矩阵 |
+| --- | --- | --- | --- | --- | --- |
+| 转置 | $\mathbf{A}^{''} = \mathbf{A}$ | $\left| \mathbf{A}' \right| = \left| \mathbf{A} \right|$ | $\left( \mathbf{A}' \right)^{k} = \left( \mathbf{A}^{k} \right)'$ | $\left( \mathbf{A}' \right)^{*} = \left( \mathbf{A}^{*} \right)'$ | $\left( \mathbf{A}' \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)'$ |
+| 行列式 | $\left| \mathbf{A} \right| = \left| \mathbf{A}' \right|$ |  | $\left| \mathbf{A} \right|^{k} = \left| \mathbf{A}^{k} \right|$ | $\left| \mathbf{A} \right|^{n - 1} = \left| \mathbf{A}^{*} \right|$ | $\left| \mathbf{A} \right|^{- 1} = \left| \mathbf{A}^{- 1} \right|$ |
+| $k$次幂 | $\left( \mathbf{A}^{k} \right)' = \left( \mathbf{A}' \right)^{k}$ | $\left| \mathbf{A}^{k} \right| = \left| \mathbf{A} \right|^{k}$ | $\left( \mathbf{A}^{k} \right)^{t} = \mathbf{A}^{kt}$ | $\left( \mathbf{A}^{k} \right)^{*} = \left( \mathbf{A}^{*} \right)^{k}$ | $\left( \mathbf{A}^{k} \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)^{k}$ |
+| 伴随矩阵 | $\left( \mathbf{A}^{*} \right)' = \left( \mathbf{A}' \right)^{*}$ | $\left| \mathbf{A}^{*} \right| = \left| \mathbf{A} \right|^{n - 1}$ | $\left( \mathbf{A}^{*} \right)^{k} = \left( \mathbf{A}^{k} \right)^{*}$ | $\left( \mathbf{A}^{*} \right)^{*} = \left| \mathbf{A} \right|^{n - 2}\mathbf{A}$ | $\left( \mathbf{A}^{*} \right)^{- 1} = \left( \mathbf{A}^{- 1} \right)^{*} = \frac{1}{\left| \mathbf{A} \right|}\mathbf{A}$ |
+| 逆矩阵 | $\left( \mathbf{A}^{- 1} \right)' = \left( \mathbf{A}' \right)^{- 1}$ | $\left| \mathbf{A}^{- 1} \right| = \left| \mathbf{A} \right|^{- 1}$ | $\left( \mathbf{A}^{- 1} \right)^{k} = \left( \mathbf{A}^{k} \right)^{- 1}$ | $\left( \mathbf{A}^{- 1} \right)^{*} = \left( \mathbf{A}^{*} \right)^{- 1}$ | $\left( \mathbf{A}^{- 1} \right)^{- 1} = \mathbf{A}$ |
 
-<table><thead><tr><th></th><th>转置</th><th>行列式</th><th>$k$次幂</th><th>伴随矩阵</th><th>逆矩阵</th></tr></thead><tbody>
-<tr><td>$\mathbf{I}$</td><td>$$\mathbf{I}$$</td><td>$$1$$</td><td>$$\mathbf{I}$$</td><td>$$\mathbf{I}$$</td><td>$$\mathbf{I}$$</td></tr>
-<tr><td>$\mathbf{P}_{ij}$</td><td>$$\mathbf{P}_{ij}$$</td><td>$$- 1$$</td><td></td><td>$$\mathbf{P}_{ij}$$</td><td>$$\mathbf{P}_{ij}$$</td></tr>
-<tr><td>$\mathbf{P}_{i}(c)$</td><td>$$\mathbf{P}_{i}(c)$$</td><td>$$c$$</td><td></td><td>$$\mathbf{P}_{i}\left( \frac{1}{c} \right)$$</td><td>$$\mathbf{P}_{i}\left( \frac{1}{c} \right)$$</td></tr>
-<tr><td>$\mathbf{T}_{ij}(c)$</td><td>$$\mathbf{T}_{ji}(c)$$</td><td>$$1$$</td><td></td><td>$$\mathbf{T}_{ij}( - c)$$</td><td>$$\mathbf{T}_{ij}( - c)$$</td></tr>
-<tr><td>$\mathbf{\Lambda}$</td><td>$$\mathbf{\\Lambda}$$</td><td>$$\prod_{i = 1}^{n}a_{ii}$$</td><td></td><td>$$diag\left\{ \frac{\left| \mathbf{A} \right|}{a_{11}},\frac{\left| \mathbf{A} \right|}{a_{22}},\cdots,\frac{\left| \mathbf{A} \right|}{a_{nn}} \right\}$$</td><td>$$diag\left\{ - a_{11}, - a_{22},\cdots,\  - a_{nn} \right\}$$</td></tr>
-<tr><td>分块对角阵</td><td>$$\begin{pmatrix} \mathbf{A}^{\mathbf{'}} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{\mathbf{'}} \end{pmatrix}$$</td><td>$$\left| \mathbf{AB} \right|$$</td><td>$$\begin{pmatrix} \mathbf{A}^{n} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{n} \end{pmatrix}$$</td><td>$$\begin{pmatrix} \mathbf{A}^{\mathbf{*}} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{\mathbf{*}} \end{pmatrix}$$</td><td>$$\begin{pmatrix} \mathbf{A}^{- 1} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{- 1} \end{pmatrix}$$</td></tr>
-<tr><td>反对角阵</td><td>不变</td><td>$$( - 1)^{\frac{n(n - 1)}{2}}\prod_{}^{}a_{i}$$</td><td></td><td></td><td></td></tr>
-<tr><td>分块反对角阵</td><td>$$\begin{pmatrix} \mathbf{O} & \mathbf{B}^{\mathbf{'}} \\ \mathbf{A}^{\mathbf{'}} & \mathbf{O} \end{pmatrix}$$</td><td></td><td></td><td></td><td>$$\begin{pmatrix} \mathbf{O} & \mathbf{B}^{- 1} \\ \mathbf{A}^{- 1} & \mathbf{O} \end{pmatrix}$$</td></tr>
-<tr><td>上/下三角阵</td><td>仍为三角阵，且对角线上的元素分别为原三角阵的对角阵对应变化而来的对应元素。</td><td></td><td></td><td></td><td></td></tr>
-<tr><td>可逆阵</td><td>可逆</td><td>$$\neq 0$$</td><td>可逆</td><td>可逆</td><td>可逆</td></tr>
-<tr><td>$\mathbf{A}^{\mathbf{'}}\mathbf{= A}$</td><td>$$\mathbf{A}$$</td><td></td><td></td><td>对称</td><td>若可逆则逆阵仍对称</td></tr>
-<tr><td>反对称矩阵</td><td>$$\mathbf{- A}$$</td><td>奇数阶为$0$，偶数阶$\geq 0$</td><td></td><td>奇数阶为零矩阵<br>偶数阶为对称阵</td><td>若可逆则逆阵偶数阶反对称</td></tr>
-<tr><td>$\mathbf{A}^{\mathbf{'}}\mathbf{= - A}$</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>正交矩阵<br>（是实矩阵）</td><td>$\mathbf{A}^{- 1}$（正交）</td><td>$$\pm 1$$</td><td>正交</td><td>$\mathbf{\pm}\mathbf{A}^{\mathbf{'}}$（正交）</td><td>$\mathbf{A}^{\mathbf{'}}$（正交）</td></tr>
-<tr><td>$\mathbf{A}\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{\mathbf{'}}\mathbf{A = I}$</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>$\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{- 1}$</td><td></td><td></td><td></td><td>正交矩阵$\Leftrightarrow$方阵的列向量为单位向量，且两两正交。<br><br>若$\mathbf{A}$，$\mathbf{B}$是正交矩阵，则$\mathbf{AB}$也是正交矩阵。</td><td></td></tr>
-<tr><td>正定矩阵</td><td>正定</td><td>$$\geq 0$$</td><td>正定</td><td>正定</td><td>正定</td></tr>
-<tr><td>$\forall\mathbf{x \neq 0},\mathbf{\ }\mathbf{x}^{\mathbf{'}}\mathbf{Ax > 0}$</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>正规矩阵</td><td>正规</td><td></td><td></td><td>正规</td><td>若可逆则逆阵仍正规</td></tr>
-<tr><td>$\mathbf{A}\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{\mathbf{'}}\mathbf{A}$</td><td></td><td></td><td></td><td></td><td></td></tr>
-</tbody></table>
+|  | 转置 | 行列式 | $k$次幂 | 伴随矩阵 | 逆矩阵 |
+| --- | --- | --- | --- | --- | --- |
+| $\mathbf{I}$ | $\mathbf{I}$ | $1$ | $\mathbf{I}$ | $\mathbf{I}$ | $\mathbf{I}$ |
+| $\mathbf{P}_{ij}$ | $\mathbf{P}_{ij}$ | $- 1$ |  | $\mathbf{P}_{ij}$ | $\mathbf{P}_{ij}$ |
+| $\mathbf{P}_{i}(c)$ | $\mathbf{P}_{i}(c)$ | $c$ |  | $\mathbf{P}_{i}\left( \frac{1}{c} \right)$ | $\mathbf{P}_{i}\left( \frac{1}{c} \right)$ |
+| $\mathbf{T}_{ij}(c)$ | $\mathbf{T}_{ji}(c)$ | $1$ |  | $\mathbf{T}_{ij}( - c)$ | $\mathbf{T}_{ij}( - c)$ |
+| $\mathbf{\Lambda}$ | $\mathbf{\\Lambda}$ | $\prod_{i = 1}^{n}a_{ii}$ |  | $diag\left\{ \frac{\left| \mathbf{A} \right|}{a_{11}},\frac{\left| \mathbf{A} \right|}{a_{22}},\cdots,\frac{\left| \mathbf{A} \right|}{a_{nn}} \right\}$ | $diag\left\{ - a_{11}, - a_{22},\cdots,\  - a_{nn} \right\}$ |
+| 分块对角阵 | $\begin{pmatrix} \mathbf{A}^{\mathbf{'}} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{\mathbf{'}} \end{pmatrix}$ | $\left| \mathbf{AB} \right|$ | $\begin{pmatrix} \mathbf{A}^{n} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{n} \end{pmatrix}$ | $\begin{pmatrix} \mathbf{A}^{\mathbf{*}} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{\mathbf{*}} \end{pmatrix}$ | $\begin{pmatrix} \mathbf{A}^{- 1} & \mathbf{O} \\ \mathbf{O} & \mathbf{B}^{- 1} \end{pmatrix}$ |
+| 反对角阵 | 不变 | $( - 1)^{\frac{n(n - 1)}{2}}\prod_{}^{}a_{i}$ |  |  |  |
+| 分块反对角阵 | $\begin{pmatrix} \mathbf{O} & \mathbf{B}^{\mathbf{'}} \\ \mathbf{A}^{\mathbf{'}} & \mathbf{O} \end{pmatrix}$ |  |  |  | $\begin{pmatrix} \mathbf{O} & \mathbf{B}^{- 1} \\ \mathbf{A}^{- 1} & \mathbf{O} \end{pmatrix}$ |
+| 上/下三角阵 | 仍为三角阵，且对角线上的元素分别为原三角阵的对角阵对应变化而来的对应元素。 |  |  |  |  |
+| 可逆阵 | 可逆 | $\neq 0$ | 可逆 | 可逆 | 可逆 |
+| 对称矩阵<br>$\mathbf{A}^{\mathbf{'}}\mathbf{= A}$ | $\mathbf{A}$ |  |  | 对称 | 若可逆则逆阵仍对称 |
+| 反对称矩阵<br>$\mathbf{A}^{\mathbf{'}}\mathbf{= - A}$ | $\mathbf{- A}$ | 奇数阶为$0$，偶数阶$\geq 0$ |  | 奇数阶为零矩阵<br>偶数阶为对称阵 | 若可逆则逆阵偶数阶反对称 |
+| 正交矩阵<br>（是实矩阵）<br>$\mathbf{A}\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{\mathbf{'}}\mathbf{A = I}$<br>$\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{- 1}$ | $\mathbf{A}^{- 1}$（正交） | $\pm 1$ | 正交 | $\mathbf{\pm}\mathbf{A}^{\mathbf{'}}$（正交） | $\mathbf{A}^{\mathbf{'}}$（正交）<br>正交矩阵$\Leftrightarrow$方阵的列向量为单位向量，且两两正交。<br>若$\mathbf{A}$，$\mathbf{B}$是正交矩阵，则$\mathbf{AB}$也是正交矩阵。 |
+| 正定矩阵<br>$\forall\mathbf{x \neq 0},\mathbf{\ }\mathbf{x}^{\mathbf{'}}\mathbf{Ax > 0}$ | 正定 | $\geq 0$ | 正定 | 正定 | 正定 |
+| 正规矩阵<br>$\mathbf{A}\mathbf{A}^{\mathbf{'}}\mathbf{=}\mathbf{A}^{\mathbf{'}}\mathbf{A}$ | 正规 |  |  | 正规 | 若可逆则逆阵仍正规 |
 
 ## 初等变换与初等矩阵
 
