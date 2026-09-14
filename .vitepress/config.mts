@@ -97,6 +97,13 @@ export default defineConfig({
             { text: '05 · 特征值理论', link: '/notes/05-eigen' },
             { text: '06 · 二次型理论', link: '/notes/06-quadratic' }
           ]
+        },
+        {
+          text: '信息论与最优化',
+          items: [
+            { text: '07 · 信息论基础', link: '/notes/07-information-theory' },
+            { text: '08 · 最优化基础', link: '/notes/08-optimization' }
+          ]
         }
       ]
     },
