@@ -13,7 +13,7 @@ description: 特征值与特征向量的性质、相似对角化、实对称矩�
 
 |  | 转置 | $k$次幂 | 伴随 | 逆矩阵 | 多项式 |
 | --- | --- | --- | --- | --- | --- |
-| 特征值 | $\lambda$ | $\lambda^{k}$ | $|A|\lambda^{- 1}$ | $\lambda^{- 1}$ | $f(\lambda)$ |
+| 特征值 | $\lambda$ | $\lambda^{k}$ | $\vertA\vert\lambda^{- 1}$ | $\lambda^{- 1}$ | $f(\lambda)$ |
 
 ## 对角化
 
