@@ -132,6 +132,7 @@ n
 
 <div class="table-scroll">
 <table>
+<tbody>
 <tr>
 <th rowspan="16">
 
@@ -368,6 +369,7 @@ Glivenko（格利文科）定理：$P\left( \sup_{- \infty < x < + \infty}\left\
 
 </td>
 </tr>
+</tbody>
 </table>
 </div>
 

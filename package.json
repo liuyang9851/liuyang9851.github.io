@@ -8,7 +8,7 @@
     "dev": "vitepress dev .",
     "build": "vitepress build .",
     "preview": "vitepress preview .",
-    "check": "node tools/probe-macros.mjs && node tools/validate-math.mjs && node tools/validate-config.mjs"
+    "check": "node tools/probe-macros.mjs && node tools/validate-math.mjs && node tools/validate-config.mjs && node tools/validate-tables.mjs"
   },
   "devDependencies": {
     "markdown-it": "^15.0.2",
