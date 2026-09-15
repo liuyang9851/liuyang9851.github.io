@@ -274,14 +274,14 @@ $$p_{ij} = P\left( X = x_{i},Y = y_{j} \right)$$
 <tr>
 <td colspan="2">
 
-$$p\left( x_{i} \right) \geq 0,i = 1,2,\cdots$$ $$\sum_{i}^{}{p\left( x_{i} \right)} = 1$$
+$$p\left( x_{i} \right) \geq 0,i = 1,2,\cdots \\ \sum_{i}^{}{p\left( x_{i} \right)} = 1$$
 
 </td>
 </tr>
 <tr>
 <td colspan="2">
 
-$$p_{ij} \geq 0$$ $$\sum_{i}^{}{\sum_{j}^{}p_{ij}} = 1$$
+$$p_{ij} \geq 0 \\ \sum_{i}^{}{\sum_{j}^{}p_{ij}} = 1$$
 
 </td>
 </tr>
@@ -305,21 +305,21 @@ $$F(x,y) = \int_{- \infty}^{x}{\int_{- \infty}^{y}{p(u,v)dvdu}}$$
 <tr>
 <td colspan="2">
 
-$$p(x) \geq 0$$ $$p(x,y) \geq 0$$
+$$p(x) \geq 0 \\ p(x,y) \geq 0$$
 
 </td>
 </tr>
 <tr>
 <td colspan="2">
 
-$$\int_{- \infty}^{+ \infty}{p(x)dx} = 1$$ $$\int_{- \infty}^{+ \infty}{\int_{- \infty}^{+ \infty}{p(x,y)dydx}} = 1$$
+$$\int_{- \infty}^{+ \infty}{p(x)dx} = 1 \\ \int_{- \infty}^{+ \infty}{\int_{- \infty}^{+ \infty}{p(x,y)dydx}} = 1$$
 
 </td>
 </tr>
 <tr>
 <td colspan="2">
 
-$$P(a < X \leq b) = \int_{a}^{b}{p(x)dx}$$ $$P\left( (X,Y) \in D \right) = \iint_{D}^{}{p(x,y)dxdy}$$
+$$P(a < X \leq b) = \int_{a}^{b}{p(x)dx} \\ P\left( (X,Y) \in D \right) = \iint_{D}^{}{p(x,y)dxdy}$$
 
 </td>
 </tr>
@@ -2352,10 +2352,10 @@ $$p_{R}(r) = n(n - 1)\int_{- \infty}^{+ \infty}{\left\lbrack F(u + r) - F(u) \ri
 
 $$\frac{\overline{x} - \mu}{\sigma\text{/}\sqrt{n}}\sim N(0,1)$$
 
-$$\frac{1}{\sigma^{2}}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}\sim\chi^{2}(n)$$   $$\frac{s_{x}^{2}\text{/}\sigma_{x}^{2}}{s_{y}^{2}\text{/}\sigma_{y}^{2}}\sim F(m - 1,n - 1)$$
+$$\frac{1}{\sigma^{2}}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}\sim\chi^{2}(n) \\ \frac{s_{x}^{2}\text{/}\sigma_{x}^{2}}{s_{y}^{2}\text{/}\sigma_{y}^{2}}\sim F(m - 1,n - 1)$$
 $$\frac{\overline{x} - \mu}{s\text{/}\sqrt{n}}\sim t(n - 1)$$
 
-$$\frac{1}{\sigma^{2}}(n - 1)s^{2}\sim\chi^{2}(n - 1)$$                                      $$\frac{1}{\sigma^{2}}ns_{n}^{2}\sim\chi^{2}(n - 1)$$
+$$\frac{1}{\sigma^{2}}(n - 1)s^{2}\sim\chi^{2}(n - 1) \\ \frac{1}{\sigma^{2}}ns_{n}^{2}\sim\chi^{2}(n - 1)$$
 
 设$x_{i}$是从随机变量$X$中抽取的独立样本，则
 
