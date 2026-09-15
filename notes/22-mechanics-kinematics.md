@@ -65,7 +65,6 @@ $$\text{故}\mathbf{a}_{n} = v\omega\mathbf{e}_{n} = \frac{v^{2}}{r}\mathbf{e}_{
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th>
@@ -83,7 +82,7 @@ $$\text{故}\mathbf{a}_{n} = v\omega\mathbf{e}_{n} = \frac{v^{2}}{r}\mathbf{e}_{
 角量
 
 </th>
-<th>
+<th colspan="2">
 
 线量与角量的关系
 
@@ -99,17 +98,17 @@ $$\text{故}\mathbf{a}_{n} = v\omega\mathbf{e}_{n} = \frac{v^{2}}{r}\mathbf{e}_{
 </td>
 <td>
 
-s
+$$s$$
 
 </td>
 <td>
 
-θ
+$$\theta$$
 
 </td>
 <td>
 
-s = θr
+$$s = \theta r$$
 
 </td>
 <td>
@@ -136,12 +135,12 @@ $$\omega = \frac{d\theta}{dt}$$
 </td>
 <td>
 
-v = ωr
+$$v = \omega r$$
 
 </td>
 <td>
 
-an = vω
+$$a_{n} = v\omega$$
 
 </td>
 </tr>
@@ -163,12 +162,12 @@ $$\beta = \frac{d\omega}{dt} = \frac{d^{2}\theta}{dt^{2}}$$
 </td>
 <td>
 
-at = βr
+$$a_{t} = \beta r$$
 
 </td>
 <td>
 
-an = ω2r
+$$a_{n} = \omega^{2}r$$
 
 </td>
 </tr>

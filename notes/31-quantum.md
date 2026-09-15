@@ -324,13 +324,14 @@ $$\pm \frac{1}{2}$$
 ### 原子的壳层结构
 
 <div class="table-scroll">
-<table style="width:55%;">
-
+<table>
 <thead>
 <tr>
-<th>
+<th colspan="3">
 
-主量子数n
+主量子数
+
+$$n$$
 
 </th>
 <th>
@@ -372,7 +373,7 @@ $$\pm \frac{1}{2}$$
 </thead>
 <tbody>
 <tr>
-<td>
+<td colspan="3">
 
 （主）壳层名
 
@@ -414,7 +415,7 @@ Q
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
 量子态数
 
@@ -462,12 +463,12 @@ Q
 
 含有的支壳层
 
-l ∈ [0, n − 1]
+$$l \in \lbrack 0,n - 1\rbrack$$
 
 </td>
 <td>
 
-l=
+$$l =$$
 
 </td>
 <td>
@@ -570,13 +571,14 @@ l=
 </div>
 
 <div class="table-scroll">
-<table style="width:59%;">
-
+<table>
 <thead>
 <tr>
 <th>
 
-角量子数l
+角量子数
+
+$$l$$
 
 </th>
 <th>
@@ -660,11 +662,13 @@ i
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
-磁量子数ml
+磁量子数
 
-mi ∈ [−l, l]
+$$m_{l}$$
+
+$$m_{i} \in \lbrack - l,l\rbrack$$
 
 </td>
 <td>
@@ -789,7 +793,11 @@ mi ∈ [−l, l]
 
 （能容纳的电子数）
 
-（磁量子数ml × 2）
+（磁量子数
+
+$$m_{l} \times 2$$
+
+）
 
 </td>
 <td>
