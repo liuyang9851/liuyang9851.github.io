@@ -194,6 +194,18 @@ export default defineConfig({
           ]
         },
         {
+          text: '高中数学（B · 拓展）',
+          collapsed: true,
+          items: [
+            { text: 'B1 · 整式的性质与恒等变形', link: '/notes/hs-b01' },
+            { text: 'B1 · 集合论与逻辑术语', link: '/notes/hs-b01b' },
+            { text: 'B2 · 不等式', link: '/notes/hs-b02' },
+            { text: 'B3 · 数学归纳法', link: '/notes/hs-b03' },
+            { text: 'B4 · 代数与函数方法', link: '/notes/hs-b04' },
+            { text: 'B4 · 数学奠基', link: '/notes/hs-b04b' },
+          ]
+        },
+        {
           text: '高中数学（附录）',
           collapsed: true,
           items: [
