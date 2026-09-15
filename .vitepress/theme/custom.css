@@ -69,9 +69,43 @@ mjx-container[display='true'] > svg,
 }
 
 /**
- * 显式重置正文里的行内公式。
- * markdown-it-mathjax3 运行时注入了 `mjx-container { overflow-x: auto }`，
- * 默认作用于所有公式；这里关掉，保证行内公式由文字流正常排版。
+ * 独立的行内公式（独占一个段落）也要能横向滚动。
+ *
+ * 实测：Word 转换的笔记里，有些「行间公式」在源文档中并非公式对象，
+ * MathJax 未标记 display="true"，仍是 inline（如线性代数第 42 章的
+ * 行列式按行展开式，宽 734px）。它们独占一个 <p>，若不裁剪会把
+ * 整个页面撑宽（实测 documentElement.scrollWidth 758 > 390）。
+ *
+ * 判定：父元素是 <p> 且该 <p> 里没有其它可见文本 —— 这类公式本质上
+ * 就是行间公式，安全地按行间公式处理。
+ */
+p:has(> mjx-container:only-child:not([display='true'])) {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  min-width: 0;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-divider) transparent;
+}
+
+/* 段落里包着公式、但公式不是唯一子元素时（MathJax 常加 <mjx-assistive-mml>），
+   用相邻选择器兜底 */
+p > mjx-container:not([display='true']):last-child:first-child {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* 上述两类容器里的公式本体保持自然宽度 */
+p:has(> mjx-container:only-child:not([display='true'])) > mjx-container > svg,
+p > mjx-container:not([display='true']):last-child:first-child > svg {
+  min-width: min-content;
+}
+
+/**
+ * 正文里与文字混排的行内公式保持默认（不裁剪），由文字流正常排版。
  */
 mjx-container:not([display='true']) {
   overflow: visible;

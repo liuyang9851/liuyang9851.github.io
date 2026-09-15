@@ -155,6 +155,17 @@ export default defineConfig({
           ]
         },
         {
+          text: '线性代数（完整版）',
+          items: [
+            { text: '42 · 行列式', link: '/notes/42-la-determinant' },
+            { text: '43 · 矩阵', link: '/notes/43-la-matrix' },
+            { text: '44 · 向量与线性空间', link: '/notes/44-la-vector-space' },
+            { text: '45 · 向量组与矩阵的秩', link: '/notes/45-la-rank' },
+            { text: '46 · 线性方程组求解', link: '/notes/46-la-linear-system' },
+            { text: '47 · 多项式', link: '/notes/47-la-polynomial' }
+          ]
+        },
+        {
           text: '编程与工具',
           items: [
             { text: '18 · 数据库系统概论', link: '/notes/18-database' },
