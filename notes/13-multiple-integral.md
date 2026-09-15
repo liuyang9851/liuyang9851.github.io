@@ -239,20 +239,28 @@ $$rot\ \mathbf{A} = \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\pa
 </td>
 <td>
 
+面积
+
 $$S = \iint_{D}^{}{d\sigma}$$
 
 </td>
 <td>
+
+体积
 
 $$V = \iiint_{\Omega}^{}{dv}$$
 
 </td>
 <td>
 
+弧长
+
 $$L = \int_{C}^{}{ds}$$
 
 </td>
 <td>
+
+面积
 
 $$S = \iint_{\Sigma}^{}{dS}$$
 
@@ -345,16 +353,13 @@ $$I_{z} = \iiint_{\Omega}^{}{\left( x^{2} + y^{2} \right)\rho dv}$$
 引力
 
 </td>
-<td>
+<td colspan="4">
 
 空间物体对物体外一点$\left( x_{0}\text{，}y_{0}\text{，}z_{0} \right)$处单位质量的质点的引力
 
 $$\mathbf{F} = \left( \iiint_{\Omega}^{}\frac{G\rho\left( x - x_{0} \right)}{r^{3}}\text{，}\iiint_{\Omega}^{}\frac{G\rho\left( y - y_{0} \right)}{r^{3}}\text{，}\iiint_{\Omega}^{}\frac{G\rho\left( z - z_{0} \right)}{r^{3}} \right)$$
 
 </td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>

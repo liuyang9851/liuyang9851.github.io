@@ -1000,10 +1000,9 @@ $$\ln\left| \tanh\frac{x}{2} \right| + C$$
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
-<th>
+<th colspan="2">
 
 三角函数
 
@@ -1027,41 +1026,41 @@ $$\ln\left| \tanh\frac{x}{2} \right| + C$$
 </thead>
 <tbody>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = sin x
+$$y = \sin x$$
 
 </td>
 <td>
 
-y = cos x
+$$y = \cos x$$
 
 </td>
 <td>
 
-y = tan x
+$$y = \tan x$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
@@ -1071,29 +1070,29 @@ $$\left\{ x|x \neq \frac{\pi}{2} + k\pi,k\mathbb{\in Z} \right\}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
 </td>
 <td>
 
-[0，1]
+$$\lbrack 0\text{，}1\rbrack$$
 
 </td>
 <td>
 
-[0，1]
+$$\lbrack 0\text{，}1\rbrack$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -1115,29 +1114,29 @@ $$\left\{ x|x \neq \frac{\pi}{2} + k\pi,k\mathbb{\in Z} \right\}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
 </td>
 <td>
 
-2π
+$$2\pi$$
 
 </td>
 <td>
 
-2π
+$$2\pi$$
 
 </td>
 <td>
 
-π
+$$\pi$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
@@ -1149,20 +1148,20 @@ $$x = \frac{\pi}{2} + k\pi$$
 </td>
 <td>
 
-x = kπ
+$$x = k\pi$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
 </td>
 <td>
 
-(kπ，0)
+$$(k\pi \text{，}0)$$
 
 </td>
 <td>
@@ -1177,7 +1176,7 @@ $$\left( \frac{k}{2}\pi \text{，}0 \right)$$
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -1194,7 +1193,7 @@ $$\left( - \frac{\pi}{2}\text{，}\frac{\pi}{2} \right) + 2k\pi$$
 </td>
 <td>
 
-(−π，0) + 2kπ
+$$( - \pi \text{，}0) + 2k\pi$$
 
 </td>
 <td>
@@ -1216,13 +1215,13 @@ $$\left( \frac{\pi}{2}\text{，}\frac{3\pi}{2} \right) + 2k\pi$$
 </td>
 <td>
 
-(0，π) + 2kπ
+$$(0\text{，}\pi) + 2k\pi$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -1239,10 +1238,10 @@ $$x = \frac{\pi}{2} + 2k\pi$$
 </td>
 <td>
 
-x = 2kπ
+$$x = 2k\pi$$
 
 </td>
-<td></td>
+<td rowspan="2"></td>
 </tr>
 <tr>
 <td>
@@ -1257,12 +1256,12 @@ $$x = - \frac{\pi}{2} + 2k\pi$$
 </td>
 <td>
 
-x = π + 2kπ
+$$x = \pi + 2k\pi$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 简图的特殊点
 
@@ -1284,7 +1283,7 @@ $\left( \frac{3}{2}\pi \text{，}0 \right)\ (2\pi \text{，}1)$
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 三角函数
 
@@ -1306,36 +1305,36 @@ $\left( \frac{3}{2}\pi \text{，}0 \right)\ (2\pi \text{，}1)$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = csc x
+$$y = \csc x$$
 
 </td>
 <td>
 
-y = sec x
+$$y = \sec x$$
 
 </td>
 <td>
 
-y = cot x
+$$y = \cot x$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
 </td>
 <td>
 
-{x | x ≠ kπ，k ∈ ℤ}
+$$\left\{ x\ |\ x \neq k\pi \text{，}k\mathbb{\in Z} \right\}$$
 
 </td>
 <td>
@@ -1345,34 +1344,34 @@ $$\left\{ x\ |\ x \neq \frac{\pi}{2} + k\pi \text{，}k\mathbb{\in Z} \right\}$$
 </td>
 <td>
 
-{x | x ≠ kπ，k ∈ ℤ}
+$$\left\{ x\ |\ x \neq k\pi \text{，}k\mathbb{\in Z} \right\}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
 </td>
 <td>
 
-(−∞， − 1] ∪ [1， + ∞)
+$$( - \infty \text{，} - 1\rbrack \cup \lbrack 1\text{，} + \infty)$$
 
 </td>
 <td>
 
-(−∞， − 1] ∪ [1， + ∞)
+$$( - \infty \text{，} - 1\rbrack \cup \lbrack 1\text{，} + \infty)$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -1394,29 +1393,29 @@ $$\left\{ x\ |\ x \neq \frac{\pi}{2} + k\pi \text{，}k\mathbb{\in Z} \right\}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
 </td>
 <td>
 
-2π
+$$2\pi$$
 
 </td>
 <td>
 
-2π
+$$2\pi$$
 
 </td>
 <td>
 
-π
+$$\pi$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
@@ -1428,20 +1427,20 @@ $$x = \frac{\pi}{2} + k\pi$$
 </td>
 <td>
 
-x = kπ
+$$x = k\pi$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
 </td>
 <td>
 
-(kπ，0)
+$$(k\pi \text{，}0)$$
 
 </td>
 <td>
@@ -1456,7 +1455,7 @@ $$\left( \frac{k}{2}\pi \text{，}0 \right)$$
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -1504,12 +1503,12 @@ $$\left( - \frac{\pi}{2}\text{，}0 \right) + 2k\pi$$
 </td>
 <td>
 
-(0，π) + kπ
+$$(0\text{，}\pi) + k\pi$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -1526,10 +1525,10 @@ $$x = - \frac{\pi}{2} + 2k\pi$$
 </td>
 <td>
 
-x = π + 2kπ
+$$x = \pi + 2k\pi$$
 
 </td>
-<td></td>
+<td rowspan="2"></td>
 </tr>
 <tr>
 <td>
@@ -1544,7 +1543,7 @@ $$x = \frac{\pi}{2} + 2k\pi$$
 </td>
 <td>
 
-x = 2kπ
+$$x = 2k\pi$$
 
 </td>
 </tr>
@@ -1553,11 +1552,10 @@ x = 2kπ
 </div>
 
 <div class="table-scroll">
-<table style="width:100%;">
-
+<table>
 <thead>
 <tr>
-<th>
+<th colspan="2">
 
 反三角函数
 
@@ -1581,51 +1579,51 @@ x = 2kπ
 </thead>
 <tbody>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = arcsin x
+$$y = \arcsin x$$
 
 </td>
 <td>
 
-y = arccos x
+$$y = \arccos x$$
 
 </td>
 <td>
 
-y = arctan x
+$$y = \arctan x$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
 </td>
 <td>
 
-[−1，1]
+$$\lbrack - 1\text{，}1\rbrack$$
 
 </td>
 <td>
 
-[−1，1]
+$$\lbrack - 1\text{，}1\rbrack$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
@@ -1637,7 +1635,7 @@ $$\left\lbrack - \frac{\pi}{2}\text{，}\frac{\pi}{2} \right\rbrack$$
 </td>
 <td>
 
-[1，π]
+$$\lbrack 1\text{，}\pi\rbrack$$
 
 </td>
 <td>
@@ -1647,7 +1645,7 @@ $$\left\lbrack - \frac{\pi}{2}\text{，}\frac{\pi}{2} \right\rbrack$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -1669,30 +1667,30 @@ $$\left\lbrack - \frac{\pi}{2}\text{，}\frac{\pi}{2} \right\rbrack$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
 </td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 <td>
@@ -1702,12 +1700,12 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 </td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -1719,13 +1717,13 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 </td>
 <td>
 
-[−1，1]
+$$\lbrack - 1\text{，}1\rbrack$$
 
 </td>
 <td></td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
@@ -1738,13 +1736,13 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 <td></td>
 <td>
 
-[−1，1]
+$$\lbrack - 1\text{，}1\rbrack$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -1754,7 +1752,7 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 极大值点
 
 </td>
-<td></td>
+<td rowspan="2" colspan="3"></td>
 </tr>
 <tr>
 <td>
@@ -1764,7 +1762,7 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 反三角函数
 
@@ -1786,63 +1784,63 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = arccscx
+$$y = {arccsc}x$$
 
 </td>
 <td>
 
-y = arcsecx
+$$y = {arcsec}x$$
 
 </td>
 <td>
 
-y = arccotx
+$$y = {arccot}x$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
 </td>
 <td>
 
-(−∞， − 1] ∪ [1， + ∞)
+$$( - \infty \text{，} - 1\rbrack\ \cup \ \lbrack 1\text{，} + \infty)$$
 
 </td>
 <td>
 
-(−∞， − 1] ∪ [1， + ∞)
+$$( - \infty \text{，} - 1\rbrack\ \cup \ \lbrack 1\text{，} + \infty)$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
 </td>
 <td>
 
-$$\left\lbrack 0\text{，}\frac{\pi}{2} \right)\  \cup \ \left( \frac{\pi}{2}\text{，}\ \pi \right\rbrack$$
+$$\left\lbrack 0\text{，}\frac{\pi}{2} \right)\ \cup \ \left( \frac{\pi}{2}\text{，}\ \pi \right\rbrack$$
 
 </td>
 <td>
 
-$$\left\lbrack 0\text{，}\frac{\pi}{2} \right)\  \cup \ \left( \frac{\pi}{2}\text{，}\ \pi \right\rbrack$$
+$$\left\lbrack 0\text{，}\frac{\pi}{2} \right)\ \cup \ \left( \frac{\pi}{2}\text{，}\ \pi \right\rbrack$$
 
 </td>
 <td>
@@ -1852,7 +1850,7 @@ $$\left\lbrack - \frac{\pi}{2}\text{，}\frac{\pi}{2} \right\rbrack$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -1874,29 +1872,29 @@ $$\left\lbrack - \frac{\pi}{2}\text{，}\frac{\pi}{2} \right\rbrack$$
 </td>
 </tr>
 <tr>
-<td></td>
+<td colspan="2"></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
@@ -1913,12 +1911,12 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 </td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -1931,7 +1929,7 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 <td></td>
 <td>
 
-(−∞， − 1] ∪ [1， + ∞)
+$$( - \infty \text{，} - 1\rbrack\ \cup \ \lbrack 1\text{，} + \infty)$$
 
 </td>
 <td></td>
@@ -1944,18 +1942,18 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 </td>
 <td>
 
-(−∞， − 1] ∪ [1， + ∞)
+$$( - \infty \text{，} - 1\rbrack\ \cup \ \lbrack 1\text{，} + \infty)$$
 
 </td>
 <td></td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -1965,7 +1963,7 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 极大值点
 
 </td>
-<td></td>
+<td rowspan="2" colspan="3"></td>
 </tr>
 <tr>
 <td>
@@ -1980,10 +1978,9 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
-<th>
+<th colspan="2">
 
 双曲函数
 
@@ -2007,79 +2004,79 @@ $$\left( 0\text{，}\frac{\pi}{2} \right)$$
 </thead>
 <tbody>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = sinh x
+$$y = \sinh x$$
 
 $$y = \frac{e^{x} - e^{- x}}{2}$$
 
 </td>
 <td>
 
-y = cosh x
+$$y = \cosh x$$
 
 $$y = \frac{e^{x} + e^{- x}}{2}$$
 
 </td>
 <td>
 
-y = tanh x
+$$y = \tanh x$$
 
 $$y = \frac{e^{x} - e^{- x}}{e^{x} + e^{- x}}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-[1， + ∞)
+$$\lbrack 1\text{，} + \infty)$$
 
 </td>
 <td>
 
-(−1，1)
+$$( - 1\text{，}1)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -2101,15 +2098,15 @@ $$y = \frac{e^{x} - e^{- x}}{e^{x} + e^{- x}}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
@@ -2117,31 +2114,31 @@ $$y = \frac{e^{x} - e^{- x}}{e^{x} + e^{- x}}$$
 <td></td>
 <td>
 
-x = 0
+$$x = 0$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
 </td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 <td></td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -2153,17 +2150,17 @@ x = 0
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-(−∞，0)
+$$( - \infty \text{，}0)$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
@@ -2176,13 +2173,13 @@ x = 0
 <td></td>
 <td>
 
-(0， + ∞)
+$$(0\text{，} + \infty)$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -2192,9 +2189,9 @@ x = 0
 极大值点
 
 </td>
+<td rowspan="2"></td>
 <td></td>
-<td></td>
-<td></td>
+<td rowspan="2"></td>
 </tr>
 <tr>
 <td>
@@ -2204,12 +2201,12 @@ x = 0
 </td>
 <td>
 
-x = 0
+$$x = 0$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 双曲函数
 
@@ -2231,79 +2228,79 @@ x = 0
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = cschx
+$$y = {csch}x$$
 
 $$y = \frac{2}{e^{x} - e^{- x}}$$
 
 </td>
 <td>
 
-y = sechx
+$$y = {sech}x$$
 
 $$y = \frac{2}{e^{x} + e^{- x}}$$
 
 </td>
 <td>
 
-y = coth x
+$$y = \coth x\ $$
 
 $$y = \frac{e^{x} + e^{- x}}{e^{x} - e^{- x}}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
 </td>
 <td>
 
-(−∞，0) ∪ (0， + ∞)
+$$( - \infty \text{，}0) \cup (0\text{，} + \infty)$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-(−∞，0) ∪ (0， + ∞)
+$$( - \infty \text{，}0) \cup (0\text{，} + \infty)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
 </td>
 <td>
 
-(−∞，0) ∪ (0， + ∞)
+$$( - \infty \text{，}0) \cup (0\text{，} + \infty)$$
 
 </td>
 <td>
 
-(0，1]
+$$(0\text{，}1\rbrack$$
 
 </td>
 <td>
 
-(−∞， − 1) ∪ (1， + ∞)
+$$( - \infty \text{，} - 1) \cup (1\text{，} + \infty)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -2325,15 +2322,15 @@ $$y = \frac{e^{x} + e^{- x}}{e^{x} - e^{- x}}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
@@ -2341,31 +2338,31 @@ $$y = \frac{e^{x} + e^{- x}}{e^{x} - e^{- x}}$$
 <td></td>
 <td>
 
-x = 0
+$$x = 0$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
 </td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 <td></td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -2378,7 +2375,7 @@ x = 0
 <td></td>
 <td>
 
-(−∞，0)
+$$( - \infty \text{，}0)$$
 
 </td>
 <td></td>
@@ -2391,22 +2388,22 @@ x = 0
 </td>
 <td>
 
-(−∞，0)，(0， + ∞)
+$$( - \infty \text{，}0)\text{，}(0\text{，} + \infty)$$
 
 </td>
 <td>
 
-(0， + ∞)
+$$(0\text{，} + \infty)$$
 
 </td>
 <td>
 
-(−∞，0)，(0， + ∞)
+$$( - \infty \text{，}0)\text{，}(0\text{，} + \infty)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -2416,13 +2413,13 @@ x = 0
 极大值点
 
 </td>
-<td></td>
+<td rowspan="2"></td>
 <td>
 
-x = 0
+$$x = 0$$
 
 </td>
-<td></td>
+<td rowspan="2"></td>
 </tr>
 <tr>
 <td>
@@ -2438,10 +2435,9 @@ x = 0
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
-<th>
+<th colspan="2">
 
 反双曲函数
 
@@ -2465,79 +2461,79 @@ x = 0
 </thead>
 <tbody>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = arsinhx
+$$y = {arsinh}x$$
 
 $$y = \ln\left( x + \sqrt{x^{2} + 1} \right)$$
 
 </td>
 <td>
 
-y = arcoshx
+$$y = {arcosh}x$$
 
 $$y = \ln\left( x + \sqrt{x^{2} - 1} \right)$$
 
 </td>
 <td>
 
-y = artanhx
+$$y = {artanh}x$$
 
 $$y = \frac{1}{2}\ln\frac{1 + x}{1 - x}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-[1， + ∞)
+$$\lbrack 1\text{，} + \infty)$$
 
 </td>
 <td>
 
-(−1，1)
+$$( - 1\text{，}1)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-[0， + ∞)
+$$\lbrack 0\text{，} + \infty)$$
 
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -2559,41 +2555,41 @@ $$y = \frac{1}{2}\ln\frac{1 + x}{1 - x}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
 </td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 <td></td>
 <td>
 
-(0，0)
+$$(0\text{，}0)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -2605,17 +2601,17 @@ $$y = \frac{1}{2}\ln\frac{1 + x}{1 - x}$$
 </td>
 <td>
 
-ℝ
+$$\mathbb{R}$$
 
 </td>
 <td>
 
-[1， + ∞)
+$$\lbrack 1\text{，} + \infty)$$
 
 </td>
 <td>
 
-(−1，1)
+$$( - 1\text{，}1)$$
 
 </td>
 </tr>
@@ -2625,10 +2621,10 @@ $$y = \frac{1}{2}\ln\frac{1 + x}{1 - x}$$
 减区间
 
 </td>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -2638,7 +2634,7 @@ $$y = \frac{1}{2}\ln\frac{1 + x}{1 - x}$$
 极大值点
 
 </td>
-<td></td>
+<td rowspan="2" colspan="3"></td>
 </tr>
 <tr>
 <td>
@@ -2648,7 +2644,7 @@ $$y = \frac{1}{2}\ln\frac{1 + x}{1 - x}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 反双曲函数
 
@@ -2670,35 +2666,35 @@ $$y = \frac{1}{2}\ln\frac{1 + x}{1 - x}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 解析式
 
 </td>
 <td>
 
-y = arcschx
+$$y = {arcsch}x$$
 
 $$y = \ln\frac{1 + \sqrt{1 + x^{2}}}{x}$$
 
 </td>
 <td>
 
-y = arsechx
+$$y = {arsech}x$$
 
 $$y = \ln\frac{1 + \sqrt{1 - x^{2}}}{x}$$
 
 </td>
 <td>
 
-y = arcothx
+$$y = {arcoth}x$$
 
 $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 定义域
 
@@ -2708,7 +2704,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 值域
 
@@ -2718,7 +2714,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 奇偶性
 
@@ -2728,7 +2724,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 周期
 
@@ -2738,7 +2734,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称轴
 
@@ -2748,7 +2744,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 对称中心
 
@@ -2758,7 +2754,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 单调区间
 
@@ -2783,7 +2779,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 极值点
 
@@ -2795,7 +2791,7 @@ $$y = \frac{1}{2}\ln\frac{x + 1}{x - 1}$$
 </td>
 <td></td>
 <td></td>
-<td></td>
+<td rowspan="2"></td>
 </tr>
 <tr>
 <td>

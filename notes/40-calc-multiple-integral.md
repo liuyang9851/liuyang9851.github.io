@@ -226,7 +226,6 @@ $$rot\ \mathbf{A} = \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\pa
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th></th>
@@ -263,28 +262,28 @@ $$rot\ \mathbf{A} = \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\pa
 
 面积
 
-S = ∬Ddσ
+$$S = \iint_{D}^{}{d\sigma}$$
 
 </td>
 <td>
 
 体积
 
-V = ∭Ωdv
+$$V = \iiint_{\Omega}^{}{dv}$$
 
 </td>
 <td>
 
 弧长
 
-L = ∫Cds
+$$L = \int_{C}^{}{ds}$$
 
 </td>
 <td>
 
 面积
 
-S = ∬ΣdS
+$$S = \iint_{\Sigma}^{}{dS}$$
 
 </td>
 </tr>
@@ -296,22 +295,22 @@ S = ∬ΣdS
 </td>
 <td>
 
-∬Dμdσ
+$$\iint_{D}^{}{\mu d\sigma}$$
 
 </td>
 <td>
 
-∭Ωρdv
+$$\iiint_{\Omega}^{}{\rho dv}$$
 
 </td>
 <td>
 
-∫Cfds
+$$\int_{C}^{}{fds}$$
 
 </td>
 <td>
 
-∬ΣμdS
+$$\iint_{\Sigma}^{}{\mu dS}$$
 
 </td>
 </tr>
@@ -327,7 +326,7 @@ $$\overline{x} = \frac{1}{M}\iint_{D}^{}{x\mu d\sigma}$$
 
 $$\overline{y} = \frac{1}{M}\iint_{D}^{}{y\mu d\sigma}$$
 
-M = ∬Dμdσ
+$$M = \iint_{D}^{}{\mu d\sigma}$$
 
 </td>
 <td>
@@ -338,7 +337,7 @@ $$\overline{y} = \frac{1}{M}\iiint_{\Sigma}^{}{y\rho dv}$$
 
 $$\overline{z} = \frac{1}{M}\iiint_{\Sigma}^{}{z\rho dv}$$
 
-M = ∭Σρdv
+$$M = \iiint_{\Sigma}^{}{\rho dv}$$
 
 </td>
 <td></td>
@@ -352,18 +351,18 @@ M = ∭Σρdv
 </td>
 <td>
 
-Ix = ∬Dy2μdσ
+$$I_{x} = \iint_{D}^{}{y^{2}\mu d\sigma}$$
 
-Iy = ∬Dx2μdσ
+$$I_{y} = \iint_{D}^{}{x^{2}\mu d\sigma}$$
 
 </td>
 <td>
 
-Ix = ∭Ω(y2 + z2)ρdv
+$$I_{x} = \iiint_{\Omega}^{}{\left( y^{2} + z^{2} \right)\rho dv}$$
 
-Iy = ∭Ω(x2 + z2)ρdv
+$$I_{y} = \iiint_{\Omega}^{}{\left( x^{2} + z^{2} \right)\rho dv}$$
 
-Iz = ∭Ω(x2 + y2)ρdv
+$$I_{z} = \iiint_{\Omega}^{}{\left( x^{2} + y^{2} \right)\rho dv}$$
 
 </td>
 <td></td>
@@ -375,9 +374,9 @@ Iz = ∭Ω(x2 + y2)ρdv
 引力
 
 </td>
-<td>
+<td colspan="4">
 
-空间物体对物体外一点(x0，y0，z0)处单位质量的质点的引力
+空间物体对物体外一点$\left( x_{0}\text{，}y_{0}\text{，}z_{0} \right)$处单位质量的质点的引力
 
 $$\mathbf{F} = \left( \iiint_{\Omega}^{}\frac{G\rho\left( x - x_{0} \right)}{r^{3}}\text{，}\iiint_{\Omega}^{}\frac{G\rho\left( y - y_{0} \right)}{r^{3}}\text{，}\iiint_{\Omega}^{}\frac{G\rho\left( z - z_{0} \right)}{r^{3}} \right)$$
 
