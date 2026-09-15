@@ -252,7 +252,13 @@ node tools/verify-pages.mjs hs-a01 hs-a02                         # 浏览器验
 pandoc 2 里 `{"t":"Math","c":["InlineMath","x"]}`，pandoc 3 里是
 `{"t":"Math","c":[{"t":"InlineMath"},"x"]}`。按字符串比较会让**所有行内公式都当成行间公式**
 （`$k$` 变成 `$$k$$`），表格单元格里就会冒出一堆居中的大公式。取类型要用
-`docx_table_to_html.math_kind()`。
+`docx_table_to_html.math_kind()`。同理有序列表：pandoc 3 是
+`[[start,style,delim],[item]]`，按 4 元组取会 `IndexError`（用 `ordered_items()`）。
+
+**七、Word 里的矢量图（`.wmf` / `.emf`）要转成 PNG。**
+pandoc 抽出来的就是原格式，浏览器不认，构建会直接死在
+`Rollup failed to resolve import "/images/hs/xx/img01.wmf"`。
+`hs_import.py` 用 Pillow 转（Windows 上走系统 GDI，记得给 `dpi=150`，否则糊）。
 
 ## 迁移笔记
 

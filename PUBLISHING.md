@@ -280,5 +280,6 @@ node tools\verify-pages.mjs hs-a01 hs-a02       # 浏览器验收（公式没被
 | push 被拒 | 极少数网络问题 | 见 README 的凭据排查表 |
 | 导入后少了一张表 | pandoc markdown writer 会丢掉畸形表格 | 已改为 AST 渲染；`tools/hs_check.py` 对账 |
 | 行内公式变成居中大公式 | pandoc 3 的 `Math` 类型是对象，字符串比较失效 | 用 `docx_table_to_html.math_kind()` |
+| 构建报 `Rollup failed to resolve import ...wmf` | Word 里的矢量图是 .wmf/.emf，浏览器不认 | `hs_import.py` 会自动转 PNG |
 
 **构建失败不会影响线上**——线上保持上一个成功版本，可以从容修复。

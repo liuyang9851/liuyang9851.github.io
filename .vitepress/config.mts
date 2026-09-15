@@ -185,6 +185,12 @@ export default defineConfig({
             { text: 'A4 · 三角函数与解三角形', link: '/notes/hs-a04' },
             { text: 'A5 · 平面向量', link: '/notes/hs-a05' },
             { text: 'A6 · 立体几何', link: '/notes/hs-a06' },
+            { text: 'A7 · 复数', link: '/notes/hs-a07' },
+            { text: 'A8 · 数列', link: '/notes/hs-a08' },
+            { text: 'A9 · 解析几何', link: '/notes/hs-a09' },
+            { text: 'A10 · 概率', link: '/notes/hs-a10' },
+            { text: 'A11 · 统计', link: '/notes/hs-a11' },
+            { text: 'A12 · 部分结论证明', link: '/notes/hs-a12' },
           ]
         },
         // <<< hs-notes

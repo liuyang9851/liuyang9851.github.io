@@ -107,6 +107,22 @@ def render_inlines(inlines):
     return ''.join(out)
 
 
+def ordered_items(c):
+    """有序列表的兼容读取。
+
+    pandoc 2：`[start, style, delim, [item]]`
+    pandoc 3：`[[start, style, delim], [item]]` —— 直接按 4 元组取会 IndexError。
+    """
+    if len(c) == 2 and isinstance(c[0], list):
+        return c[0][0], c[1]
+    return c[0], c[3]
+
+
+def _item_text(item):
+    """列表项压成一行文字（单元格里放不下多级列表结构，保住内容就行）。"""
+    return ' '.join(render_blocks(item))
+
+
 def render_blocks(blocks):
     paras = []
     for blk in blocks:
@@ -127,9 +143,9 @@ def render_blocks(blocks):
         elif t == 'RawBlock':
             paras.append(c[1])
         elif t == 'BulletList':
-            paras.append('；'.join(render_inlines(i[0]['c']) for i in c))
+            paras.append('；'.join(_item_text(i) for i in c))
         elif t == 'OrderedList':
-            paras.append('；'.join(render_inlines(i[0]['c']) for i in c))
+            paras.append('；'.join(_item_text(i) for i in ordered_items(c)[1]))
         elif t == 'BlockQuote':
             # 单元格里的引用块：直接取里面的段落，别丢内容
             paras.extend(render_blocks(c))

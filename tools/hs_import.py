@@ -28,7 +28,7 @@ import sys
 import pypandoc
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from docx_table_to_html import render_inlines, render_table  # noqa: E402
+from docx_table_to_html import ordered_items, render_inlines, render_table  # noqa: E402
 from wrap_math_cjk import transform as wrap_cjk  # noqa: E402
 from docx_to_md import fix_chinese_in_math  # noqa: E402
 
@@ -88,8 +88,8 @@ def render_doc_blocks(blocks):
         elif t == 'BulletList':
             out.append(_list_md(c, False))
         elif t == 'OrderedList':
-            start = c[0] if isinstance(c[0], int) else 1
-            out.append(_list_md(c[3], True, start))
+            start, items = ordered_items(c)
+            out.append(_list_md(items, True, start))
         elif t == 'BlockQuote':
             inner = '\n\n'.join(render_doc_blocks(c))
             out.append('\n'.join(('> ' + l) if l.strip() else '>' for l in inner.split('\n')))
@@ -127,6 +127,18 @@ def render_doc(ast):
 
 
 # ---------------------------------------------------------------- 3/4. 图片
+def wmf_to_png(src, dest, dpi=150):
+    """WMF/EMF（Word 里插的矢量图）浏览器不认，构建时会 Rollup failed to resolve import。
+
+    Pillow 在 Windows 上能读 WMF（走系统 GDI），必须给 dpi，
+    否则按 72dpi 出来的图糊。
+    """
+    from PIL import Image
+    im = Image.open(src)
+    im.load(dpi=dpi)
+    im.convert('RGB').save(dest, 'PNG')
+
+
 def move_images(media_dir, slug, md):
     """把 media 里的图片搬到 public/images/hs/<slug>/，并改写 markdown 里的路径。"""
     if not os.path.isdir(media_dir):
@@ -142,8 +154,17 @@ def move_images(media_dir, slug, md):
     mapping = {}
     for k, src in enumerate(files, 1):
         ext = os.path.splitext(src)[1].lower() or '.png'
-        new = f'img{k:02d}{ext}'
-        shutil.copyfile(src, os.path.join(dest, new))
+        if ext in ('.wmf', '.emf'):
+            new = f'img{k:02d}.png'
+            try:
+                wmf_to_png(src, os.path.join(dest, new))
+            except Exception as e:              # 转不了就原样拷过去（构建会报错，好在看得见）
+                sys.stderr.write(f'[warn] {os.path.basename(src)} 转 PNG 失败：{e}\n')
+                new = f'img{k:02d}{ext}'
+                shutil.copyfile(src, os.path.join(dest, new))
+        else:
+            new = f'img{k:02d}{ext}'
+            shutil.copyfile(src, os.path.join(dest, new))
         mapping[os.path.basename(src)] = new
     # 改写引用（pandoc 写的是 media/xxx 或 media/media/xxx）
     def repl(m):
