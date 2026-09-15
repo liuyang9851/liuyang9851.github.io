@@ -248,6 +248,10 @@ python -X utf8 tools/hs_check.py                                  # 对账：doc
 node tools/verify-pages.mjs hs-a01 hs-a02                         # 浏览器验收
 ```
 
+清单里带 `skip` 的条目是**空壳文档**（只有标题、正文一个字没写），不会生成页面；
+判据是「无表格 / 无 OMML 公式 / 无图片 且正文字数 < 200」——只看字数会误伤
+「三角公式速查表」这类正文几乎全是公式的表。
+
 **六、pandoc 3 的 `Math` 节点类型是个对象。**
 pandoc 2 里 `{"t":"Math","c":["InlineMath","x"]}`，pandoc 3 里是
 `{"t":"Math","c":[{"t":"InlineMath"},"x"]}`。按字符串比较会让**所有行内公式都当成行间公式**

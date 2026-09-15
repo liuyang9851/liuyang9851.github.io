@@ -251,6 +251,9 @@ def run_manifest(path, only=None):
     for it in items:
         if only and it['slug'] not in only:
             continue
+        if it.get('skip'):
+            out.append({'slug': it['slug'], 'skipped': it['skip']})
+            continue
         if not os.path.exists(it['docx']):
             out.append({'slug': it['slug'], 'error': '文件不存在'})
             continue

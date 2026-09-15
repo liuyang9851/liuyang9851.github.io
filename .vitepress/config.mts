@@ -193,6 +193,19 @@ export default defineConfig({
             { text: 'A12 · 部分结论证明', link: '/notes/hs-a12' },
           ]
         },
+        {
+          text: '高中数学（附录）',
+          collapsed: true,
+          items: [
+            { text: '附录 1 · 三角公式速查表', link: '/notes/hs-app01' },
+            { text: '附录 2 · 名词中英文对照', link: '/notes/hs-app02' },
+            { text: '附录 3 · 圆锥曲线硬解定理表', link: '/notes/hs-app03' },
+            { text: '附录 4 · 圆锥曲线结论速记', link: '/notes/hs-app04' },
+            { text: '附录 5 · 常用值表', link: '/notes/hs-app05' },
+            { text: '附录 7 · 积分表', link: '/notes/hs-app07' },
+            { text: '附录 8 · 读音', link: '/notes/hs-app08' },
+          ]
+        },
         // <<< hs-notes
       ]
     },

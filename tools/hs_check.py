@@ -23,6 +23,9 @@ bad = 0
 for it in items:
     if only and it['slug'] not in only:
         continue
+    if it.get('skip'):
+        print(f'{it["slug"]:10s} 跳过：{it["skip"]}')
+        continue
     if not os.path.exists(it['docx']):
         print('缺文件', it['slug'], it['docx'])
         continue
