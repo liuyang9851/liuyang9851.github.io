@@ -173,7 +173,21 @@ export default defineConfig({
             { text: '20 · Linux 笔记', link: '/notes/20-linux' },
             { text: '21 · Vim 操作手册', link: '/notes/21-vim' }
           ]
-        }
+        },
+        // >>> hs-notes（下面三段由 tools/hs_sidebar.py 自动生成，勿手改）
+        {
+          text: '高中数学（A · 基础）',
+          collapsed: true,
+          items: [
+            { text: 'A1 · 集合与常用逻辑术语', link: '/notes/hs-a01' },
+            { text: 'A2 · 一元二次函数、方程和不等式', link: '/notes/hs-a02' },
+            { text: 'A3 · 函数与方程', link: '/notes/hs-a03' },
+            { text: 'A4 · 三角函数与解三角形', link: '/notes/hs-a04' },
+            { text: 'A5 · 平面向量', link: '/notes/hs-a05' },
+            { text: 'A6 · 立体几何', link: '/notes/hs-a06' },
+          ]
+        },
+        // <<< hs-notes
       ]
     },
 

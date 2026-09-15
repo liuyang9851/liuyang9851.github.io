@@ -1,0 +1,268 @@
+[
+ {
+  "docx": "D:/数学/高中数学笔记/A/A1 集合与常用逻辑术语.docx",
+  "slug": "hs-a01",
+  "group": "A",
+  "seq": "A1",
+  "title": "集合与常用逻辑术语"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A2 一元二次函数、方程和不等式.docx",
+  "slug": "hs-a02",
+  "group": "A",
+  "seq": "A2",
+  "title": "一元二次函数、方程和不等式"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A3 函数与方程.docx",
+  "slug": "hs-a03",
+  "group": "A",
+  "seq": "A3",
+  "title": "函数与方程"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A4 三角函数与解三角形.docx",
+  "slug": "hs-a04",
+  "group": "A",
+  "seq": "A4",
+  "title": "三角函数与解三角形"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A5 平面向量.docx",
+  "slug": "hs-a05",
+  "group": "A",
+  "seq": "A5",
+  "title": "平面向量"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A6 立体几何.docx",
+  "slug": "hs-a06",
+  "group": "A",
+  "seq": "A6",
+  "title": "立体几何"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A7 复数.docx",
+  "slug": "hs-a07",
+  "group": "A",
+  "seq": "A7",
+  "title": "复数"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A8 数列.docx",
+  "slug": "hs-a08",
+  "group": "A",
+  "seq": "A8",
+  "title": "数列"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A9 解析几何.docx",
+  "slug": "hs-a09",
+  "group": "A",
+  "seq": "A9",
+  "title": "解析几何"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A10 概率.docx",
+  "slug": "hs-a10",
+  "group": "A",
+  "seq": "A10",
+  "title": "概率"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A11 统计.docx",
+  "slug": "hs-a11",
+  "group": "A",
+  "seq": "A11",
+  "title": "统计"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/A/A12 部分结论证明.docx",
+  "slug": "hs-a12",
+  "group": "A",
+  "seq": "A12",
+  "title": "部分结论证明"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B1 整式的性质与恒等变形.docx",
+  "slug": "hs-b01",
+  "group": "B",
+  "seq": "B1",
+  "title": "整式的性质与恒等变形"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B1 集合论与逻辑术语.docx",
+  "slug": "hs-b01b",
+  "group": "B",
+  "seq": "B1",
+  "title": "集合论与逻辑术语"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B2 不等式.docx",
+  "slug": "hs-b02",
+  "group": "B",
+  "seq": "B2",
+  "title": "不等式"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B3 数学归纳法.docx",
+  "slug": "hs-b03",
+  "group": "B",
+  "seq": "B3",
+  "title": "数学归纳法"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B4 代数与函数方法.docx",
+  "slug": "hs-b04",
+  "group": "B",
+  "seq": "B4",
+  "title": "代数与函数方法"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B4 数学奠基.docx",
+  "slug": "hs-b04b",
+  "group": "B",
+  "seq": "B4",
+  "title": "数学奠基"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B5 复数.docx",
+  "slug": "hs-b05",
+  "group": "B",
+  "seq": "B5",
+  "title": "复数"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B6 三角类函数.docx",
+  "slug": "hs-b06",
+  "group": "B",
+  "seq": "B6",
+  "title": "三角类函数"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B7 数列.docx",
+  "slug": "hs-b07",
+  "group": "B",
+  "seq": "B7",
+  "title": "数列"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B8 解析几何初步.docx",
+  "slug": "hs-b08",
+  "group": "B",
+  "seq": "B8",
+  "title": "解析几何初步"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B9 平面几何回顾与扩展.docx",
+  "slug": "hs-b09",
+  "group": "B",
+  "seq": "B9",
+  "title": "平面几何回顾与扩展"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B10 微积分初步.docx",
+  "slug": "hs-b10",
+  "group": "B",
+  "seq": "B10",
+  "title": "微积分初步"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B11 线性代数初步.docx",
+  "slug": "hs-b11",
+  "group": "B",
+  "seq": "B11",
+  "title": "线性代数初步"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B12 数论初步.docx",
+  "slug": "hs-b12",
+  "group": "B",
+  "seq": "B12",
+  "title": "数论初步"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B14 其它.docx",
+  "slug": "hs-b14",
+  "group": "B",
+  "seq": "B14",
+  "title": "其它"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/B15 微积分下的大学物理.docx",
+  "slug": "hs-b15",
+  "group": "B",
+  "seq": "B15",
+  "title": "微积分下的大学物理"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/B/Bx 积分表与积分选做.docx",
+  "slug": "hs-bx",
+  "group": "B",
+  "seq": "Bx",
+  "title": "积分表与积分选做"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：三角公式速查表.docx",
+  "slug": "hs-app01",
+  "group": "附录",
+  "seq": "附录 1",
+  "title": "三角公式速查表"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：名词中英文对照.docx",
+  "slug": "hs-app02",
+  "group": "附录",
+  "seq": "附录 2",
+  "title": "名词中英文对照"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：圆锥曲线硬解定理表.docx",
+  "slug": "hs-app03",
+  "group": "附录",
+  "seq": "附录 3",
+  "title": "圆锥曲线硬解定理表"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：圆锥曲线结论速记.docx",
+  "slug": "hs-app04",
+  "group": "附录",
+  "seq": "附录 4",
+  "title": "圆锥曲线结论速记"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：常用值表.docx",
+  "slug": "hs-app05",
+  "group": "附录",
+  "seq": "附录 5",
+  "title": "常用值表"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：放缩常用不等式.docx",
+  "slug": "hs-app06",
+  "group": "附录",
+  "seq": "附录 6",
+  "title": "放缩常用不等式"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：积分表 .docx",
+  "slug": "hs-app07",
+  "group": "附录",
+  "seq": "附录 7",
+  "title": "积分表"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：读音.docx",
+  "slug": "hs-app08",
+  "group": "附录",
+  "seq": "附录 8",
+  "title": "读音"
+ },
+ {
+  "docx": "D:/数学/高中数学笔记/附录/附录：高等数学速通.docx",
+  "slug": "hs-app09",
+  "group": "附录",
+  "seq": "附录 9",
+  "title": "高等数学速通"
+ }
+]

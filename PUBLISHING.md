@@ -250,6 +250,20 @@ npm run check          # 等价于下面四条依次执行：
 git push               # 发布
 ```
 
+### 整个文件夹批量上线（高中数学笔记那类）
+
+```powershell
+python -X utf8 tools\hs_manifest.py             # 扫 A / B / 附录，生成 tools\hs_manifest.json
+python -X utf8 tools\hs_import.py --manifest tools\hs_manifest.json --only hs-a01,hs-a02
+python -X utf8 tools\hs_sidebar.py              # 重生成侧边栏 + notes/index.md
+python -X utf8 tools\hs_check.py                # 对账：docx 表数 == 页面表数
+node tools\verify-pages.mjs hs-a01 hs-a02       # 浏览器验收（公式没被 hydration 吃掉）
+```
+
+`hs_import.py` 是**整篇由 pandoc JSON AST 渲染**的：pandoc 的 markdown writer 会把
+带合并单元格的表压成 pipe table（合并全丢），还会**整张丢掉畸形表格**，
+所以它的 markdown 结果一概不用，只借它抽图片。
+
 ---
 
 ## 九、出问题怎么办
@@ -264,5 +278,7 @@ git push               # 发布
 | 页面 404 | 文件名和 link 不一致 | 检查文件名大小写 |
 | 中文变成方块 | 少见，字体未加载 | 刷新；仍不行看 CSS |
 | push 被拒 | 极少数网络问题 | 见 README 的凭据排查表 |
+| 导入后少了一张表 | pandoc markdown writer 会丢掉畸形表格 | 已改为 AST 渲染；`tools/hs_check.py` 对账 |
+| 行内公式变成居中大公式 | pandoc 3 的 `Math` 类型是对象，字符串比较失效 | 用 `docx_table_to_html.math_kind()` |
 
 **构建失败不会影响线上**——线上保持上一个成功版本，可以从容修复。

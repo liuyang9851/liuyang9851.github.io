@@ -43,6 +43,17 @@ def tables_of(ast):
 
 
 # ---------------------------------------------------------------- 渲染
+def math_kind(kind):
+    """pandoc 2 里 Math 的类型是字符串，pandoc 3 里是 {'t': 'InlineMath'}。
+
+    不兼容这一步会把**所有行内公式当成行间公式**（`$k$` → `$$k$$`），
+    表格单元格里就会出现一堆居中的大公式。
+    """
+    if isinstance(kind, dict):
+        return kind.get('t')
+    return kind
+
+
 def render_inlines(inlines):
     out = []
     for node in inlines:
@@ -55,7 +66,7 @@ def render_inlines(inlines):
         elif t == 'Math':
             kind, tex = c
             tex = re.sub(r'\s*\n\s*', ' ', tex).strip()
-            if kind == 'InlineMath':
+            if math_kind(kind) == 'InlineMath':
                 out.append(f'${tex}$')
             else:
                 # 行间公式前后必须换行 —— 见 render_blocks 里的说明：
@@ -66,13 +77,27 @@ def render_inlines(inlines):
             out.append('*' + render_inlines(c) + '*')
         elif t == 'Strong':
             out.append('**' + render_inlines(c) + '**')
+        elif t == 'Strikeout':
+            out.append('~~' + render_inlines(c) + '~~')
+        elif t == 'Subscript':
+            out.append('<sub>' + render_inlines(c) + '</sub>')
+        elif t == 'Superscript':
+            out.append('<sup>' + render_inlines(c) + '</sup>')
+        elif t in ('Underline', 'Cite', 'SmallCaps'):
+            out.append(render_inlines(c[1] if t == 'Cite' else c))
         elif t == 'Code':
             out.append('`' + c[1] + '`')
         elif t == 'RawInline':
             out.append(c[1])
         elif t == 'Quoted':
             out.append('“' + render_inlines(c[1]) + '”')
-        elif t in ('Link', 'Image', 'Span'):
+        elif t == 'Link':
+            # c = [attr, inlines, [url, title]]
+            out.append('[' + render_inlines(c[1]) + '](' + c[2][0] + ')')
+        elif t == 'Image':
+            # c = [attr, alt_inlines, [url, title]] —— 必须保留 url，否则图片全丢
+            out.append('![' + render_inlines(c[1]) + '](' + c[2][0] + ')')
+        elif t == 'Span':
             out.append(render_inlines(c[1]))
         elif t == 'Note':
             out.append('')
@@ -103,6 +128,14 @@ def render_blocks(blocks):
             paras.append(c[1])
         elif t == 'BulletList':
             paras.append('；'.join(render_inlines(i[0]['c']) for i in c))
+        elif t == 'OrderedList':
+            paras.append('；'.join(render_inlines(i[0]['c']) for i in c))
+        elif t == 'BlockQuote':
+            # 单元格里的引用块：直接取里面的段落，别丢内容
+            paras.extend(render_blocks(c))
+        elif t == 'Table':
+            # 单元格里嵌套的表格：渲染成嵌套 <table>（不要再套 .table-scroll）
+            paras.append(render_table(c, 1, wrap=False))
         elif t == 'Header':
             paras.append(render_inlines(c[2]).strip())
         else:
@@ -140,7 +173,34 @@ def body_rows_of(body):
     return list(head_rows) + list(rows)
 
 
-def render_table(table, head_rows=1):
+def top_level_tables(ast):
+    """只收集**顶层**表格。
+
+    表格单元格里还可能嵌着表格（Word 里很常见）。pandoc 的 markdown 会把它们
+    写在父表格的单元格里，检测时只算一张 —— 所以计数也要按顶层算，否则
+    「markdown 找到 16 张 / AST 有 17 张」会一直对不上。
+    """
+    out = []
+
+    def walk(blocks):
+        for b in blocks:
+            t = b['t']
+            if t == 'Table':
+                out.append(b['c'])          # 不递归进表格内部
+            elif t in ('BlockQuote', 'Div'):
+                walk(b['c'] if isinstance(b['c'], list) else [])
+            elif t in ('BulletList', 'OrderedList'):
+                for item in b['c']:
+                    walk(item)
+            elif t == 'DefinitionList':
+                for _term, defs in b['c']:
+                    for d in defs:
+                        walk(d)
+    walk(ast['blocks'])
+    return out
+
+
+def render_table(table, head_rows=1, wrap=True):
     _attr, _caption, colspecs, head, bodies, _foot = table
     head_rows_list = head[1]
     body_rows = []
@@ -153,10 +213,13 @@ def render_table(table, head_rows=1):
         n = head_rows if head_rows else 0
         thead, tbody = head_rows_list[:n], head_rows_list[n:]
 
-    parts = ['<div class="table-scroll">', '<table>']
+    parts = ['<div class="table-scroll">'] if wrap else []
+    parts.append('<table>')
     if thead:
         parts += ['<thead>', rows_to_html(thead, 'th'), '</thead>']
-    parts += ['<tbody>', rows_to_html(tbody, 'td'), '</tbody>', '</table>', '</div>']
+    parts += ['<tbody>', rows_to_html(tbody, 'td'), '</tbody>', '</table>']
+    if wrap:
+        parts.append('</div>')
     return '\n'.join(parts)
 
 

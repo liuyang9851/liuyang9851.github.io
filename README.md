@@ -234,6 +234,26 @@ python tools/wrap_math_cjk.py t1.html -o t1.html
 
 （它走的是 pandoc 的 JSON AST：`Cell` 节点带 rowspan/colspan，`Math` 节点里是原始 TeX。）
 
+**五、整篇 Word 批量上线：`tools/hs_import.py`。**
+高中数学笔记（A / B / 附录，38 份 .docx）走的是这条流水线——**整篇 markdown 由 AST 渲染**，
+不再用 pandoc 的 markdown 结果，原因是它的 markdown writer 遇到**畸形表格会整张丢掉**
+（实测 A3 第 17 张表：表头 3 格、列数 5，直接被略过），而且带合并单元格的表会被压成
+pipe table。AST 渲染则段落、标题、列表、图片、表格全部自己写，表格保留 rowspan/colspan。
+
+```bash
+python -X utf8 tools/hs_manifest.py                              # 扫源目录，生成清单
+python -X utf8 tools/hs_import.py --manifest tools/hs_manifest.json --only hs-a01,hs-a02
+python -X utf8 tools/hs_sidebar.py                                # 重生成侧边栏 + notes/index.md
+python -X utf8 tools/hs_check.py                                  # 对账：docx 表数 == 页面表数
+node tools/verify-pages.mjs hs-a01 hs-a02                         # 浏览器验收
+```
+
+**六、pandoc 3 的 `Math` 节点类型是个对象。**
+pandoc 2 里 `{"t":"Math","c":["InlineMath","x"]}`，pandoc 3 里是
+`{"t":"Math","c":[{"t":"InlineMath"},"x"]}`。按字符串比较会让**所有行内公式都当成行间公式**
+（`$k$` 变成 `$$k$$`），表格单元格里就会冒出一堆居中的大公式。取类型要用
+`docx_table_to_html.math_kind()`。
+
 ## 迁移笔记
 
 ```bash
