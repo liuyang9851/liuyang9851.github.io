@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公式显示诊断</title>
+<style>
+  body { font-family: "Segoe UI", system-ui, sans-serif; max-width: 820px;
+         margin: 32px auto; padding: 0 20px; line-height: 1.7;
+         background:#fff; color:#222; }
+  @media (prefers-color-scheme: dark) {
+    body { background:#1b1b1f; color:#dfdfd6; }
+    pre { background:#26262c; border-color:#3a3a42; }
+  }
+  pre { background:#f4f4f6; border:1px solid #ddd; border-radius:6px;
+        padding:12px; overflow-x:auto; font-size:13px; }
+  button { font-size:15px; padding:8px 16px; border-radius:6px;
+           border:1px solid #888; background:#6366f1; color:#fff;
+           cursor:pointer; margin:8px 8px 8px 0; }
+  iframe { width:100%; height:420px; border:1px solid #888; border-radius:6px;
+           margin-top:12px; }
+  .hint { color:#888; font-size:13px; }
+</style>
+</head>
+<body>
+<h1>公式显示诊断</h1>
+<p>点下面的按钮，本页会在下方内嵌打开笔记页（同一浏览器、同一设置），
+然后自动统计公式状态。<b>把结果截图发我即可。</b></p>
+<button id="run">开始诊断</button>
+<pre id="out">等待运行…</pre>
+<iframe id="fr" src="about:blank"></iframe>
+<div class="hint">
+  <p>说明：内嵌页面与直接访问在扩展、主题、字体渲染上完全一致，
+  因此能复现你看到的现象。</p>
+</div>
+<script>
+const URL_PATH = "/notes/17-probability.html";
+const out = document.getElementById('out');
+const fr = document.getElementById('fr');
+const lines = [];
+
+function log(s) { lines.push(s); out.textContent = lines.join('\n'); }
+
+document.getElementById('run').onclick = () => {
+  lines.length = 0;
+  log('诊断开始 ' + new Date().toLocaleString());
+  log('浏览器: ' + navigator.userAgent);
+  log('偏好暗色: ' + (window.matchMedia('(prefers-color-scheme: dark)').matches));
+  log('设备像素比: ' + window.devicePixelRatio + '  缩放提示: 见截图');
+  log('---');
+  fr.src = URL_PATH + '?t=' + Date.now();
+  fr.onload = () => setTimeout(inspect, 3000);
+};
+
+function inspect() {
+  let doc;
+  try { doc = fr.contentDocument; } catch (e) {
+    log('无法访问内嵌文档: ' + e.message); return;
+  }
+  const cs = doc.querySelectorAll('.vp-doc mjx-container');
+  log('公式容器 mjx-container 数量: ' + cs.length);
+  if (!cs.length) { log('!! 页面里没有公式容器，说明内容未渲染'); return; }
+
+  let withSvg = 0, visible = 0, hidden = 0;
+  const details = [];
+  cs.forEach((c, i) => {
+    const svg = c.querySelector('svg');
+    if (svg) withSvg++;
+    const r = c.getBoundingClientRect();
+    const v = r.width > 0 && r.height > 0;
+    if (v) visible++;
+    const cst = fr.contentWindow.getComputedStyle(c);
+    if (cst.display === 'none' || cst.visibility === 'hidden' || cst.opacity === '0') hidden++;
+    if (i < 3 && svg) {
+      const p = svg.querySelector('path');
+      details.push('  公式' + (i+1) + ': 容器 ' + Math.round(r.width) + 'x' + Math.round(r.height)
+        + '  fill=' + (p ? fr.contentWindow.getComputedStyle(p).fill : 'n/a')
+        + '  display=' + cst.display + '  visibility=' + cst.visibility
+        + '  opacity=' + cst.opacity);
+    }
+  });
+  log('其中含 <svg>: ' + withSvg);
+  log('尺寸非零(可见): ' + visible);
+  log('被 CSS 隐藏(display/visibility/opacity): ' + hidden);
+  log('---');
+  log('前 3 个公式的实际样式:');
+  details.forEach(d => log(d));
+
+  // 主题与背景
+  const html = doc.documentElement;
+  log('---');
+  log('html class: ' + html.className);
+  log('body 背景: ' + fr.contentWindow.getComputedStyle(doc.body).backgroundColor);
+  log('正文颜色: ' + fr.contentWindow.getComputedStyle(doc.body).color);
+
+  // 是否有外部 CSS 覆盖
+  const cs2 = doc.querySelector('.vp-doc');
+  if (cs2) {
+    log('.vp-doc 的 filter: ' + fr.contentWindow.getComputedStyle(cs2).filter
+        + '  opacity: ' + fr.contentWindow.getComputedStyle(cs2).opacity);
+  }
+  log('---');
+  log('诊断结束，请把以上内容截图发我。');
+}
+</script>
+</body>
+</html>
