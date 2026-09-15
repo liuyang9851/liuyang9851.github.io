@@ -131,170 +131,228 @@ n
 \end{pmatrix}$$
 
 <div class="table-scroll">
-<table style="width:98%;">
-
-<thead>
+<table>
 <tr>
-<th>
+<th rowspan="16">
 
 分布函数
 
 </th>
 <th>
 
-F(x) = P(X ≤ x)
+$$F(x) = P(X \leq x)$$
 
 </th>
 <th>
 
-F(x, y) = P(X ≤ x, Y ≤ y)
+$$F(x,y) = P(X \leq x,Y \leq y)$$
 
 </th>
 </tr>
 <tr>
-<th>
+<td colspan="2">
 
-F(x)是ℝ上的单调非减右连续函数
+$F(x)$是$\mathbb{R}$上的单调非减右连续函数
 
-0 ≤ F(x) ≤ 1
-
-F(−∞) = limx → −∞F(x) = 0,  F(+∞) = limx → +∞F(x) = 1
-
-F(x)右连续，即F(x0 + 0) = F(x0)/limx → x0+F(x) = F(x0)
-
-P(X = x0) = F(x0 − 0) = limx → x0−F(x)（左极限）
-
-P(a < X ≤ b) = F(b) − F(a)
-
-P(a ≤ X < b) = F(b − 0) − F(a − 0)
-
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td colspan="2">
 
-F(x.y)分别对x或y单调非减，即
+$$0 \leq F(x) \leq 1$$
 
-∀x1 < x2, F(x1, y) ≤ F(x2, y)，有∀y1 < y2, F(x, y1) ≤ F(x, y2)
-
-0 ≤ F(x, y) ≤ 1
-
-F(−∞, y) = limx → −∞F(x, y) = 0
-
-F(x, −∞) = limy → −∞F(x, y) = 0
-
-F(+∞, +∞) = limx, y → +∞F(x, y) = +∞
-
-F(x + 0, y) = F(x, y),  F(x, y + 0) = F(x, y)
-
-∀a < b, c < d，有P(a < X ≤ b, c < Y ≤ d) = F(b, d) − F(a, d) − F(a, c) + F(a, c) ≥ 0
-
-</th>
+</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td>
+<td colspan="2">
+
+$$F( - \infty) = \lim_{x \rightarrow - \infty}{F(x)} = 0,\ \ F( + \infty) = \lim_{x \rightarrow + \infty}{F(x)} = 1$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$F(x)右连续，即F\left( x_{0} + 0 \right) = F\left( x_{0} \right)/\lim_{x \rightarrow x_{0}^{+}}{F(x)} = F\left( x_{0} \right)$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$P\left( X = x_{0} \right) = F\left( x_{0} - 0 \right) = \lim_{x \rightarrow x_{0}^{-}}{F(x)}$（左极限）
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$P(a < X \leq b) = F(b) - F(a)$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$P(a \leq X < b) = F(b - 0) - F(a - 0)$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$F(x.y)$分别对$x$或$y$单调非减，即
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$\forall x_{1} < x_{2},F\left( x_{1},y \right) \leq F\left( x_{2},y \right)，有\forall y_{1} < y_{2},F\left( x,y_{1} \right) \leq F\left( x,y_{2} \right)$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$0 \leq F(x,y) \leq 1$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$F( - \infty,y) = \lim_{x \rightarrow - \infty}{F(x,y)} = 0$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$F(x, - \infty) = \lim_{y \rightarrow - \infty}{F(x,y)} = 0$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$F( + \infty, + \infty) = \lim_{x,y \rightarrow + \infty}{F(x,y)} = + \infty$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$F(x + 0,y) = F(x,y),\ \ F(x,y + 0) = F(x,y)$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$\forall a < b,c < d，有P(a < X \leq b,c < Y \leq d) = F(b,d) - F(a,d) - F(a,c) + F(a,c) \geq 0$$
+
+</td>
+</tr>
+<tr>
+<td rowspan="3">
 
 分布列
 
 </td>
 <td>
 
-pi = p(xi) = P(X = xi)
+$$p_{i} = p\left( x_{i} \right) = P\left( X = x_{i} \right)$$
 
 </td>
 <td>
 
-pij = P(X = xi, Y = yj)
-
-</td>
-</tr>
-<tr>
-<td>
-
-p(xi) ≥ 0, i = 1, 2, ⋯
-
-</td>
-<td>
-
-$$\sum_{i}^{}{p\left( x_{i} \right)} = 1$$
+$$p_{ij} = P\left( X = x_{i},Y = y_{j} \right)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
-pij ≥ 0
-
-</td>
-<td>
-
-$$\sum_{i}^{}{\sum_{j}^{}p_{ij}} = 1$$
+$$p\left( x_{i} \right) \geq 0,i = 1,2,\cdots$$ $$\sum_{i}^{}{p\left( x_{i} \right)} = 1$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
+
+$$p_{ij} \geq 0$$ $$\sum_{i}^{}{\sum_{j}^{}p_{ij}} = 1$$
+
+</td>
+</tr>
+<tr>
+<td rowspan="4">
 
 概率密度函数
 
 </td>
 <td>
 
-F(x) = ∫−∞xp(t)dt
+$$F(x) = \int_{- \infty}^{x}{p(t)dt}$$
 
 </td>
 <td>
 
-F(x, y) = ∫−∞x∫−∞yp(u, v)dvdu
-
-</td>
-</tr>
-<tr>
-<td>
-
-p(x) ≥ 0
-
-∫−∞+∞p(x)dx = 1
-
-P(a < X ≤ b) = ∫abp(x)dx
-
-</td>
-<td>
-
-p(x, y) ≥ 0
-
-∫−∞+∞∫−∞+∞p(x, y)dydx = 1
-
-P((X, Y) ∈ D) = ∬Dp(x, y)dxdy
+$$F(x,y) = \int_{- \infty}^{x}{\int_{- \infty}^{y}{p(u,v)dvdu}}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
+
+$$p(x) \geq 0$$ $$p(x,y) \geq 0$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$\int_{- \infty}^{+ \infty}{p(x)dx} = 1$$ $$\int_{- \infty}^{+ \infty}{\int_{- \infty}^{+ \infty}{p(x,y)dydx}} = 1$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+$$P(a < X \leq b) = \int_{a}^{b}{p(x)dx}$$ $$P\left( (X,Y) \in D \right) = \iint_{D}^{}{p(x,y)dxdy}$$
+
+</td>
+</tr>
+<tr>
+<td rowspan="4">
 
 经验分布函数
 
 </td>
-<td>
+<td colspan="2">
 
-$$F_{n}(x) = \left\{ \begin{array}{r}
-0,\ \ x < x_{(1)}\ \ \ \ \ \ \ \ \ \  \\
-k\text{/}n,\ \ x_{(k)} \leq x < \\
-1,\ \ x > x_{(n)}\ \ \ \ \ \ \ \ \ \ 
-\end{array} \right.\ x_{(k + 1)}$$
+$$F_{n}(x) = \left\{ \begin{array}{r} 0,\ \ x < x_{(1)}\ \ \ \ \ \ \ \ \ \  \\ k\text{/}n,\ \ x_{(k)} \leq x < \\ 1,\ \ x > x_{(n)}\ \ \ \ \ \ \ \ \ \ \end{array} \right.\ x_{(k + 1)}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
-Fn(x)是非减右连续函数
+$F_{n}(x)$是非减右连续函数
 
-Fn(−∞) = 0,  Fn(+∞) = 1
+</td>
+</tr>
+<tr>
+<td colspan="2">
 
-Glivenko（格利文科）定理：P(sup−∞ < x < +∞|Fn(x) − F(x)| → 0) = 1
+$$F_{n}( - \infty) = 0,\ \ F_{n}( + \infty) = 1$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+Glivenko（格利文科）定理：$P\left( \sup_{- \infty < x < + \infty}\left\vert F_{n}(x) - F(x) \right\vert \rightarrow 0 \right) = 1$
 
 </td>
 </tr>
@@ -304,13 +362,12 @@ Glivenko（格利文科）定理：P(sup−∞ < x < +∞|Fn(x) − 
 概率函数
 
 </td>
-<td>
+<td colspan="2">
 
 分布列或概率密度函数
 
 </td>
 </tr>
-</tbody>
 </table>
 </div>
 
