@@ -203,6 +203,12 @@ export default defineConfig({
             { text: 'B3 · 数学归纳法', link: '/notes/hs-b03' },
             { text: 'B4 · 代数与函数方法', link: '/notes/hs-b04' },
             { text: 'B4 · 数学奠基', link: '/notes/hs-b04b' },
+            { text: 'B5 · 复数', link: '/notes/hs-b05' },
+            { text: 'B6 · 三角类函数', link: '/notes/hs-b06' },
+            { text: 'B7 · 数列', link: '/notes/hs-b07' },
+            { text: 'B8 · 解析几何初步', link: '/notes/hs-b08' },
+            { text: 'B9 · 平面几何回顾与扩展', link: '/notes/hs-b09' },
+            { text: 'B10 · 微积分初步', link: '/notes/hs-b10' },
           ]
         },
         {

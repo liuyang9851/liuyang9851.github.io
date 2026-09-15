@@ -287,6 +287,11 @@ node tools/validate-config.mjs   # 确认宏定义生效
 npm run build                    # 确认能构建
 ```
 
+`npm run build` 是 `node --max-old-space-size=8192 node_modules/vitepress/bin/vitepress.js build .`：
+笔记里公式上万条，MathJax 在构建期就把它们烤成 SVG，页面一多默认堆（本机约 4.3G）
+就不够用，会 `FATAL ERROR: Ineffective mark-compacts near heap limit`。
+CI 的 `ubuntu-latest`（16G 内存）扛得住 8G 堆。
+
 `validate-math.mjs` 会把每条公式离线渲染一遍。**这一步很重要**：MathJax 是
 浏览器端渲染，TeX 写错了 `npm run build` 照样成功，只有打开页面才会看到
 一片红色报错。脚本会在提交前把这类错误挡下来，并打印 文件:行号。
