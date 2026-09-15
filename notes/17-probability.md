@@ -3075,8 +3075,6 @@ $\mathbf{x} \in \overline{W}$（接受域）
 </table>
 </div>
 
-## 区间估计和参数检验
-
 <div class="table-scroll">
 <table>
 <thead>
@@ -3193,6 +3191,644 @@ $$H_{0}$$
 无关但被认为有关
 
 </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+## 区间估计和参数检验
+
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>
+
+检验
+
+</th>
+<th>
+
+$$H_{0}$$
+
+</th>
+<th>
+
+检验统计量/枢纽量
+
+</th>
+<th>
+
+置信区间
+
+</th>
+<th>
+
+拒绝域
+
+</th>
+<th>
+
+$p$值
+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="6">
+
+正态总体的均值和方差的区间估计和假设检验
+
+</td>
+</tr>
+<tr>
+<td rowspan="3">
+
+$u$检验
+
+（$\sigma$已知）
+
+</td>
+<td>
+
+$$\mu \leq \mu_{0}$$
+
+</td>
+<td rowspan="3">
+
+$$u =$$
+
+$$\frac{\overline{x} - \mu_{0}}{\sigma_{0}\text{/}\sqrt{n}}$$
+
+$$\sim N(0,1)$$
+
+</td>
+<td>
+
+$$\left( - \infty,\overline{x} + u_{1 - \alpha}\sigma\text{/}\sqrt{n} \right\rbrack$$
+
+</td>
+<td>
+
+$$\left\{ u \geq u_{1 - \alpha} \right\}$$
+
+</td>
+<td>
+
+$$1 - \Phi\left( u_{0} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\mu \geq \mu_{0}$$
+
+</td>
+<td>
+
+$$\left\lbrack \overline{x} - u_{1 - \alpha}\sigma\text{/}\sqrt{n}, + \infty \right)$$
+
+</td>
+<td>
+
+$$\left\{ u \leq u_{\alpha} \right\}$$
+
+</td>
+<td>
+
+$$\Phi\left( u_{0} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\mu = \mu_{0}$$
+
+</td>
+<td>
+
+$$\overline{x} \pm u_{1 - \alpha\text{/}2}\sigma\text{/}\sqrt{n}$$
+
+</td>
+<td>
+
+$$\left\{ |u| \geq u_{1 - \alpha\text{/}2} \right\}$$
+
+</td>
+<td>
+
+$$2\left( 1 - \Phi\left( u_{0} \right) \right)$$
+
+</td>
+</tr>
+<tr>
+<td rowspan="3">
+
+$t$检验
+
+（$\sigma$未知）
+
+</td>
+<td>
+
+$$\mu \leq \mu_{0}$$
+
+</td>
+<td rowspan="3">
+
+$$t =$$
+
+$$\frac{\overline{x} - \mu_{0}}{s\text{/}\sqrt{n}}$$
+
+$$\sim t(n - 1)$$
+
+</td>
+<td>
+
+$$\left( - \infty,\overline{x} + t_{1 - \alpha}(n - 1)s\text{/}\sqrt{n} \right\rbrack$$
+
+</td>
+<td>
+
+$$\left\{ t \geq t_{1 - \alpha}(n - 1) \right\}$$
+
+</td>
+<td>
+
+$$P\left( t \geq t_{0} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\mu \geq \mu_{0}$$
+
+</td>
+<td>
+
+$$\left\lbrack \overline{x} - t_{1 - \alpha}(n - 1)s\text{/}\sqrt{n}, + \infty \right)$$
+
+</td>
+<td>
+
+$$\left\{ t \leq t_{\alpha}(n - 1) \right\}$$
+
+</td>
+<td>
+
+$$P\left( t \leq t_{0} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\mu = \mu_{0}$$
+
+</td>
+<td>
+
+$$\overline{x} \pm t_{1 - \alpha\text{/}2}(n - 1)s\text{/}\sqrt{n}$$
+
+</td>
+<td>
+
+$$\left\{ |t| \geq t_{1 - \alpha\text{/}2}(n - 1) \right\}$$
+
+</td>
+<td>
+
+$$P(|t| \geq \left| t_{0} \right|)$$
+
+</td>
+</tr>
+<tr>
+<td rowspan="3">
+
+$\chi^{2}$检验
+
+（$\mu$已知）
+
+</td>
+<td>
+
+$$\sigma^{2} \leq \sigma_{1}^{2}$$
+
+</td>
+<td rowspan="3">
+
+$$\chi^{2} =$$
+
+$$\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}$$
+
+$$\overline{\ \ \ \ \ \ \ \sigma^{2}\ \ \ \ \ \ }$$
+
+$$\sim\chi^{2}(n)$$
+
+</td>
+<td>
+
+$$\left( - \infty,\frac{\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}}{\chi_{\alpha}^{2}(n)} \right\rbrack$$
+
+</td>
+<td>
+
+$$\chi^{2} \geq \chi_{1 - \alpha}^{2}(n)$$
+
+</td>
+<td>
+
+$$P\left( \chi^{2} \geq \chi_{0}^{2} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\sigma^{2} \geq \sigma_{1}^{2}$$
+
+</td>
+<td>
+
+$$\left\lbrack \frac{\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}}{\chi_{1 - \alpha}^{2}(n)}, + \infty \right)$$
+
+</td>
+<td>
+
+$$\chi^{2} \leq \chi_{\alpha}^{2}(n)$$
+
+</td>
+<td>
+
+$$P\left( \chi^{2} \leq \chi_{0}^{2} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\sigma^{2} = \sigma_{1}^{2}$$
+
+</td>
+<td>
+
+$$\left\lbrack \frac{\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}}{\chi_{1 - \alpha\text{/}2}^{2}(n)},\frac{\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}}{\chi_{\alpha\text{/}2}^{2}(n)} \right\rbrack$$
+
+</td>
+<td>
+
+$$\chi^{2} \leq \chi_{\alpha\text{/}2}^{2}(n)$$
+
+或
+
+$$\chi^{2} \geq \chi_{1 - \alpha\text{/}2}^{2}(n)$$
+
+</td>
+<td>
+
+$$2\ \min$$
+
+$$\text{\{}P\left( \chi^{2} \geq \chi_{0}^{2} \right),$$
+
+$$P\left( \chi^{2} \leq \chi_{0}^{2} \right)\text{\}}$$
+
+</td>
+</tr>
+<tr>
+<td rowspan="3">
+
+$\chi^{2}$检验
+
+（$\mu$未知）
+
+</td>
+<td>
+
+$$\sigma^{2} \leq \sigma_{1}^{2}$$
+
+</td>
+<td rowspan="3">
+
+$$\chi^{2} =$$
+
+$$\frac{(n - 1)s^{2}}{\sigma_{n}^{2}}$$
+
+$$\sim\chi^{2}(n - 1)$$
+
+</td>
+<td>
+
+$$\left( - \infty,\frac{(n - 1)s^{2}}{\chi_{\alpha}^{2}(n - 1)} \right\rbrack$$
+
+</td>
+<td>
+
+$$\chi^{2} \geq \chi_{1 - \alpha}^{2}(n - 1)$$
+
+</td>
+<td>
+
+$$P\left( \chi^{2} \geq \chi_{0}^{2} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\sigma^{2} \geq \sigma_{1}^{2}$$
+
+</td>
+<td>
+
+$$\left\lbrack \frac{(n - 1)s^{2}}{\chi_{1 - \alpha}^{2}(n - 1)}, + \infty \right)$$
+
+</td>
+<td>
+
+$$\chi^{2} \leq \chi_{\alpha}^{2}(n - 1)$$
+
+</td>
+<td>
+
+$$P\left( \chi^{2} \leq \chi_{0}^{2} \right)$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+$$\sigma^{2} = \sigma_{1}^{2}$$
+
+</td>
+<td>
+
+$$\left\lbrack \frac{(n - 1)s^{2}}{\chi_{1 - \alpha\text{/}2}^{2}(n - 1)},\frac{(n - 1)s^{2}}{\chi_{\alpha\text{/}2}^{2}(n - 1)} \right\rbrack$$
+
+</td>
+<td>
+
+$$\chi^{2} \leq \chi_{\alpha\text{/}2}^{2}(n - 1)$$
+
+或
+
+$$\chi^{2} \geq \chi_{1 - \alpha\text{/}2}^{2}(n - 1)$$
+
+</td>
+<td>
+
+$$2\ \min$$
+
+$$\text{\{}P\left( \chi^{2} \geq \chi_{0}^{2} \right),$$
+
+$$P\left( \chi^{2} \leq \chi_{0}^{2} \right)\text{\}}$$
+
+</td>
+</tr>
+<tr>
+<td colspan="6">
+
+大样本前提下总体比例的区间估计和假设检验
+
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>
+
+$$u =$$
+
+$$\frac{\overline{x} - p}{\sqrt{p(1 - p)\text{/}n}}$$
+
+$$\dot{\sim}N(0,1)$$
+
+</td>
+<td>
+
+$$\overline{x} \pm u_{1 - \alpha\text{/}2}\sqrt{\frac{\overline{x}\left( 1 - \overline{x} \right)}{n}}$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+有限总体
+
+或抽样比
+
+例较大
+
+</td>
+<td></td>
+<td></td>
+<td>
+
+$$\overline{x} \pm u_{1 - \alpha\text{/}2}\sqrt{\frac{\overline{x}\left( 1 - \overline{x} \right)}{n}}\sqrt{\frac{N - n}{N - 1}}$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="6">
+
+两个总体均值差的区间估计和假设检验
+
+$$x \rightarrow m,y \rightarrow n$$
+
+</td>
+</tr>
+<tr>
+<td>
+
+正态总体
+
+（或非正
+
+态分布，
+
+大样本）
+
+且$\sigma$已知
+
+</td>
+<td></td>
+<td>
+
+$$\frac{\left( \overline{x} - \overline{y} \right) - \left( \mu_{X} - \mu_{Y} \right)}{\sqrt{\frac{\sigma_{X}^{2}}{m} + \frac{\sigma_{Y}^{2}}{n}}}$$
+
+$$\sim N(0,1)$$
+
+</td>
+<td>
+
+$$\left( \overline{x} - \overline{y} \right) \pm u_{1 - \alpha\text{/}2}\sqrt{\frac{\sigma_{X}^{2}}{m} + \frac{\sigma_{Y}^{2}}{n}}$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+未知总体，
+
+未知方差但
+
+大样本
+
+</td>
+<td></td>
+<td>
+
+$$\frac{\left( \overline{x} - \overline{y} \right) - \left( \mu_{X} - \mu_{Y} \right)}{\sqrt{\frac{s_{x}^{2}}{m} + \frac{s_{y}^{2}}{n}}}$$
+
+$$\dot{\sim}N(0,1)$$
+
+</td>
+<td>
+
+$$\left( \overline{x} - \overline{y} \right) \pm u_{1 - \alpha\text{/}2}\sqrt{\frac{s_{X}^{2}}{m} + \frac{s_{Y}^{2}}{n}}$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+正态总体，
+
+小样本，$\sigma$
+
+未知但相等
+
+</td>
+<td></td>
+<td>
+
+$$\frac{\left( \overline{x} - \overline{y} \right) - \left( \mu_{X} - \mu_{Y} \right)}{s_{w}\sqrt{\frac{1}{m} + \frac{1}{n}}}$$
+
+$$\sim t(n + m - 2)$$
+
+其中$s_{w}^{2} =$
+
+$$\frac{(n - 1)s_{x}^{2} + (m - 1)s_{y}^{2}}{n + m - 2}$$
+
+</td>
+<td>
+
+$$\left( \overline{x} - \overline{y} \right) \pm \sqrt{\frac{1}{m} + \frac{1}{n}}s_{w}t_{1 - \alpha\text{/}2}(m + n - 2)$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+正态总体，
+
+$$\frac{\sigma_{Y}^{2}}{\sigma_{X}^{2}} = c$$
+
+</td>
+<td></td>
+<td>
+
+$$\frac{\left( \overline{x} - \overline{y} \right) - \left( \mu_{X} - \mu_{Y} \right)}{s_{w}\sqrt{\frac{1}{m} + \frac{c}{n}}}$$
+
+其中$s_{w}^{2} =$
+
+$$\frac{(n - 1)s_{x}^{2} + (m - 1)s_{y}^{2}}{n + m - 2}$$
+
+</td>
+<td>
+
+$$\left( \overline{x} - \overline{y} \right) \pm \sqrt{\frac{1}{m} + \frac{c}{n}}s_{w}t_{1 - \alpha\text{/}2}(m + n - 2)$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+正态总体
+
+未知方差且
+
+样本量不大
+
+</td>
+<td></td>
+<td>
+
+$$\frac{\left( \overline{x} - \overline{y} \right) - \left( \mu_{X} - \mu_{Y} \right)}{\sqrt{s_{x}^{2}\text{/}m + s_{y}^{2}\text{/}n}}$$
+
+$$\sim t(l)$$
+
+其中$l =$
+
+$$\frac{\left( s_{x}^{2}\text{/}m + s_{y}^{2}\text{/}n \right)^{2}}{\frac{s_{x}^{4}}{m^{2}(m - 1)} + \frac{s_{y}^{4}}{n^{2}(n - 1)}}$$
+
+</td>
+<td>
+
+$$\left( \overline{x} - \overline{y} \right) \pm \sqrt{s_{x}^{2}\text{/}m + s_{y}^{2}\text{/}n}t_{1 - \alpha\text{/}2}(l)$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+方差比
+
+$$\frac{\sigma_{X}^{2}}{\sigma_{Y}^{2}}$$
+
+</td>
+<td></td>
+<td>
+
+$$\frac{s_{x}^{2}\text{/}\sigma_{X}^{2}}{s_{y}^{2}\text{/}\sigma_{Y}^{2}}$$
+
+$$\sim F(m - 1,n - 1)$$
+
+</td>
+<td>
+
+$$\left\lbrack \frac{s_{x}^{2}\text{/}s_{y}^{2}}{F_{1 - \frac{\alpha}{2}}(m - 1,n - 1)},\frac{s_{x}^{2}\text{/}s_{y}^{2}}{F_{\frac{\alpha}{2}}(m - 1,n - 1)} \right\rbrack$$
+
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+总体比例差
+
+$$p_{x} - p_{y}$$
+
+</td>
+<td></td>
+<td></td>
+<td>
+
+$$\left( p_{x} - p_{y} \right)$$
+
+$$\pm u_{1 - \alpha\text{/}2}\sqrt{\frac{p_{x}\left( 1 - p_{x} \right)}{n_{x}} + \frac{p_{y}\left( 1 - p_{y} \right)}{n_{y}}}$$
+
+</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
