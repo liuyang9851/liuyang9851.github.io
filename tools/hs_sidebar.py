@@ -42,12 +42,14 @@ def seq_of(path):
 def collect():
     pages = {}
     for name in sorted(os.listdir(NOTES)):
-        m = re.match(r'^hs-(app|\w)(\d+)-?.*\.md$', name)
+        # hs-a01 / hs-b01b / hs-bx（Bx 没有序号）/ hs-app01
+        m = re.match(r'^hs-(app|a|b)(\d*)([a-z]*)\.md$', name)
         if not m:
             continue
-        kind = 'app' if m.group(1) == 'app' else m.group(1)
+        kind = m.group(1)
+        # 没有数字的（hs-bx）排在本组最后
+        num = int(m.group(2)) if m.group(2) else 999
         slug = name[:-3]
-        num = int(m.group(2))
         full = os.path.join(NOTES, name)
         pages.setdefault(kind, []).append((num, slug, title_of(full), seq_of(full)))
     for k in pages:
@@ -113,7 +115,10 @@ def main():
 
     idx = open(INDEX, encoding='utf-8').read()
     if '<!-- >>> hs-notes' in idx:
-        idx = replace_between(idx, '<!-- >>> hs-notes', '<!-- <<< hs-notes', build_index(pages))
+        # 结束标记要连 ` -->` 一起匹配：只匹配到 `<!-- <<< hs-notes` 的话，
+        # 每次运行都会把旧的 ` -->` 尾巴留在后面，越积越多（`--> --> --> ...`）。
+        idx = replace_between(idx, '<!-- >>> hs-notes', '<!-- <<< hs-notes -->',
+                              build_index(pages))
     else:
         idx = idx.rstrip() + '\n\n' + build_index(pages) + '\n'
     open(INDEX, 'w', encoding='utf-8').write(idx)

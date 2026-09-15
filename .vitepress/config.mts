@@ -209,6 +209,11 @@ export default defineConfig({
             { text: 'B8 · 解析几何初步', link: '/notes/hs-b08' },
             { text: 'B9 · 平面几何回顾与扩展', link: '/notes/hs-b09' },
             { text: 'B10 · 微积分初步', link: '/notes/hs-b10' },
+            { text: 'B11 · 线性代数初步', link: '/notes/hs-b11' },
+            { text: 'B12 · 数论初步', link: '/notes/hs-b12' },
+            { text: 'B14 · 其它', link: '/notes/hs-b14' },
+            { text: 'B15 · 微积分下的大学物理', link: '/notes/hs-b15' },
+            { text: 'Bx · 积分表与积分选做', link: '/notes/hs-bx' },
           ]
         },
         {
