@@ -89,6 +89,39 @@ function extract(md) {
   return exprs
 }
 
+/**
+ * markdown-it 的 math_block 规则有个坑：只要一行以 `$$` 开头，它就会去找
+ * **行尾**结束于 `$$` 的行；同一行里出现的 `$$` 若后面还跟着内容（例如
+ * `$$k$$次幂`，Word 转换出来的「行间公式 + 标签」很常见），它不认，
+ * 会一路吞到下一个以 `$$` 结尾的行为止 —— 后面的 HTML 全被吃进公式里，
+ * 最后在构建时报 `Can't find handler for document`（在 vitepress build 才会炸，
+ * 离线渲染每条公式却都通过，所以必须单独查）。
+ */
+function checkRunawayMath(md, rel) {
+  const lines = md.split('\n')
+  const bad = []
+  let open = false          // 是否有一个以 `$$` 开头、尚未收尾的块
+  for (let i = 0; i < lines.length; i++) {
+    const t = lines[i].trim()
+    if (!t) continue
+    if (open) {
+      // 块内：以 $$ 结尾就算收尾（含单独一行的 $$）
+      if (t.endsWith('$$')) open = false
+      continue
+    }
+    if (!t.startsWith('$$')) continue
+    const rest = t.slice(2)
+    if (rest.endsWith('$$')) continue                    // 单行公式，正常
+    if (rest.includes('$$')) {                            // 同一行有收尾符，但后面还跟着内容
+      bad.push([i + 1, t.slice(0, 70), '同一行的 $$ 之后还有内容（会一路吞到下一个 $$ 结尾的行）'])
+      continue
+    }
+    open = true                                           // 多行公式开始
+  }
+  if (open) bad.push([lines.length, '（文件末尾）', '有 $$ 没有收尾'])
+  return bad.map(([line, text, why]) => [rel, line, 'block', text, why])
+}
+
 function lineOf(md, index) {
   return md.slice(0, index).split('\n').length
 }
@@ -105,8 +138,13 @@ const failures = []
 
 for (const file of files) {
   const md = fs.readFileSync(file, 'utf8')
-  const exprs = extract(md)
   const rel = path.relative(ROOT, file)
+
+  // 先查 markdown 层面的坑（会吞行），这类问题逐条渲染查不出来
+  const runaway = checkRunawayMath(md, rel)
+  if (runaway.length) failures.push(...runaway)
+
+  const exprs = extract(md)
   let ok = 0
 
   for (const [kind, src, index] of exprs) {

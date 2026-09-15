@@ -33,6 +33,7 @@ npm run preview    # 预览构建结果
 ├─ tools/
 │  ├─ docx_to_md.py        Word → Markdown 素材转换
 │  ├─ grid_table_to_html.py 素材里的表格 → 带合并单元格的 HTML
+│  ├─ docx_table_to_html.py .docx 直接 → 带合并单元格的 HTML（没留素材时用）
 │  ├─ wrap_math_cjk.py     公式里的中文包 \text{}
 │  ├─ validate-math.mjs    离线校验所有 TeX 表达式能否渲染
 │  ├─ validate-tables.mjs  校验手写表格是否显式写了 <tbody>
@@ -213,6 +214,25 @@ lean 产物里，静态子树是 `createStaticVNode('', n)` 占位 —— 重建
 被真的插进去，**表格里的公式就会在闪现一次后全部变成空白**（容器、尺寸、可见性
 全都正常，只是没有笔画，常规排查根本看不出来）。
 `npm run check` 里的 `validate-tables.mjs` 会拦住这种表。
+
+**三、别让行间公式后面跟着文字。**
+`$$k$$次幂` 这种写法（Word 里「公式 + 标签」并排很常见）会让 markdown-it 的
+`math_block` 规则找不到**行尾**的 `$$`，于是一路吞到下一个以 `$$` 结尾的行为止 ——
+中间的 HTML 全被当成公式内容，构建时报 `Can't find handler for document`。
+逐条渲染公式是查不出来的（每条都合法），`validate-math.mjs` 现在会专门查这一条。
+把公式和文字拆成两个段落（各占一行、中间空行）即可。
+
+**四、没有素材时可以直接从 .docx 还原表格。**
+`pandoc -t markdown` 会把带合并单元格的表写成 pipe table（合并信息全丢），
+`pandoc -t html` 又会把数学降级成 Unicode。所以用：
+
+```bash
+python tools/docx_table_to_html.py "D:/数学/大学数学笔记/线性代数总结.docx" --list
+python tools/docx_table_to_html.py "D:/数学/大学数学笔记/线性代数总结.docx" --n 1 -o t1.html
+python tools/wrap_math_cjk.py t1.html -o t1.html
+```
+
+（它走的是 pandoc 的 JSON AST：`Cell` 节点带 rowspan/colspan，`Math` 节点里是原始 TeX。）
 
 ## 迁移笔记
 
