@@ -375,7 +375,6 @@ Glivenko（格利文科）定理：$P\left( \sup_{- \infty < x < + \infty}\left\
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th></th>
@@ -390,248 +389,245 @@ Glivenko（格利文科）定理：$P\left( \sup_{- \infty < x < + \infty}\left\
 
 </th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<th>
+<td rowspan="2">
 
 分布函数
 
-</th>
-<th>
+</td>
+<td colspan="2">
 
-F(x) = P(X ≤ x)
+$$F(x) = P(X \leq x)$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td colspan="2">
 
-F(x, y) = P(X ≤ x, Y ≤ y)
+$$F(x,y) = P(X \leq x,Y \leq y)$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td rowspan="2">
 
 分布列/概
 
 率密度函数
 
-</th>
-<th>
+</td>
+<td>
 
-pi = p(xi) = P(X = xi)
+$$p_{i} = p\left( x_{i} \right) = P\left( X = x_{i} \right)$$
 
-</th>
-<th>
+</td>
+<td>
 
-F(x) = ∫−∞xp(t)dt
+$$F(x) = \int_{- \infty}^{x}{p(t)dt}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
-pij = P(X = xi, Y = yj)
+$$p_{ij} = P\left( X = x_{i},Y = y_{j} \right)$$
 
-</th>
-<th>
+</td>
+<td>
 
-F(x, y) = ∫−∞x∫−∞yp(u, v)dvdu
+$$F(x,y) = \int_{- \infty}^{x}{\int_{- \infty}^{y}{p(u,v)dvdu}}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td rowspan="2">
 
 边际分布
 
-</th>
-<th>
+</td>
+<td colspan="2">
 
-FX(x) = F(x, +∞)
+$$F_{X}(x) = F(x, + \infty)$$
 
-FY(y) = F(+∞, y)
+$$F_{Y}(y) = F( + \infty,y)$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
 $$p_{i \cdot} = \sum_{j}^{\infty}p_{ij}$$
 
 $$p_{\cdot j} = \sum_{i}^{\infty}p_{ij}$$
 
-</th>
-<th>
+</td>
+<td>
 
-pX = ∫−∞+∞p(x, y)dy
+$$p_{X} = \int_{- \infty}^{+ \infty}{p(x,y)dy}$$
 
-pY = ∫−∞+∞p(x, y)dx
+$$p_{Y} = \int_{- \infty}^{+ \infty}{p(x,y)dx}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
 条件分布
 
-</th>
-<th>
+</td>
+<td>
 
-F(x|yi)=
+$$F\left( x\text{|}y_{i} \right) =$$
 
 $$\sum_{x_{i} \leq x}^{}{P\left( X = x_{i}\text{|}Y = y_{j} \right)} = \sum_{x_{i} \leq x}^{}p_{i\text{|}j}$$
 
-F(y|xi)=
+$$F\left( y\text{|}x_{i} \right) =$$
 
 $$\sum_{y_{j} \leq y}^{}{P\left( Y = y_{j}\text{|}X = x_{i} \right)} = \sum_{y_{j} \leq y}^{}p_{j\text{|}i}$$
 
-</th>
-<th>
+</td>
+<td>
 
 $$F\left( x\text{|}y \right) = \int_{- \infty}^{x}{\frac{p(u,y)}{p_{Y}(y)}du}$$
 
 $$F\left( y\text{|}x \right) = \int_{- \infty}^{y}{\frac{p(x,v)}{p_{X}(x)}dv}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td rowspan="2">
 
 条件概率
 
-</th>
-<th>
+</td>
+<td colspan="2">
 
-P(AB) = P(A)P(B|A)
+$$P(AB) = P(A)P\left( B\text{|}A \right)$$
 
-P(A1A2⋯An) = P(A1)P(A2|A3)⋯P(An|A1A2⋯An − 1)
+$$P\left( A_{1}A_{2}\cdots A_{n} \right) = P\left( A_{1} \right)P\left( A_{2}\text{|}A_{3} \right)\cdots P\left( A_{n}\text{|}A_{1}A_{2}\cdots A_{n - 1} \right)$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
-$${p_{i\text{|}j} = P\left( X = x_{i}\text{|}Y = y_{j} \right)
-}{= \frac{P\left( X = x_{i},Y = y_{j} \right)}{P\left( Y = y_{j} \right)} = \frac{p_{ij}}{p_{\cdot j}}}$$
+$${p_{i\text{|}j} = P\left( X = x_{i}\text{|}Y = y_{j} \right) }{= \frac{P\left( X = x_{i},Y = y_{j} \right)}{P\left( Y = y_{j} \right)} = \frac{p_{ij}}{p_{\cdot j}}}$$
 
-$${p_{j\text{|}i} = P\left( Y = y_{j}\text{|}X = x_{i} \right)
-}{= \frac{P\left( X = x_{i},Y = y_{j} \right)}{P\left( X = x_{i} \right)} = \frac{p_{ij}}{p_{i \cdot}}}$$
+$${p_{j\text{|}i} = P\left( Y = y_{j}\text{|}X = x_{i} \right) }{= \frac{P\left( X = x_{i},Y = y_{j} \right)}{P\left( X = x_{i} \right)} = \frac{p_{ij}}{p_{i \cdot}}}$$
 
-</th>
-<th>
+</td>
+<td>
 
 $$p\left( x\text{|}y \right) = \frac{p(x,y)}{p_{Y}(y)}$$
 
 $$p\left( y\text{|}x \right) = \frac{p(x,y)}{p_{X}(x)}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td rowspan="2">
 
 全概率公式
 
-</th>
-<th>
+</td>
+<td colspan="2">
 
 $$P(B) = \sum_{i}^{}{P\left( A_{i} \right)P\left( B|A_{i} \right)},\ \ \text{其中}\bigcup_{i}^{}A_{i} = \Omega$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
 $$p_{i \cdot} = \sum_{j = 1}^{+ \infty}{p_{\cdot j}p_{i\text{|}j}}$$
 
 $$p_{\cdot j} = \sum_{i = 1}^{+ \infty}{p_{i \cdot}p_{j\text{|}i}}$$
 
-</th>
-<th>
+</td>
+<td>
 
-pX(x) = ∫−∞+∞pY(y)p(x|y)dy
+$$p_{X}(x) = \int_{- \infty}^{+ \infty}{p_{Y}(y)p\left( x\text{|}y \right)dy}$$
 
-pY(y) = ∫−∞+∞pX(x)p(y|x)dx
+$$p_{Y}(y) = \int_{- \infty}^{+ \infty}{p_{X}(x)p\left( y\text{|}x \right)dx}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td rowspan="2">
 
 贝叶斯公式
 
-</th>
-<th>
+</td>
+<td colspan="2">
 
 $$P\left( A_{i} \middle| B \right) = \frac{P\left( A_{i}B \right)}{P(B)} = \frac{P\left( A_{i} \right)P\left( B \middle| A_{i} \right)}{P(B)} = \frac{P\left( A_{i} \right)P\left( B \middle| A_{i} \right)}{\sum_{k = 1}^{n}{P\left( A_{k} \right)P\left( B \middle| A_{k} \right)}}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
 $$p_{i\text{|}j} = \frac{p_{i \cdot}p_{j\text{|}i}}{\sum_{i = 1}^{+ \infty}{p_{i \cdot}p_{j\text{|}i}}}$$
 
 $$p_{j\text{|}i} = \frac{p_{\cdot j}p_{i\text{|}j}}{\sum_{j = 1}^{+ \infty}{p_{\cdot j}p_{i\text{|}j}}}$$
 
-</th>
-<th>
+</td>
+<td>
 
 $$p\left( x\text{|}y \right) = \frac{p_{X}(x)p\left( y\text{|}x \right)}{\int_{- \infty}^{+ \infty}{p_{X}(x)p\left( y\text{|}x \right)dx}}$$
 
 $$p\left( y\text{|}x \right) = \frac{p_{Y}(y)p\left( x\text{|}y \right)}{\int_{- \infty}^{+ \infty}{p_{Y}(y)p\left( x\text{|}y \right)dy}}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
 两两独立
 
-</th>
-<th>
+</td>
+<td colspan="2">
 
-P(AB) = P(A)P(B),  P(AC) = P(A)P(C),  P(BC) = P(B)P(C)
+$$P(AB) = P(A)P(B),\ \ P(AC) = P(A)P(C),\ \ P(BC) = P(B)P(C)$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td rowspan="2">
 
 相互独立
 
-</th>
-<th>
+</td>
+<td colspan="2">
 
-P(AB) = P(A)P(B),  P(AC) = P(A)P(C),  P(BC) = P(B)P(C)
+$$P(AB) = P(A)P(B),\ \ P(AC) = P(A)P(C),\ \ P(BC) = P(B)P(C)$$
 
-P(ABC) = P(A)P(B)P(C)
+$$P(ABC) = P(A)P(B)P(C)$$
 
 $$F\left( x_{1},x_{2},\cdots,x_{n} \right) = \prod_{i}^{}{F_{i}\left( x_{i} \right)}$$
 
-</th>
+</td>
 </tr>
 <tr>
-<th>
+<td>
 
 $$P\left( X_{1} = x_{1},X_{2} = x_{2},\cdots,X_{n} = x_{n} \right) = \prod_{i}^{}{P\left( X_{i} = x_{i} \right)}$$
 
-</th>
-<th>
+</td>
+<td>
 
 $$p\left( x_{1},x_{2},\cdots,x_{n} \right) = \prod_{i}^{}{p_{i}\left( x_{i} \right)}$$
 
-</th>
+</td>
 </tr>
-</thead>
-<tbody>
 </tbody>
 </table>
 </div>
 
 <div class="table-scroll">
-<table style="width:100%;">
-
+<table>
 <thead>
 <tr>
 <th>
@@ -641,9 +637,9 @@ $$p\left( x_{1},x_{2},\cdots,x_{n} \right) = \prod_{i}^{}{p_{i}\left( x_{i} \rig
 </th>
 <th>
 
-分布列pk或分布密度函数p(x)
+分布列$p_{k}$或分布密度函数$p(x)$
 
-特征函数φ(t) = E(eitX)
+特征函数$\varphi(t) = E\left( e^{itX} \right)$
 
 </th>
 <th>
@@ -667,43 +663,43 @@ $$p\left( x_{1},x_{2},\cdots,x_{n} \right) = \prod_{i}^{}{p_{i}\left( x_{i} \rig
 </td>
 <td>
 
-P(X = a) = 1
+$$P(X = a) = 1$$
 
-eita
-
-</td>
-<td>
-
-a
+$$e^{ita}$$
 
 </td>
 <td>
 
-0
+$$a$$
+
+</td>
+<td>
+
+$$0$$
 
 </td>
 </tr>
 <tr>
 <td>
 
-0—1分布
+0---1分布
 
 </td>
 <td>
 
-pk = pk(1 − p)1 − k,  k = 0, 1
+$$p_{k} = p^{k}(1 - p)^{1 - k},\ \ k = 0,\ 1$$
 
-peit + q
-
-</td>
-<td>
-
-p
+$$pe^{it} + q$$
 
 </td>
 <td>
 
-p(1 − p)
+$$p$$
+
+</td>
+<td>
+
+$$p(1 - p)$$
 
 </td>
 </tr>
@@ -712,43 +708,40 @@ p(1 − p)
 
 二项分布
 
-b(n, p)
+$$b(n,\ p)$$
 
 </td>
 <td>
 
-$$p_{k} = \begin{pmatrix}
-n \\
-k
-\end{pmatrix}p^{k}(1 - p)^{n - k}$$
+$$p_{k} = \begin{pmatrix} n \\ k \end{pmatrix}p^{k}(1 - p)^{n - k}$$
 
-k = 0, 1, ⋯, n
+$$k = 0,1,\cdots,n$$
 
-(peit + q)n
+$$\left( pe^{it} + q \right)^{n}$$
 
 </td>
 <td>
 
-np
+$$np$$
 
 </td>
 <td>
 
-np(1 − p)
+$$np(1 - p)$$
 
 </td>
 </tr>
 <tr>
 <td>
 
-多/r项分布
+多/$r$项分布
 
-M(n, p1, p2, ⋯, pn)
+$$M(n,p_{1},p_{2},\cdots,p_{n})$$
 
 </td>
 <td>
 
-P(X1 = n1, X2 = n2⋯Xr = nr)=
+$$P\left( X_{1} = n_{1},X_{2} = n_{2}\cdots X_{r} = n_{r} \right) =$$
 
 $$\frac{n!}{n_{1}!n_{2}!\cdots n_{r}!}p_{1}^{n_{1}}\cdots p_{r}^{n_{r}}$$
 
@@ -757,59 +750,47 @@ $$\frac{n!}{n_{1}!n_{2}!\cdots n_{r}!}p_{1}^{n_{1}}\cdots p_{r}^{n_{r}}$$
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 泊松分布
 
-P(λ)
+$$P(\lambda)$$
 
 </td>
 <td>
 
 $$p_{k} = \frac{\lambda^{k}}{k!}e^{- \lambda},\ \ k = 0,1,\cdots$$
 
-exp {λ(eit − 1)}
+$$\exp\left\{ \lambda\left( e^{it} - 1 \right) \right\}$$
 
 </td>
 <td>
 
-λ
+$$\lambda$$
 
 </td>
 <td>
 
-λ
+$$\lambda$$
 
 </td>
 </tr>
 <tr>
-<td></td>
+<td colspan="3"></td>
 </tr>
 <tr>
 <td>
 
 超几何分布
 
-h(n, N, M)
+$$h(n,N,M)$$
 
 </td>
 <td>
 
-$$p_{k} = \frac{\begin{pmatrix}
-M \\
-k
-\end{pmatrix}\begin{pmatrix}
-N - M \\
-n - k
-\end{pmatrix}}{\begin{pmatrix}
-N \\
-n
-\end{pmatrix}},\ \begin{matrix}
-k = 0,1,\cdots,r \\
-r = \min\left\{ M,n \right\}
-\end{matrix}$$
+$$p_{k} = \frac{\begin{pmatrix} M \\ k \end{pmatrix}\begin{pmatrix} N - M \\ n - k \end{pmatrix}}{\begin{pmatrix} N \\ n \end{pmatrix}},\ \begin{matrix} k = 0,1,\cdots,r \\ r = \min\left\{ M,n \right\} \end{matrix}$$
 
-2F1(−k, −n; N − k + 1; eit)
+$${}_{2}F_{1}\left( - k, - n;N - k + 1;e^{it} \right)$$
 
 </td>
 <td>
@@ -833,37 +814,25 @@ $$\frac{nM(N - M)(N - n)}{N^{2}(N - 1)}$$
 </td>
 <td>
 
-P(X1 = n1, X2 = n2⋯Xr = nr)=
+$$P\left( X_{1} = n_{1},X_{2} = n_{2}\cdots X_{r} = n_{r} \right) =$$
 
-$$\frac{\begin{pmatrix}
-N_{1} \\
-n_{1}
-\end{pmatrix}\begin{pmatrix}
-N_{2} \\
-n_{2}
-\end{pmatrix}\cdots\begin{pmatrix}
-N_{r} \\
-n_{r}
-\end{pmatrix}}{\begin{pmatrix}
-N \\
-n
-\end{pmatrix}}$$
+$$\frac{\begin{pmatrix} N_{1} \\ n_{1} \end{pmatrix}\begin{pmatrix} N_{2} \\ n_{2} \end{pmatrix}\cdots\begin{pmatrix} N_{r} \\ n_{r} \end{pmatrix}}{\begin{pmatrix} N \\ n \end{pmatrix}}$$
 
 </td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 几何分布
 
-Ge(p)
+$$Ge(p)$$
 
 </td>
 <td>
 
-pk = (1 − p)k − 1p,  k = 1, 2, ⋯
+$$p_{k} = (1 - p)^{k - 1}p,\ \ k = 1,2,\cdots$$
 
 $$\frac{pe^{it}}{1 - (1 - p)e^{it}}$$
 
@@ -880,32 +849,29 @@ $$\frac{1 - p}{p^{2}}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-X1 + X2 + ⋯ + Xr ∼ Nb(r, p)，其中Xi ∼ Ge(p)
+$X_{1} + X_{2} + \cdots + X_{r}\sim Nb(r,p)$，其中$X_{i}\sim Ge(p)$
 
-几何分布的无记忆性：设X ∼ Ge(p)，∀m, n ∈ ℤ，有
+几何分布的无记忆性：设$X\sim Ge(p)$，$\forall m,n\mathbb{\in Z}$，有
 
-P(X > m + n|X > m) = P(X > n)
+$$P\left( X > m + n\text{|}X > m \right) = P(X > n)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 负二项分布
 
-Nb(r, p)
+$$Nb(r,p)$$
 
 </td>
 <td>
 
-$$p_{k} = \begin{pmatrix}
-k - 1 \\
-r - 1
-\end{pmatrix}(1 - p)^{k - r}p^{r}$$
+$$p_{k} = \begin{pmatrix} k - 1 \\ r - 1 \end{pmatrix}(1 - p)^{k - r}p^{r}$$
 
-k = r, r + 1, ⋯
+$$\ k = r,r + 1,\cdots$$
 
 $$\left( \frac{pe^{it}}{1 - (1 - p)e^{it}} \right)^{r}$$
 
@@ -922,25 +888,25 @@ $$\frac{r(1 - p)}{p^{2}}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-X1 + X2 + ⋯ + Xr ∼ Nb(r, p)，其中Xi ∼ Ge(p)
+$X_{1} + X_{2} + \cdots + X_{r}\sim Nb(r,p)$，其中$X_{i}\sim Ge(p)$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 正态分布
 
-N(μ, σ2)
+$$N\left( \mu,\sigma^{2} \right)$$
 
 </td>
 <td>
 
 $$p(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ - \frac{(x - \mu)^{2}}{2\sigma^{2}} \right\}$$
 
-−∞ < x < +∞
+$$- \infty < x < + \infty$$
 
 $$\exp\left\{ i\mu t - \frac{\sigma^{2}t^{2}}{2} \right\}$$
 
@@ -951,25 +917,25 @@ $$\varphi(u) = \frac{1}{\sqrt{2\pi}}e^{- \frac{u^{2}}{2}}$$
 </td>
 <td>
 
-μ
+$$\mu$$
 
 </td>
 <td>
 
-σ
+$$\sigma$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
 $$I = \int_{- \infty}^{+ \infty}{e^{- x^{2}}dx} = \sqrt{\pi},\ \ \int_{0}^{+ \infty}{e^{- x^{2}}dx} = \frac{\sqrt{\pi}}{2}$$
 
 $$\text{证明：}I^{2} = \int_{- \infty}^{+ \infty}{\int_{- \infty}^{+ \infty}{e^{- \left( x^{2} + y^{2} \right)}dxdy}} = \int_{0}^{2\pi}{\int_{0}^{+ \infty}{e^{- r^{2}}rdrd\theta}} = \int_{0}^{2\pi}{\frac{1}{2}d\theta} = \pi$$
 
-P(a < U < b) = Φ(b) − Φ(a),  P(|U| < c) = 2Φ(c) − 1
+$$P(a < U < b) = \Phi(b) - \Phi(a),\ \ P\left( |U| < c \right) = 2\Phi(c) - 1$$
 
-U = (X − μ)/σ ∼ N(0, 1)
+$$U = (X - \mu)\text{/}\sigma\sim N(0,1)$$
 
 $$P(a < X < b) = \Phi\left( \frac{b - \mu}{\sigma} \right) - \Phi\left( \frac{a - \mu}{\sigma} \right)$$
 
@@ -977,11 +943,11 @@ $$P\left( |X| < c \right) = \Phi\left( \frac{c - \mu}{\sigma} \right) + \Phi\lef
 
 $$\text{过程能力指数：}C_{p} = \frac{\text{上控制限} - \text{下控制限}}{6\sigma} \geq 1.33\text{表示生产过程正常}$$
 
-Y = aX + b ∼ N(aμ + b, a2σ2)
+$$Y = aX + b\sim N\left( a\mu + b,a^{2}\sigma^{2} \right)$$
 
-X ∼ N(0, 1) ⇒ X2 ∼ χ2(1)
+$$X\sim N(0,1) \Rightarrow X^{2}\sim\chi^{2}(1)$$
 
-X ∼ N(μ1, σ12), Y ∼ N(μ2, σ22)，且X, Y独立 ⇒ X ± Y ∼ N(μ1 ± μ2, σ12 + σ22)
+$$X\sim N\left( \mu_{1},\sigma_{1}^{2} \right),Y\sim N\left( \mu_{2},\sigma_{2}^{2} \right)\text{，且}X,Y\text{独立} \Rightarrow X \pm Y\sim N\left( \mu_{1} \pm \mu_{2},\sigma_{1}^{2} + \sigma_{2}^{2} \right)$$
 
 $$X_{i}\sim N\left( \mu_{i},\sigma_{i}^{2} \right)\text{且}X_{i}\text{相互独立} \Rightarrow \sum_{i}^{}{c_{i}X_{i}}\sim N\left( \sum_{i}^{}{c_{i}\mu_{i}},\sum_{i}^{}{c_{i}^{2}\sigma_{i}^{2}} \right)$$
 
@@ -994,7 +960,7 @@ $$X,Y\sim N\left( \mu,\sigma^{2} \right) \Rightarrow E\left( \max\left\{ X,Y \ri
 
 二元正态分布
 
-N(μ1, μ2, σ1, σ2, ρ)
+$$N\left( \mu_{1},\mu_{2},\sigma_{1},\sigma_{2},\rho \right)$$
 
 </td>
 <td>
@@ -1006,29 +972,26 @@ $$\exp\left\{ - \frac{\frac{\left( x - \mu_{1} \right)^{2}}{\sigma_{1}^{2}} - 2\
 </td>
 <td>
 
-(μ1, μ2)
+$$\left( \mu_{1},\mu_{2} \right)$$
 
 </td>
 <td>
 
-(σ1, σ2)
+$$\left( \sigma_{1},\sigma_{2} \right)$$
 
 </td>
 </tr>
 <tr>
 <td></td>
-<td>
+<td colspan="3">
 
-aX + bY ∼ N(aμ1 + bμ2, a2σ12 + 2abσ1σ2ρ + b2σ22)
+$$aX + bY\sim N\left( a\mu_{1} + b\mu_{2},a^{2}\sigma_{1}^{2} + 2ab\sigma_{1}\sigma_{2}\rho + b^{2}\sigma_{2}^{2} \right)$$
 
-(aX + bY, cX + dY)是二维正态分布（$\left| \begin{matrix}
-a & b \\
-c & d
-\end{matrix} \right| \neq 0$）
+$(aX + bY,cX + dY)$是二维正态分布（$\left| \begin{matrix} a & b \\ c & d \end{matrix} \right| \neq 0$）
 
-二维正态分布的相关系数就是ρ。
+二维正态分布的相关系数就是$\rho$。
 
-X, Y独立/无关⇔ ρ = 0。
+$X,Y$独立/无关$\Leftrightarrow \rho = 0$。
 
 多元正态变量经线性变换后仍是多元正态变量。
 
@@ -1039,35 +1002,35 @@ X, Y独立/无关⇔ ρ = 0。
 <tr>
 <td>
 
-n元正态分布
+$n$元正态分布
 
 </td>
 <td>
 
-p(x1, x2, ⋯, xn) = p(x)=
+$$p\left( x_{1},x_{2},\cdots,x_{n} \right) = p\left( \mathbf{x} \right) =$$
 
 $$\frac{2}{(2\pi)^{\frac{n}{2}}\left| \mathbf{B} \right|^{\frac{1}{2}}}\exp\left\{ - \frac{\left( \mathbf{x} - \mathbf{a} \right)'\mathbf{B}^{- 1}\left( \mathbf{x} - \mathbf{a} \right)}{2} \right\}$$
 
 </td>
 <td>
 
-a
+$$\mathbf{a}$$
 
 </td>
 <td>
 
-B
+$$\mathbf{B}$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 均匀分布
 
 （平顶分布）
 
-U(a, b)
+$$U(a,b)$$
 
 </td>
 <td>
@@ -1089,9 +1052,9 @@ $$\frac{(b - a)^{12}}{12}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-FX(X) ∼ U(0, 1)，其中FX(x)是严格单调增函数且反函数存在
+$F_{X}(X)\sim U(0,1)$，其中$F_{X}(x)$是严格单调增函数且反函数存在
 
 </td>
 </tr>
@@ -1105,23 +1068,23 @@ FX(X) ∼ U(0, 1)，其中FX(x)是严格单调增函数且反函数存在
 
 $$p\left( x_{1},x_{2},\cdots,x_{n} \right) = \frac{1}{S_{D}}$$
 
-(x1, x2, ⋯, xn) ∈ D
+$$\left( x_{1},x_{2},\cdots,x_{n} \right) \in D$$
 
 </td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 指数分布
 
-Exp(λ)
+$$Exp(\lambda)$$
 
 </td>
 <td>
 
-p(x) = λe−λx,  x ≥ 0
+$$p(x) = \lambda e^{- \lambda x},\ \ x \geq 0$$
 
 $$\left( 1 - \frac{it}{\lambda} \right)^{- 1}$$
 
@@ -1138,20 +1101,20 @@ $$\frac{1}{\lambda^{2}}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-指数分布的无记忆性：设X ∼ Exp(λ)，∀m, n ∈ ℤ，有
+指数分布的无记忆性：设$X\sim Exp(\lambda)$，$\forall m,n\mathbb{\in Z}$，有
 
-P(X > m + n|X > m) = P(X > n)
+$$P\left( X > m + n\text{|}X > m \right) = P(X > n)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 伽马分布
 
-Ga(α, λ)
+$$Ga(\alpha,\lambda)$$
 
 </td>
 <td>
@@ -1173,67 +1136,67 @@ $$\frac{\alpha}{\lambda^{2}}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-伽马函数：Γ(α) = ∫0+∞xα − 1e−xdx
+$$\text{伽马函数：}\Gamma(\alpha) = \int_{0}^{+ \infty}{x^{\alpha - 1}e^{- x}dx}$$
 
 $$\Gamma(1) = 1,\ \ \ \Gamma\left( \frac{1}{2} \right) = \sqrt{\pi},\ \ \Gamma(\alpha + 1) = \alpha\Gamma(\alpha),\ \ \Gamma(n + 1) = n\Gamma(n) = n!$$
 
 $$Ga(1,\lambda) = Exp(\lambda),\ \ Ga\left( \frac{n}{2},\frac{1}{2} \right) = \chi^{2}(n)$$
 
-Ga(α, λ) ⇒ Y = kX ∼ Ga(α, λ/k)
+$$Ga(\alpha,\lambda) \Rightarrow Y = kX\sim Ga\left( \alpha,\lambda\text{/}k \right)$$
 
-伽马函数的可加性：X ∼ Ga(α1, λ), Y ∼ Ga(α2, λ) ⇒ X + Y ∼ Ga(α1 + α2, λ)
+伽马函数的可加性：$X\sim Ga\left( \alpha_{1},\lambda \right),Y\sim Ga\left( \alpha_{2},\lambda \right) \Rightarrow X + Y\sim Ga\left( \alpha_{1} + \alpha_{2},\lambda \right)$
 
-X1 + X2 + ⋯ + Xr ∼ Ga(r, λ)，其中Xi ∼ Exp(λ)
+$X_{1} + X_{2} + \cdots + X_{r}\sim Ga(r,\lambda)$，其中$X_{i}\sim Exp(\lambda)$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 卡方分布
 
-χ2(n)
+$$\chi^{2}(n)$$
 
 </td>
 <td>
 
 $$p(x) = \frac{x^{\frac{n}{2} - 1}e^{- \frac{x}{2}}}{\Gamma\left( n\text{/}2 \right)2^{\frac{n}{2}}},\ \ x \geq 0$$
 
-(1 − 2it)−n/2
+$$(1 - 2it)^{- n\text{/}2}$$
 
 </td>
 <td>
 
-n
+$$n$$
 
 </td>
 <td>
 
-2n
+$$2n$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-χ2 = x12 + x22 + ⋯ + xn2，其中xi是来自标准正态分布的独立样本
+$$\chi^{2} = x_{1}^{2} + x_{2}^{2} + \cdots + x_{n}^{2}\text{，其中}x_{i}\text{是来自标准正态分布的独立样本}$$
 
 $$\chi\sim\chi^{2}(1) \rightarrow p(x) = \frac{x^{- \frac{1}{2}}e^{- \frac{x}{2}}}{\sqrt{2\pi}}$$
 
-X1 + X2 + ⋯ + Xm ∼ χ2(n1 + n2 + ⋯ + nm)，其中Xi ∼ χ2(ni)
+$X_{1} + X_{2} + \cdots + X_{m}\sim\chi^{2}\left( n_{1} + n_{2} + \cdots + n_{m} \right)$，其中$X_{i}\sim\chi^{2}\left( n_{i} \right)$
 
-P(χ2 ≤ χ1 − α2(n)) = 1 − α
+$$P\left( \chi^{2} \leq \chi_{1 - \alpha}^{2}(n) \right) = 1 - \alpha$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 F分布
 
-F(m, n)
+$$F(m,n)$$
 
 </td>
 <td>
@@ -1245,38 +1208,38 @@ $$p(x) = \frac{\Gamma\left( \frac{m + n}{2} \right)\left( \frac{m}{n} \right)^{\
 
 $$\frac{n}{n - 2}$$
 
-(n > 2)
+$$(n > 2)$$
 
 </td>
 <td>
 
 $$\frac{2n^{2}(m + n - 2)}{m(n - 2)^{2}(n - 4)}$$
 
-(n > 4)
+$$(n > 4)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
 $$F = \frac{(x_{1}^{2} + x_{2}^{2} + \cdots + x_{m}^{2})\text{/}m}{(y_{1}^{2} + y_{2}^{2} + \cdots + y_{n}^{2})\text{/}n}\text{，其中}x_{i},y_{j}\text{是来自标准正态分布的独立样本}$$
 
-P(F ≤ F1 − α(m, n)) = 1 − α
+$$P\left( F \leq F_{1 - \alpha}(m,n) \right) = 1 - \alpha$$
 
 $$F\sim F(m,n) \Rightarrow \frac{1}{F}\sim F(n,m)$$
 
-Fα(n, m) ⋅ F1 − α(m, n) = 1
+$$F_{\alpha}(n,m) \cdot F_{1 - \alpha}(m,n) = 1$$
 
-t ∼ t(n) ⇒ t2 ∼ F(1, n)
+$$t\sim t(n) \Rightarrow t^{2}\sim F(1,n)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
-t分布
+$t$分布
 
-t(n)
+$$t(n)$$
 
 </td>
 <td>
@@ -1286,42 +1249,42 @@ $$p(x) = \frac{\Gamma\left( \frac{n + 1}{2} \right)}{\sqrt{n\pi}\Gamma\left( \fr
 </td>
 <td>
 
-0
+$$0$$
 
-(n > 1)
+$$(n > 1)$$
 
 </td>
 <td>
 
 $$\frac{n}{n - 2}$$
 
-(n > 2)
+$$(n > 2)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
 $$t = \frac{y_{1}}{\sqrt{\left( x_{1}^{2} + x_{2}^{2} + \cdots + x_{n}^{2} \right)\text{/}n}}\text{，其中}x_{i},y_{1}\text{是来自标准正态分布的独立样本}$$
 
 概率密度函数是偶函数。
 
-P(t ≤ t1 − α(n)) = 1 − α
+$$P\left( t \leq t_{1 - \alpha}(n) \right) = 1 - \alpha$$
 
-tα(n) + t1 − α(n) = 0
+$$t_{\alpha}(n) + t_{1 - \alpha}(n) = 0$$
 
-t ∼ t(n) ⇒ t2 ∼ F(1, n)
+$$t\sim t(n) \Rightarrow t^{2}\sim F(1,n)$$
 
-n ≥ 30时，t分布的分位数可用标准正态分位数代替。
+$n \geq 30$时，$t$分布的分位数可用标准正态分位数代替。
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 贝塔分布
 
-Be(a, b)
+$$Be(a,b)$$
 
 </td>
 <td>
@@ -1341,9 +1304,9 @@ $$\frac{ab}{(a + b)^{2}(a + b + 1)}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-贝塔函数：B(a, b) = ∫01xa − 1(1 − x)b − 1dx,  a, b > 0
+$$\text{贝塔函数：}B(a,b) = \int_{0}^{1}{x^{a - 1}(1 - x)^{b - 1}dx},\ \ a,b > 0$$
 
 $$B(a,b) = B(b,a),\ \ B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)}$$
 
@@ -1356,24 +1319,24 @@ $$B(a,b) = B(b,a),\ \ B(a,b) = \frac{\Gamma(a)\Gamma(b)}{\Gamma(a + b)}$$
 
 分布
 
-LN(μ, σ2)
+$$LN\left( \mu,\sigma^{2} \right)$$
 
 </td>
 <td>
 
 $$p(x) = \frac{1}{\sqrt{2\pi}\sigma x}\exp\left\{ - \frac{\left( \ln x - \mu \right)^{2}}{2\sigma^{2}} \right\}$$
 
-x ≥ 0
+$$x \geq 0$$
 
 </td>
 <td>
 
-eμ + σ2/2
+$$e^{\mu + \sigma^{2}\text{/}2}$$
 
 </td>
 <td>
 
-e2μ + σ2(eσ2 − 1)
+$$e^{2\mu + \sigma^{2}}\left( e^{\sigma^{2}} - 1 \right)$$
 
 </td>
 </tr>
@@ -1382,14 +1345,14 @@ e2μ + σ2(eσ2 − 1)
 
 柯西分布
 
-Cau(μ, λ)
+$$Cau(\mu,\lambda)$$
 
 </td>
 <td>
 
 $$p(x) = \frac{1}{\pi}\frac{\lambda}{\lambda^{2} + (x - \mu)^{2}}$$
 
-−∞ < x < +∞
+$$- \infty < x < + \infty$$
 
 </td>
 <td>
@@ -1413,7 +1376,7 @@ $$p(x) = \frac{1}{\pi}\frac{\lambda}{\lambda^{2} + (x - \mu)^{2}}$$
 
 $$p(x) = \frac{m}{\eta}\left( \frac{x}{\eta} \right)^{m}\exp\left\{ - \left( \frac{x}{\eta} \right)^{m} \right\}$$
 
-x ≥ 0
+$$x \geq 0$$
 
 </td>
 <td>
@@ -1433,10 +1396,9 @@ $$\eta^{2}\left\lbrack \Gamma\left( 1 + \frac{2}{m} \right) - \Gamma^{2}\left( 1
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
-<th>
+<th colspan="2">
 
 一维随机变量
 
@@ -1447,7 +1409,7 @@ $$\eta^{2}\left\lbrack \Gamma\left( 1 + \frac{2}{m} \right) - \Gamma^{2}\left( 1
 <tr>
 <td>
 
-Y = aX + b
+$$Y = aX + b$$
 
 </td>
 <td>
@@ -1457,7 +1419,7 @@ $$p_{Y}(y) = p_{X}\left( \frac{y - b}{a} \right) \cdot \frac{1}{|a|}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 二维随机变量
 
@@ -1466,19 +1428,19 @@ $$p_{Y}(y) = p_{X}\left( \frac{y - b}{a} \right) \cdot \frac{1}{|a|}$$
 <tr>
 <td>
 
-Z = X + Y
+$$Z = X + Y$$
 
 </td>
 <td>
 
-pZ(z) = ∫−∞+∞p(x, z − x)dx = ∫−∞+∞p(z − y, y)dy
+$$p_{Z}(z) = \int_{- \infty}^{+ \infty}{p(x,z - x)dx} = \int_{- \infty}^{+ \infty}{p(z - y,y)dy}$$
 
 </td>
 </tr>
 <tr>
 <td>
 
-Z = aX + bY
+$$Z = aX + bY$$
 
 </td>
 <td>
@@ -1490,7 +1452,7 @@ $$p_{Z}(z) = \frac{1}{|b|}\int_{- \infty}^{+ \infty}{p\left( x,\frac{z - ax}{b} 
 <tr>
 <td>
 
-Z = XY
+$$Z = XY$$
 
 </td>
 <td>
@@ -1502,19 +1464,19 @@ $$p_{Z}(z) = \int_{- \infty}^{+ \infty}{p\left( x,\frac{z}{x} \right)\frac{1}{|x
 <tr>
 <td>
 
-Z = X/Y
+$$Z = X\text{/}Y$$
 
 </td>
 <td>
 
-pZ(z) = ∫−∞+∞p(zy, y)|y|dy
+$$p_{Z}(z) = \int_{- \infty}^{+ \infty}{p(zy,y)|y|dy}$$
 
 </td>
 </tr>
 <tr>
 <td>
 
-Z = X2 + Y2
+$$Z = X^{2} + Y^{2}$$
 
 </td>
 <td>
@@ -1524,16 +1486,16 @@ $$p_{Z}(z) = \frac{1}{2}\int_{0}^{2\pi}{p\left( \sqrt{z}\cos\theta,\sqrt{z}\sin\
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
-最大值分布：max {X1, X2, ⋯, Xn}，其中X1, X2⋯, Xn是相互独立的n个随机变量
+最大值分布：$\max\left\{ X_{1},X_{2},\cdots,X_{n} \right\}$，其中$X_{1},X_{2}\cdots,X_{n}$是相互独立的n个随机变量
 
 </td>
 </tr>
 <tr>
 <td>
 
-Xi ∼ Fi(x)
+$$X_{i}\sim F_{i}(x)$$
 
 </td>
 <td>
@@ -1545,26 +1507,26 @@ $$F_{Y}(y) = P\left( X_{1} \leq y,X_{2} \leq y,\cdots,X_{n} \leq y \right) = \pr
 <tr>
 <td>
 
-Xi ∼ F(x)
+$$X_{i}\sim F(x)$$
 
 </td>
 <td>
 
-FY(y) = [F(y)]n,  pY(y) = n[F(y)]n − 1p(y)
+$$F_{Y}(y) = \left\lbrack F(y) \right\rbrack^{n},\ \ p_{Y}(y) = n\left\lbrack F(y) \right\rbrack^{n - 1}p(y)$$
+
+</td>
+</tr>
+<tr>
+<td colspan="2">
+
+最小值分布：$\min\left\{ X_{1},X_{2},\cdots,X_{n} \right\}$，其中$X_{1},X_{2}\cdots,X_{n}$是相互独立的n个随机变量
 
 </td>
 </tr>
 <tr>
 <td>
 
-最小值分布：min {X1, X2, ⋯, Xn}，其中X1, X2⋯, Xn是相互独立的n个随机变量
-
-</td>
-</tr>
-<tr>
-<td>
-
-Xi ∼ Fi(x)
+$$X_{i}\sim F_{i}(x)$$
 
 </td>
 <td>
@@ -1576,12 +1538,12 @@ $$F_{Y}(y) = 1 - P\left( \min\left\{ X_{1} > y,X_{2} > y,\cdots,X_{n} > y \right
 <tr>
 <td>
 
-Xi ∼ F(x)
+$$X_{i}\sim F(x)$$
 
 </td>
 <td>
 
-FY = 1 − [1 − F(y)]n,  pY(y) = n[1 − F(y)]n − 1p(y)
+$$F_{Y} = 1 - \left\lbrack 1 - F(y) \right\rbrack^{n},\ \ p_{Y}(y) = n\left\lbrack 1 - F(y) \right\rbrack^{n - 1}p(y)$$
 
 </td>
 </tr>
@@ -1593,7 +1555,6 @@ FY = 1 − [1 − F(y)]n,  pY(y) = n[1 − F(y)]n − 
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th></th>
@@ -1616,7 +1577,7 @@ FY = 1 − [1 − F(y)]n,  pY(y) = n[1 − F(y)]n − 
 </thead>
 <tbody>
 <tr>
-<td>
+<td rowspan="2">
 
 均值
 
@@ -1628,7 +1589,7 @@ $$E(X) = \mu = \sum_{i}^{}{x_{i}p\left( x_{i} \right)}$$
 </td>
 <td>
 
-E(X) = μ = ∫−∞+∞xp(x)dx
+$$E(X) = \mu = \int_{- \infty}^{+ \infty}{xp(x)dx}$$
 
 </td>
 <td>
@@ -1638,56 +1599,50 @@ $$\overline{x} = \frac{1}{n}\sum_{i = 1}^{n}x_{i}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
 $$\sum_{i}^{}{\left| x_{i} \right|p_{i}}\text{收敛}$$
 
-∫−∞+∞|x|p(x)dx收敛
+$$\int_{- \infty}^{+ \infty}{|x|p(x)dx}\text{收敛}$$
 
-$$E\left\lbrack g(X) \right\rbrack = \left\{ \begin{array}{r}
-\sum_{i}^{}{g\left( x_{i} \right)p\left( x_{i} \right)} \\
-\int_{- \infty}^{+ \infty}{g(x)p(x)dx}
-\end{array} \right.\ $$
+$$E\left\lbrack g(X) \right\rbrack = \left\{ \begin{array}{r} \sum_{i}^{}{g\left( x_{i} \right)p\left( x_{i} \right)} \\ \int_{- \infty}^{+ \infty}{g(x)p(x)dx} \end{array} \right.\ $$
 
-E(aX + b) = aE(X) + b
+$$E(aX + b) = aE(X) + b$$
 
-E[f(X) + g(X)] = E[f(X)] + E[g(X)]
+$$E\left\lbrack f(X) + g(X) \right\rbrack = E\left\lbrack f(X) \right\rbrack + E\left\lbrack g(X) \right\rbrack$$
 
 $$E\left( X^{*} \right) = 0,\ \ X^{*} = \left\lbrack X - E(X) \right\rbrack\text{/}\sqrt{Var(X)}$$
 
-$$E\left( Z = g(X,Y) \right) = \left\{ \begin{array}{r}
-\sum_{i}^{}{\sum_{j}^{}{g\left( x_{i},y_{i} \right)P\left( X = x_{i},Y = y_{i} \right)}} \\
-\int_{- \infty}^{+ \infty}{\int_{- \infty}^{+ \infty}{g(x,y)p(x,y)dxdy}}\ \ \ \ \ \ \ \ 
-\end{array} \right.\ $$
+$$E\left( Z = g(X,Y) \right) = \left\{ \begin{array}{r} \sum_{i}^{}{\sum_{j}^{}{g\left( x_{i},y_{i} \right)P\left( X = x_{i},Y = y_{i} \right)}} \\ \int_{- \infty}^{+ \infty}{\int_{- \infty}^{+ \infty}{g(x,y)p(x,y)dxdy}}\ \ \ \ \ \ \ \ \end{array} \right.\ $$
 
-E(X + Y) = E(X) + E(Y)
+$$E(X + Y) = E(X) + E(Y)$$
 
-E(XY) = E(X)E(Y) + Cov(X, Y)
+$$E(XY) = E(X)E(Y) + Cov(X,Y)$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 方差
 
 </td>
 <td>
 
-Var(X) = D(X) = σ2
+$$Var(X) = D(X) = \sigma^{2}$$
 
-E(X − E(X))2
+$$E\left( X - E(X) \right)^{2}$$
 
 $$\sum_{i}^{}{\left( x_{i} - E(X) \right)^{2}p\left( x_{i} \right)}$$
 
 </td>
 <td>
 
-Var(X) = D(X) = σ2
+$$Var(X) = D(X) = \sigma^{2}$$
 
-E(X − E(X))2
+$$E\left( X - E(X) \right)^{2}$$
 
-∫−∞+∞(x − E(X))2p(x)dx
+$$\int_{- \infty}^{+ \infty}{\left( x - E(X) \right)^{2}p(x)dx}$$
 
 </td>
 <td>
@@ -1699,62 +1654,62 @@ $$s^{2} = \frac{1}{n - 1}\sum_{i = 1}^{n}\left( x_{i} - \overline{x} \right)^{2}
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="3">
 
-Var(aX + b) = a2E(X)
+$$Var(aX + b) = a^{2}E(X)$$
 
 $$Var\left( X^{*} \right) = 1,\ \ X^{*} = \left\lbrack X - E(X) \right\rbrack\text{/}\sqrt{Var(X)}$$
 
-Var(X ± Y) = Var(X) + Var(Y) ± 2Cov(X, Y)
+$$Var(X \pm Y) = Var(X) + Var(Y) \pm 2Cov(X,Y)$$
 
 $$\text{切比雪夫不等式：}P\left( \left| X - E(X) \right| \geq \varepsilon \right) \leq \frac{Var(X)}{\varepsilon^{2}},\ \ \forall\varepsilon > 0$$
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 协方差
 
-Cov(X, Y)
+$$Cov(X,Y)$$
 
 </td>
-<td>
+<td colspan="2">
 
-Cov(X, Y) = E[(X − E(X))(Y − E(Y))]
-
-</td>
-<td></td>
-</tr>
-<tr>
-<td>
-
-Cov(X, Y) = E(XY) − E(X)E(Y)
-
-Cov(aX + b, cX + d) = acCov(X, Y)
-
-Cov(X + Y, Z + W)=
-
-Cov(X, Z) + Cov(X, W) + Cov(Y, Z) + Cov(Z, W)
-
-Cov(X*, Y*) = Corr(X, Y)
-
-[Cov(X, Y)]2 ≤ σX2σY2
-
-X, Y独立 ⇒ Cov(X, Y) = 0
+$$Cov(X,Y) = E\left\lbrack \left( X - E(X) \right)\left( Y - E(Y) \right) \right\rbrack$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
+
+$$Cov(X,Y) = E(XY) - E(X)E(Y)$$
+
+$$Cov(aX + b,cX + d) = acCov(X,Y)$$
+
+$$Cov(X + Y,Z + W) =$$
+
+$$Cov(X,Z) + Cov(X,W) + Cov(Y,Z) + Cov(Z,W)$$
+
+$$Cov\left( X^{*},Y^{*} \right) = Corr(X,Y)$$
+
+$$\left\lbrack Cov(X,Y) \right\rbrack^{2} \leq \sigma_{X}^{2}\sigma_{Y}^{2}$$
+
+$$X,Y\text{独立} \Rightarrow Cov(X,Y) = 0$$
+
+</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">
 
 相关系数
 
-Corr(X, Y)
+$$Corr(X,Y)$$
 
 </td>
-<td>
+<td colspan="2">
 
 $$Corr(X,Y) = \frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}} = \frac{Cov(X,Y)}{\sigma_{X}\sigma_{Y}}$$
 
@@ -1762,11 +1717,11 @@ $$Corr(X,Y) = \frac{Cov(X,Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}} = \frac{Cov(X,Y)}{\sig
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 $$Corr(X,Y) = Cov\left( X^{*},Y^{*} \right) = E\left( \frac{X - \mu_{X}}{\sigma_{X}} \cdot \frac{Y - \mu_{Y}}{\sigma_{Y}} \right)$$
 
-−1 ≤ Corr(X, Y) ≤ 1
+$$- 1 \leq Corr(X,Y) \leq 1$$
 
 </td>
 <td></td>
@@ -1777,40 +1732,37 @@ $$Corr(X,Y) = Cov\left( X^{*},Y^{*} \right) = E\left( \frac{X - \mu_{X}}{\sigma_
 众数
 
 </td>
-<td>
+<td colspan="3">
 
 出现次数最多的数
 
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 下侧分位数
 
-xp
+$$x_{p}$$
 
 上侧分位数
 
-xp′
+$$x_{p}'$$
 
 </td>
 <td></td>
 <td>
 
-F(xp) = ∫−∞xpp(x)dx = p
+$$F\left( x_{p} \right) = \int_{- \infty}^{x_{p}}{p(x)dx} = p$$
 
-1 − F(xp′) = ∫xp+∞p(x)dx = p
+$$1 - F\left( x_{p}' \right) = \int_{x_{p}}^{+ \infty}{p(x)dx} = p$$
 
 </td>
 <td>
 
-mp=
+$$m_{p} =$$
 
-$$\left\{ \begin{array}{r}
-x_{\left( \left\lfloor np + 1 \right\rfloor \right)},\ \ np\text{非整} \\
-\frac{x_{(np)} + x_{(np + 1)}}{2}\ \ \ \ \ \ \ \ \ \ \ \ 
-\end{array} \right.\ $$
+$$\left\{ \begin{array}{r} x_{\left( \left\lfloor np + 1 \right\rfloor \right)},\ \ np\text{非整} \\ \frac{x_{(np)} + x_{(np + 1)}}{2}\ \ \ \ \ \ \ \ \ \ \ \ \end{array} \right.\ $$
 
 </td>
 </tr>
@@ -1818,7 +1770,7 @@ x_{\left( \left\lfloor np + 1 \right\rfloor \right)},\ \ np\text{非整} \\
 <td></td>
 <td>
 
-xp′ = x1 − p,  xp = x1 − p′
+$$x_{p}' = x_{1 - p},\ \ x_{p} = x_{1 - p}'$$
 
 </td>
 <td>
@@ -1830,27 +1782,24 @@ $$N\left( x_{p},\frac{p(1 - p)}{n\left\lbrack p\left( x_{p} \right) \right\rbrac
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 中位数
 
-x0.5
+$$x_{0.5}$$
 
 </td>
 <td></td>
 <td>
 
-∫−∞x0.5p(x)dx = ∫x0.5+∞p(x)dx
+$$\int_{- \infty}^{x_{0.5}}{p(x)dx} = \int_{x_{0.5}}^{+ \infty}{p(x)dx}$$
 
 </td>
 <td>
 
-m0.5=
+$$m_{0.5} =$$
 
-$$\left\{ \begin{array}{r}
-x_{\left( \frac{n + 1}{2} \right)},\ \ n\text{为奇数} \\
-\frac{x_{\left( \frac{n}{2} \right)} + x_{\left( \frac{n}{2} + 1 \right)}}{2}\ \ \ \ \ \ \ \ \ \ \ \ \ 
-\end{array} \right.\ $$
+$$\left\{ \begin{array}{r} x_{\left( \frac{n + 1}{2} \right)},\ \ n\text{为奇数} \\ \frac{x_{\left( \frac{n}{2} \right)} + x_{\left( \frac{n}{2} + 1 \right)}}{2}\ \ \ \ \ \ \ \ \ \ \ \ \ \end{array} \right.\ $$
 
 </td>
 </tr>
@@ -1866,20 +1815,20 @@ $$N\left( x_{0.5},\frac{1}{4n\left\lbrack p\left( x_{0.5} \right) \right\rbrack^
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
-k阶矩
+$k$阶矩
 
-k阶原点矩
+$k$阶原点矩
 
-k阶中心矩
+$k$阶中心矩
 
 </td>
-<td>
+<td colspan="2">
 
-Ak = μk = E(Xk)
+$$A_{k} = \mu_{k} = E\left( X^{k} \right)$$
 
-Bk = νk = E(X − E(X))k
+$$B_{k} = \nu_{k} = E\left( X - E(X) \right)^{k}$$
 
 </td>
 <td>
@@ -1891,17 +1840,11 @@ $$b_{k} = \frac{1}{n}\sum_{i = 1}^{n}\left( x_{i} - \overline{x} \right)^{k}$$
 </td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
-$$\nu_{k} = \sum_{i = 0}^{n}{\begin{pmatrix}
-k \\
-i
-\end{pmatrix}\mu_{i}\left( - \mu_{i} \right)^{k - i}}$$
+$$\nu_{k} = \sum_{i = 0}^{n}{\begin{pmatrix} k \\ i \end{pmatrix}\mu_{i}\left( - \mu_{i} \right)^{k - i}}$$
 
-$$\left\{ \begin{array}{r}
-\nu_{1} = 0\ \ \ \ \ \ \ \ \ \ \ \  \\
-\nu_{2} = \mu_{2} - \mu_{1}^{2}
-\end{array} \right.\ $$
+$$\left\{ \begin{array}{r} \nu_{1} = 0\ \ \ \ \ \ \ \ \ \ \ \ \\ \nu_{2} = \mu_{2} - \mu_{1}^{2} \end{array} \right.\ $$
 
 </td>
 <td></td>
@@ -1911,14 +1854,14 @@ $$\left\{ \begin{array}{r}
 
 变异系数
 
-Cv(X)
+$$C_{v}(X)$$
 
 </td>
-<td>
+<td colspan="2">
 
 $$C_{v}(X) = \frac{\sqrt{Var(X)}}{E(X)} = \frac{\sigma(X)}{E(X)}$$
 
-Cv(X)越大说明波动越大
+$C_{v}(X)$越大说明波动越大
 
 </td>
 <td></td>
@@ -1928,10 +1871,10 @@ Cv(X)越大说明波动越大
 
 偏度系数
 
-βS
+$$\beta_{S}$$
 
 </td>
-<td>
+<td colspan="2">
 
 $$\beta_{S} = \frac{\nu_{3}}{\nu_{2}^{3\text{/}2}} = \frac{E\left( X - E(X) \right)^{3}}{\left\lbrack Var(X) \right\rbrack^{3\text{/}2}}$$
 
@@ -1947,10 +1890,10 @@ $${\widehat{\beta}}_{S} = \frac{b_{3}}{b_{2}^{3\text{/}2}}$$
 
 峰度系数
 
-βk
+$$\beta_{k}$$
 
 </td>
-<td>
+<td colspan="2">
 
 $$\beta_{k} = \frac{\nu_{4}}{\nu_{2}^{2}} - 3 = \frac{E\left( X - E(X) \right)^{3}}{\left\lbrack Var(X) \right\rbrack^{2}} - 3$$
 
@@ -1962,81 +1905,81 @@ $${\widehat{\beta}}_{k} = \frac{b_{4}}{b_{2}^{2}} - 3$$
 </td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 条件期望
 
 </td>
 <td>
 
-E(X|Y = y)=
+$$E\left( X\text{|}Y = y \right) =$$
 
 $$\sum_{i}^{}{x_{i}P\left( X = x_{i}\text{|}Y = y \right)}$$
 
-E(Y|X = x)=
+$$E\left( Y\text{|}X = x \right) =$$
 
 $$\sum_{j}^{}{y_{i}P(Y = y_{j}\text{|}X = x)}$$
 
 </td>
 <td>
 
-E(X|Y = y) = ∫−∞∞xp(x|y)dx
+$$E\left( X\text{|}Y = y \right) = \int_{- \infty}^{\infty}{xp\left( x\text{|}y \right)dx}$$
 
-E(Y|X = x) = ∫−∞∞yp(y|x)dy
+$$E\left( Y\text{|}X = x \right) = \int_{- \infty}^{\infty}{yp\left( y\text{|}x \right)dy}$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 全期望公式
 
-E(X) = E[E(X|Y)]
+$$E(X) = E\left\lbrack E\left( X\text{|}Y \right) \right\rbrack$$
 
-E(Y) = E[E(Y|X)]
+$$E(Y) = E\left\lbrack E\left( Y\text{|}X \right) \right\rbrack$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td rowspan="2">
 
 条件方差
 
 </td>
 <td>
 
-Var(X|Y = y)=
+$$Var\left( X\text{|}Y = y \right) =$$
 
-E[(X − E(X|Y = y))2|Y = y]
+$$E\left\lbrack \left( X - E\left( X\text{|}Y = y \right) \right)^{2}\text{|}Y = y \right\rbrack$$
 
-Var(Y|X = x)=
+$$Var\left( Y\text{|}X = x \right) =$$
 
-E[(Y − E(Y|X = x))2|X = x]
+$$E\left\lbrack \left( Y - E\left( Y\text{|}X = x \right) \right)^{2}\text{|}X = x \right\rbrack$$
 
 </td>
 <td>
 
-Var(X|Y = y)=
+$$Var\left( X\text{|}Y = y \right) =$$
 
-∫−∞+∞(X − E(X|Y = y))2fX|Y(x|y)dx
+$$\int_{- \infty}^{+ \infty}{\left( X - E\left( X\text{|}Y = y \right) \right)^{2}f_{X\text{|}Y}\left( x\text{|}y \right)dx}$$
 
-Var(Y|X = x)=
+$$Var\left( Y\text{|}X = x \right) =$$
 
-∫−∞+∞(Y − E(Y|X = x))2fY|X(y|x)dy
+$$\int_{- \infty}^{+ \infty}{\left( Y - E\left( Y\text{|}X = x \right) \right)^{2}f_{Y\text{|}X}\left( y\text{|}x \right)dy}$$
 
 </td>
 <td></td>
 </tr>
 <tr>
-<td>
+<td colspan="2">
 
 全方差公式
 
-Var(X) = E[Var(X|Y)] + Var[E(X|Y)]
+$$Var(X) = E\left\lbrack Var\left( X\text{|}Y \right) \right\rbrack + Var\left\lbrack E\left( X\text{|}Y \right) \right\rbrack$$
 
-Var(Y) = E[Var(Y|X)] + Var[E(Y|X)]
+$$Var(Y) = E\left\lbrack Var\left( Y\text{|}X \right) \right\rbrack + Var\left\lbrack E\left( Y\text{|}X \right) \right\rbrack$$
 
 </td>
 <td></td>
@@ -2113,8 +2056,7 @@ $$\lim_{n \rightarrow \infty}{P\left( \left| \frac{1}{n}\sum_{i = 1}^{n}X_{i} - 
 则称随机变量序列$\left\{ X_{n} \right\}$服从大数定律。
 
 <div class="table-scroll">
-<table style="width:83%;">
-
+<table>
 <thead>
 <tr>
 <th>
@@ -2129,7 +2071,7 @@ $$\lim_{n \rightarrow \infty}{P\left( \left| \frac{1}{n}\sum_{i = 1}^{n}X_{i} - 
 </th>
 <th>
 
-∀ε > 0，有结论
+$\forall\varepsilon > 0\text{，有}$结论
 
 </th>
 </tr>
@@ -2138,14 +2080,14 @@ $$\lim_{n \rightarrow \infty}{P\left( \left| \frac{1}{n}\sum_{i = 1}^{n}X_{i} - 
 <tr>
 <td>
 
-### 伯努利大数定律
+伯努利大数定律
 
 （Bernoulli）
 
 </td>
 <td>
 
-X ∼ b(n, p)
+$$X\sim b(n,p)$$
 
 </td>
 <td>
@@ -2164,9 +2106,9 @@ $$\lim_{n \rightarrow \infty}{P\left( \left| \frac{X}{n} - p \right| < \varepsil
 </td>
 <td>
 
-{Xi}两两不相关
+$\left\{ X_{i} \right\}$两两不相关
 
-Var(Xi) ≤ c
+$$Var\left( X_{i} \right) \leq c$$
 
 </td>
 <td>
@@ -2206,14 +2148,14 @@ $$\frac{1}{n^{2}}Var\left( \sum_{i = 1}^{n}X_{i} \right) \rightarrow 0$$
 </td>
 <td>
 
-{Xi}独立同分布
+$\left\{ X_{i} \right\}$独立同分布
 
-E(Xi)存在
+$E\left( X_{i} \right)$存在
 
 </td>
 <td>
 
-若E(Xi) = μ，则
+若$E\left( X_{i} \right) = \mu$，则
 
 $$\lim_{n \rightarrow \infty}{P\left( \left| \frac{1}{n}\sum_{i = 1}^{n}X_{i} - \mu \right| < \varepsilon \right)} = 1$$
 
@@ -2226,13 +2168,12 @@ $$\lim_{n \rightarrow \infty}{P\left( \left| \frac{1}{n}\sum_{i = 1}^{n}X_{i} - 
 ### 中心极限定理
 
 <div class="table-scroll">
-<table style="width:96%;">
-
+<table>
 <thead>
 <tr>
 <th>
 
-### 中心极限定理
+中心极限定理
 
 </th>
 <th>
@@ -2251,16 +2192,16 @@ $$\lim_{n \rightarrow \infty}{P\left( \left| \frac{1}{n}\sum_{i = 1}^{n}X_{i} - 
 <tr>
 <td>
 
-林德伯格—莱维
+林德伯格---莱维
 
-### 中心极限定理
+中心极限定理
 
 （Lindeberg-Lévy）
 
 </td>
 <td>
 
-{Xi}独立同分布
+$\left\{ X_{i} \right\}$独立同分布
 
 均值和方差存在
 
@@ -2282,16 +2223,16 @@ $$\sum_{i = 1}^{n}X_{i}\overset{L}{\rightarrow}N(\mu,\sigma)$$
 <tr>
 <td>
 
-棣莫弗—拉普拉斯
+棣莫弗---拉普拉斯
 
-### 中心极限定理
+中心极限定理
 
 （de Moivre-Laplace）
 
 </td>
 <td>
 
-X ∼ b(n, p)
+$$X\sim b(n,p)$$
 
 </td>
 <td>
@@ -2409,7 +2350,6 @@ $$\frac{1}{\sigma^{2}}ns_{n}^{2}\sim\chi^{2}(n - 1)$$
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th>
@@ -2419,7 +2359,7 @@ $$E\left( \overline{x} \right) = \mu$$
 </th>
 <th>
 
-E(s2) = σ2
+$$E\left( s^{2} \right) = \sigma^{2}$$
 
 </th>
 <th>
@@ -2459,7 +2399,6 @@ $$Var\left( s_{n}^{2} \right) = \frac{2(n - 1)}{n^{2}}\sigma^{4}$$
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th>
@@ -2469,7 +2408,7 @@ $$Var\left( s_{n}^{2} \right) = \frac{2(n - 1)}{n^{2}}\sigma^{4}$$
 </th>
 <th>
 
-Eθ(θ̂) = θ
+$$E_{\theta}\left( \widehat{\theta} \right) = \theta$$
 
 </th>
 </tr>
@@ -2495,7 +2434,7 @@ $$E_{\theta}\left( \widehat{\theta} \right)\overset{P}{\rightarrow}\theta$$
 </td>
 <td>
 
-Var(θ̂1) ≤ Var(θ̂2)
+$$Var\left( {\widehat{\theta}}_{1} \right) \leq Var\left( {\widehat{\theta}}_{2} \right)$$
 
 </td>
 </tr>
@@ -2519,7 +2458,7 @@ $${\widehat{\theta}}_{n}\overset{P}{\rightarrow}\theta$$
 </td>
 <td>
 
-MSE(θ̂) = E(θ̂ − θ) = Var(θ̂) + [E(θ̂) − θ]2
+$$MSE\left( \widehat{\theta} \right) = E\left( \widehat{\theta} - \theta \right) = Var\left( \widehat{\theta} \right) + \left\lbrack E\left( \widehat{\theta} \right) - \theta \right\rbrack^{2}$$
 
 </td>
 </tr>
@@ -2533,7 +2472,7 @@ UMVUE（无偏估计）
 </td>
 <td>
 
-Var(θ̂) ≤ Var(θ̃)
+$$Var\left( \widehat{\theta} \right) \leq Var\left( \widetilde{\theta} \right)$$
 
 </td>
 </tr>
@@ -2544,8 +2483,7 @@ Var(θ̂) ≤ Var(θ̃)
 ## 假设检验的定义与原则
 
 <div class="table-scroll">
-<table style="width:96%;">
-
+<table>
 <thead>
 <tr>
 <th>
@@ -2555,12 +2493,12 @@ Var(θ̂) ≤ Var(θ̃)
 </th>
 <th>
 
-θ̂
+$$\widehat{\theta}$$
 
 </th>
 <th>
 
-θ
+$$\theta$$
 
 </th>
 <th>
@@ -2604,7 +2542,7 @@ $$\overline{x}$$
 </td>
 <td>
 
-μ
+$$\mu$$
 
 </td>
 <td></td>
@@ -2621,34 +2559,12 @@ $$\overline{x}$$
 </td>
 <td>
 
-s2
+$$s^{2}$$
 
 </td>
 <td>
 
-σ2
-
-</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>
-
-一般总体
-
-</td>
-<td>
-
-sn2
-
-</td>
-<td>
-
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -2665,12 +2581,34 @@ sn2
 </td>
 <td>
 
-μ̂MLE
+$$s_{n}^{2}$$
 
 </td>
 <td>
 
-μ
+$$\sigma^{2}$$
+
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+一般总体
+
+</td>
+<td>
+
+$${\widehat{\mu}}_{MLE}$$
+
+</td>
+<td>
+
+$$\mu$$
 
 </td>
 <td></td>
@@ -2692,7 +2630,7 @@ $${\widehat{\sigma^{2}}}_{MLE}$$
 </td>
 <td>
 
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -2714,7 +2652,7 @@ $$\overline{x}$$
 </td>
 <td>
 
-μ
+$$\mu$$
 
 </td>
 <td></td>
@@ -2731,34 +2669,12 @@ $$\overline{x}$$
 </td>
 <td>
 
-s2
+$$s^{2}$$
 
 </td>
 <td>
 
-σ2
-
-</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>
-
-正态分布
-
-</td>
-<td>
-
-sn2
-
-</td>
-<td>
-
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -2775,12 +2691,34 @@ sn2
 </td>
 <td>
 
-μ̂MLE
+$$s_{n}^{2}$$
 
 </td>
 <td>
 
-μ
+$$\sigma^{2}$$
+
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+正态分布
+
+</td>
+<td>
+
+$${\widehat{\mu}}_{MLE}$$
+
+</td>
+<td>
+
+$$\mu$$
 
 </td>
 <td></td>
@@ -2802,7 +2740,7 @@ $${\widehat{\sigma^{2}}}_{MLE}$$
 </td>
 <td>
 
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -2824,7 +2762,7 @@ $$\overline{x}$$
 </td>
 <td>
 
-μ
+$$\mu$$
 
 </td>
 <td></td>
@@ -2841,12 +2779,12 @@ $$\overline{x}$$
 </td>
 <td>
 
-s2
+$$s^{2}$$
 
 </td>
 <td>
 
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -2863,12 +2801,12 @@ s2
 </td>
 <td>
 
-sn2
+$$s_{n}^{2}$$
 
 </td>
 <td>
 
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -2930,7 +2868,7 @@ $$\overline{x}$$
 </td>
 <td>
 
-μ
+$$\mu$$
 
 </td>
 <td></td>
@@ -2947,34 +2885,12 @@ $$\overline{x}$$
 </td>
 <td>
 
-s2
+$$s^{2}$$
 
 </td>
 <td>
 
-σ2
-
-</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>
-
-均匀分布
-
-</td>
-<td>
-
-sn2
-
-</td>
-<td>
-
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -2991,12 +2907,34 @@ sn2
 </td>
 <td>
 
-μ̂MLE
+$$s_{n}^{2}$$
 
 </td>
 <td>
 
-μ
+$$\sigma^{2}$$
+
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+
+均匀分布
+
+</td>
+<td>
+
+$${\widehat{\mu}}_{MLE}$$
+
+</td>
+<td>
+
+$$\mu$$
 
 </td>
 <td></td>
@@ -3018,7 +2956,7 @@ $${\widehat{\sigma^{2}}}_{MLE}$$
 </td>
 <td>
 
-σ2
+$$\sigma^{2}$$
 
 </td>
 <td></td>
@@ -3032,17 +2970,17 @@ $${\widehat{\sigma^{2}}}_{MLE}$$
 
 均匀分布
 
-(0, b)
+$$(0,b)$$
 
 </td>
 <td>
 
-b̂MLE
+$${\widehat{b}}_{MLE}$$
 
 </td>
 <td>
 
-b
+$$b$$
 
 </td>
 <td></td>
@@ -3071,22 +3009,21 @@ $$P_{\theta}\left( \mathbf{x} \in W \right) \leq \alpha$$
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th></th>
 <th>
 
-H0为真（原假设）
+$H_{0}$为真（原假设）
 
-θ ∈ Θ0
+$$\theta \in \Theta_{0}$$
 
 </th>
 <th>
 
-H1为真（备择假设）
+$H_{1}$为真（备择假设）
 
-θ ∈ Θ1 = Θ − Θ0
+$$\theta \in \Theta_{1} = \Theta - \Theta_{0}$$
 
 </th>
 </tr>
@@ -3095,7 +3032,7 @@ H1为真（备择假设）
 <tr>
 <td>
 
-x ∈ W（拒绝域）
+$\mathbf{x} \in W$（拒绝域）
 
 </td>
 <td>
@@ -3104,7 +3041,7 @@ x ∈ W（拒绝域）
 
 （拒真错误）
 
-犯错概率为α
+犯错概率为$\alpha$
 
 </td>
 <td>
@@ -3130,7 +3067,7 @@ $\mathbf{x} \in \overline{W}$（接受域）
 
 （取伪错误）
 
-犯错概率为β
+犯错概率为$\beta$
 
 </td>
 </tr>
@@ -3142,7 +3079,6 @@ $\mathbf{x} \in \overline{W}$（接受域）
 
 <div class="table-scroll">
 <table>
-
 <thead>
 <tr>
 <th>
@@ -3152,7 +3088,7 @@ $\mathbf{x} \in \overline{W}$（接受域）
 </th>
 <th>
 
-H0
+$$H_{0}$$
 
 （必须包含等号）
 
@@ -3200,7 +3136,7 @@ H0
 </td>
 <td>
 
-新药不优于旧药（≤）
+新药不优于旧药（$\leq$）
 
 </td>
 <td>
@@ -3217,7 +3153,7 @@ H0
 <tr>
 <td>
 
-“刷题”能否提分
+"刷题"能否提分
 
 </td>
 <td>
@@ -3227,7 +3163,7 @@ H0
 </td>
 <td>
 
-希望“刷题”不能
+希望"刷题"不能
 
 </td>
 <td>

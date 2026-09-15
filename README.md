@@ -32,7 +32,10 @@ npm run preview    # 预览构建结果
 │  └─ .nojekyll            让 GitHub Pages 跳过 Jekyll 处理
 ├─ tools/
 │  ├─ docx_to_md.py        Word → Markdown 素材转换
+│  ├─ grid_table_to_html.py 素材里的表格 → 带合并单元格的 HTML
+│  ├─ wrap_math_cjk.py     公式里的中文包 \text{}
 │  ├─ validate-math.mjs    离线校验所有 TeX 表达式能否渲染
+│  ├─ validate-tables.mjs  校验手写表格是否显式写了 <tbody>
 │  └─ validate-config.mjs  校验宏定义是否真的生效
 ├─ index.md                首页
 ├─ about.md                关于本站
@@ -188,6 +191,29 @@ Word 公式编辑器会把中文标点一起吞进公式，转换后得到
 Markdown 表格在手机上过宽会横向溢出。汇总性大表建议改成小节 + 列表，
 或用 `::: details` 折叠。
 
+### 从 Word 搬表格：两个必踩的坑
+
+**一、合并单元格的结构只存在于 pandoc 的 grid table 里。**
+素材里的表格是 `+---+---+` 画出来的，分隔线在哪里断开就代表哪里合并。
+如果只把单元格内容抄成 `<th>` 平铺，合并信息就丢了：行标签会跑到第 1 列、
+整行合并的公式会挤进第 1 格。用工具还原：
+
+```bash
+python tools/grid_table_to_html.py out/概率论与数理统计.md --list      # 看有哪些表
+python tools/grid_table_to_html.py out/概率论与数理统计.md --n 2 -o t2.html
+python tools/wrap_math_cjk.py t2.html -o t2.html                       # 公式里的中文包 \text{}
+```
+
+（不要直接用 `pandoc -t html`：它会把 TeX 数学转成 HTML/Unicode，LaTeX 全丢。）
+
+**二、手写 `<table>` 必须显式写 `<tbody>`。**
+浏览器解析 `<table><tr>` 时会自动补一个 `<tbody>`，而 Vue 编译出的 vnode 树里没有，
+两边结构不一致 → hydration mismatch → Vue 重建整张表。而 VitePress 客户端加载的
+lean 产物里，静态子树是 `createStaticVNode('', n)` 占位 —— 重建时占位里的空字符串
+被真的插进去，**表格里的公式就会在闪现一次后全部变成空白**（容器、尺寸、可见性
+全都正常，只是没有笔画，常规排查根本看不出来）。
+`npm run check` 里的 `validate-tables.mjs` 会拦住这种表。
+
 ## 迁移笔记
 
 ```bash
@@ -204,7 +230,9 @@ python tools/docx_to_md.py "D:/数学/大学数学笔记/线性代数总结.docx
 ## 提交前自检
 
 ```bash
+npm run check                    # 公式渲染 + 表格 + 配置，一次跑完
 node tools/validate-math.mjs     # 扫描 notes/ 下所有 .md 的 TeX
+node tools/validate-tables.mjs   # 手写表格是否都写了 <tbody>
 node tools/validate-config.mjs   # 确认宏定义生效
 npm run build                    # 确认能构建
 ```

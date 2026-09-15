@@ -241,10 +241,11 @@ npm run check          # 公式 + 宏自检 ← 推送前必跑
 npm run build          # 只构建，不部署（CI 会自动做）
 npm run preview        # 预览构建产物
 
-npm run check          # 等价于下面三条依次执行：
+npm run check          # 等价于下面四条依次执行：
 #   node tools/probe-macros.mjs      宏定义是否写对
 #   node tools/validate-math.mjs     所有公式能否渲染
 #   node tools/validate-config.mjs   宏配置是否生效
+#   node tools/validate-tables.mjs   手写表格是否都写了 <tbody>
 
 git push               # 发布
 ```
@@ -257,6 +258,8 @@ git push               # 发布
 | --- | --- | --- |
 | Actions 红色 ✗ | 公式写错 | 看日志定位，本地 `npm run check` 复现 |
 | 页面公式显示成红色 | TeX 语法错 | 同上 |
+| 表格里公式闪一下就空白 | 手写表漏了 `<tbody>`，hydration 重建表格 | `npm run check` 会报；补 `<tbody>` |
+| 表格内容错位、标签跑到别的列 | 搬 Word 表格时丢了合并单元格 | 用 `tools/grid_table_to_html.py` 从素材还原 |
 | 新章节侧边栏没有 | 忘了登记 config.mts | 见第三节 |
 | 页面 404 | 文件名和 link 不一致 | 检查文件名大小写 |
 | 中文变成方块 | 少见，字体未加载 | 刷新；仍不行看 CSS |
